@@ -17,6 +17,7 @@ import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
+import seedu.address.model.tag.exceptions.TagNotFoundException;
 
 /**
  * Wraps all data at the address-book level
@@ -112,8 +113,19 @@ public class AddressBook implements ReadOnlyAddressBook {
         // This can cause the tags master list to have additional tags that are not tagged to any person
         // in the person list.
         persons.setPerson(target, syncedEditedPerson);
+        removeUnusedTags();
     }
 
+    /**
+     * Removes all {@code Tag}s that are not used by any {@code Person} in this {@code AddressBook}.
+     */
+    private void removeUnusedTags() {
+        Set<Tag> tagsInPersons = persons.asObservableList().stream()
+                .map(Person::getTags)
+                .flatMap(Set::stream)
+                .collect(Collectors.toSet());
+        tags.setTags(tagsInPersons);
+    }
     /**
      *  Updates the master tag list to include tags in {@code person} that are not in the list.
      *  @return a copy of this {@code person} such that every tag in this person points to a Tag object in the master
@@ -151,6 +163,43 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     public void addTag(Tag t) throws UniqueTagList.DuplicateTagException {
         tags.add(t);
+    }
+
+    /**
+     * Calls removeTagFromPerson method when tag is found in tags.
+     * @param t
+     * @throws TagNotFoundException
+     */
+    public void removeTag(Tag t) throws TagNotFoundException {
+        if (tags.contains(t)) {
+            for (Person person : persons) {
+                removeTagFromPerson(t, person);
+            }
+            tags.remove(t);
+        } else {
+            throw new TagNotFoundException("Specific tag is not used in the address book.");
+        }
+    }
+
+    /**
+     * Removes a specific tag from an individual person and updates the person's information.
+     * @param tag
+     * @param person
+     */
+    public void removeTagFromPerson(Tag tag, Person person) {
+        Set<Tag> tagList = new HashSet<>(person.getTags());
+        if (tagList.remove(tag)) {
+            Person newPerson = new Person(person.getName(), person.getPhone(),
+                    person.getEmail(), person.getAddress(), tagList);
+            try {
+                updatePerson(person, newPerson);
+            } catch (DuplicatePersonException error1) {
+                throw new AssertionError("Updating person after removing tag should not have duplicate persons.");
+            } catch (PersonNotFoundException error2) {
+                throw new AssertionError("Person should exist in the address book.");
+            }
+        }
+
     }
 
     //// util methods
