@@ -1,7 +1,12 @@
 package seedu.address.model;
 
 import static org.junit.Assert.assertEquals;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_REMOVE;
 import static seedu.address.testutil.TypicalPersons.ALICE;
+import static seedu.address.testutil.TypicalPersons.AMY;
+import static seedu.address.testutil.TypicalPersons.BOB;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.ArrayList;
@@ -18,6 +23,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.exceptions.TagNotFoundException;
+import seedu.address.testutil.AddressBookBuilder;
+import seedu.address.testutil.PersonBuilder;
 
 public class AddressBookTest {
 
@@ -68,6 +76,32 @@ public class AddressBookTest {
         addressBook.getTagList().remove(0);
     }
 
+    @Test
+    public void removeTag_tagNotFound_throwsTagNotFoundException() {
+        AddressBook testCase = new AddressBookBuilder().withPerson(BOB).build();
+        AddressBook expectedAddressBook = new AddressBookBuilder().withPerson(BOB).build();
+        try {
+            testCase.removeTag(new Tag(VALID_TAG_REMOVE));
+        } catch (TagNotFoundException error) {
+            assertEquals(error.getMessage(), "Specific tag is not used in the address book.");
+        }
+        assertEquals(expectedAddressBook, testCase);
+    }
+
+    @Test
+    public void removeTag_TagFoundOnMultiplePersons_tagRemoved() {
+        AddressBook testCase = new AddressBookBuilder().withPerson(BOB).withPerson(AMY).build();
+        try {
+            testCase.removeTag(new Tag(VALID_TAG_FRIEND));
+        } catch (TagNotFoundException error) {
+            thrown.expect(TagNotFoundException.class);
+        }
+        Person amyWithoutFriendTag = new PersonBuilder(AMY).withTags().build();
+        Person bobWithoutFriendTag = new PersonBuilder(BOB).withTags(VALID_TAG_HUSBAND).build();
+        AddressBook expectedAddressBook = new AddressBookBuilder().withPerson(bobWithoutFriendTag)
+                .withPerson(amyWithoutFriendTag).build();
+        assertEquals(expectedAddressBook, testCase);
+    }
     /**
      * A stub ReadOnlyAddressBook whose persons and tags lists can violate interface constraints.
      */
