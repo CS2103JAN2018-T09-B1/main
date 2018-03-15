@@ -53,6 +53,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 * Parameters can be in any order e.g. if the command specifies `n/NAME ic/S9500186H`, `ic/S9500186H n/NAME` is also acceptable.
 * Items in square brackets are optional. e.g `n/NAME [t/CLASS]` can be used as `n/John Doe t/1A` or as `n/John Doe`.
+* Command input is not case sensitive, e.g 'fInD Alex' , 'find alex' works the same.
 ====
 
 === Viewing help : `help`
