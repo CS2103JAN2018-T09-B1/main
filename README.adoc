@@ -7,8 +7,6 @@ https://ci.appveyor.com/project/kengsengg/main[image:https://ci.appveyor.com/api
 https://coveralls.io/github/CS2103JAN2018-T09-B1/main?branch=master[image:https://coveralls.io/repos/github/CS2103JAN2018-T09-B1/main/badge.svg?branch=master[Coverage Status]]
 https://www.codacy.com/app/kengsengg/main?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CS2103JAN2018-T09-B1/main&amp;utm_campaign=Badge_Grade[image:https://api.codacy.com/project/badge/Grade/aa9351de0bd0451596b55bf5839464d9[Codacy Badge]]
 
-
-
 ifdef::env-github[]
 image::docs/images/UI.png[width="600"]
 endif::[]

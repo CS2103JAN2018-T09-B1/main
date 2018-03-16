@@ -807,7 +807,9 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 |Priority |As a ... |I want to ... |So that I can...
 |`* * *` |new user |see usage instructions |refer to instructions when I forget how to use the App
 
-|`* * *` |teacher with many students |find a student by name |retrieve details of a student without having to go through the entire list
+|`* * *` |teacher |sort students' results |know who are the ones that need more academic help easily
+
+|`* * *` |teacher |update students' classes |know which classes they are in easily
 
 |`* * *` |teacher |access student's academic and non-academic achievements |stream the students properly (e.g. Normal Academic, Normal Technical, Express)
 
@@ -916,9 +918,8 @@ Use case resumes at step 2.
 
 1.  User requests to list or find persons
 2.  AddressBook shows a list of persons
-3.  User requests to add an appointment for a specific person in the list
-4.  User inputs the selected date and time for the appointment
-5.  AddressBook shows the updated details of the appointment
+3.  User requests to add an appointment for a specific person in the list by typing in a date and time
+4.  AddressBook shows the updated details of the appointment
 +
 Use case ends.
 
@@ -936,19 +937,19 @@ Use case ends.
 +
 Use case resumes at step 2.
 
-* 4a. The given date or time is invalid.
+* 3b. The given date or time is in a invalid format.
 +
 [none]
-** 4a1. AddressBook shows an error message.
+** 3b1. AddressBook shows an error message.
 +
-Use case resumes at step 3.
+Use case resumes at step 2.
 
-* 4b. The given date or time is already booked by another appointment.
+* 3c. The given date or time is already booked by another appointment.
 +
 [none]
-** 4b1. AddressBook prompts user to input another date or time.
+** 3c1. AddressBook prompts user to input another date or time.
 +
-Use case resumes at step 3.
+Use case resumes at step 2.
 
 [appendix]
 == Non Functional Requirements
