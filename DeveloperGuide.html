@@ -1963,9 +1963,15 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">teacher with many students</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a student by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve details of a student without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort students' results</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know who are the ones that need more academic help easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update students' classes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know which classes they are in easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2185,10 +2191,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>AddressBook shows a list of persons</p>
 </li>
 <li>
-<p>User requests to add an appointment for a specific person in the list</p>
-</li>
-<li>
-<p>User inputs the selected date and time for the appointment</p>
+<p>User requests to add an appointment for a specific person in the list by typing in a date and time</p>
 </li>
 <li>
 <p>AddressBook shows the updated details of the appointment</p>
@@ -2223,26 +2226,26 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 <li>
-<p>4a. The given date or time is invalid.</p>
+<p>3b. The given date or time is in a invalid format.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>4a1. AddressBook shows an error message.</p>
+<p>3b1. AddressBook shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 3.</p>
+<p>Use case resumes at step 2.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>4b. The given date or time is already booked by another appointment.</p>
+<p>3c. The given date or time is already booked by another appointment.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>4b1. AddressBook prompts user to input another date or time.</p>
+<p>3c1. AddressBook prompts user to input another date or time.</p>
 <div class="paragraph">
-<p>Use case resumes at step 3.</p>
+<p>Use case resumes at step 2.</p>
 </div>
 </li>
 </ul>
@@ -2440,7 +2443,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-16 17:16:08 UTC
+Last updated 2018-03-16 18:09:07 UTC
 </div>
 </div>
 </body>
