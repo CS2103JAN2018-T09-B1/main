@@ -107,7 +107,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code> or <code>l</code></strong> : lists all students</p>
 </li>
 <li>
-<p><strong><code>add</code> or <code>a</code></strong><code>n/John Doe p/91234567 ic/S9315585J t/1A t/20</code> : adds a student named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code> or <code>a</code></strong><code>n/John Doe p/91234567 ic/S9315585J t/1A t/20 sub/English B3</code> : adds a student named <code>John Doe</code> to the Address Book.</p>
 </li>
 <li>
 <p><strong><code>delete</code> or <code>d</code></strong><code>3</code> : deletes the 3rd student shown in the current list</p>
@@ -161,8 +161,8 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-person-code-add-code-or-code-a-code"><a class="link" href="#adding-a-person-code-add-code-or-code-a-code">3.2. Adding a person: <code>add</code> or <code>a</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to EduBuddy<br>
-Format: <code>add n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER</code><br>
-Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/English A2</code>+
+Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/English A2</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -170,13 +170,13 @@ Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER</code></
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/91234567 ic/S9500186H t/1A t/20</code></p>
+<p><code>add n/John Doe p/91234567 ic/S9500186H t/1A t/20 sub/English B3</code></p>
 </li>
 <li>
 <p><code>add n/Betsy Crowe p/91234567 t/2B t/21 ic/S9511111I</code></p>
 </li>
 <li>
-<p><code>a n/John Doe p/91234567 ic/S9500186H t/1A t/20</code></p>
+<p><code>a n/John Doe p/91234567 ic/S9500186H t/1A t/2 sub/English B3</code></p>
 </li>
 <li>
 <p><code>a n/Betsy Crowe p/91234567 t/2B t/21 ic/S9511111I</code></p>
@@ -202,8 +202,8 @@ Format: <code>sort</code></p>
 <h3 id="editing-a-student-code-edit-code-or-code-e-code"><a class="link" href="#editing-a-student-code-edit-code-or-code-e-code">3.5. Editing a student : <code>edit</code> or <code>e</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing student in EduBuddy.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER]</code><br>
-        <code>e INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER]</code></p>
+Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
+        <code>e INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -228,16 +228,16 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567</code><br>
-Edits the nric number of the 1st student to be <code>91234567</code> respectively.</p>
+<p><code>edit 1 ic/S9123456A</code><br>
+Edits the nric number of the 1st student to be <code>S9123456A</code> respectively.</p>
 </li>
 <li>
 <p><code>edit 2 n/Betsy Crower</code><br>
 Edits the name of the 2nd student to be <code>Betsy Crower</code>.</p>
 </li>
 <li>
-<p><code>e 1 p/91234567</code><br>
-Edits the nric number of the 1st student to be <code>91234567</code> respectively.</p>
+<p><code>e 1 ic/S9123456A</code><br>
+Edits the nric number of the 1st student to be <code>S9123456A</code> respectively.</p>
 </li>
 <li>
 <p><code>e 2 n/Betsy Crower</code><br>
@@ -587,9 +587,9 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGISTER</code><br>
-e.g. <code>add n/James Ho p/22224444 ic/S9500186H t/1A t/20</code><br>
-e.g. <code>a n/James Ho p/22224444 ic/S9500186H t/1A t/20</code><br></p>
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code><br>
+e.g. <code>add n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2</code><br>
+e.g. <code>a n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2</code><br></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code> or <code>c</code></p>
@@ -600,8 +600,8 @@ e.g. <code>delete 3</code><br>
 e.g. <code>d 3</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER]</code><br>
-<code>e INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER]</code><br>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
+<code>e INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
 e.g. <code>edit 2 n/James Lee</code><br>
 e.g. <code>e 2 n/James Lee</code></p>
 </li>
@@ -637,7 +637,7 @@ e.g.<code>s 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-19 14:38:06 UTC
+Last updated 2018-03-21 17:43:34 UTC
 </div>
 </div>
 </body>
