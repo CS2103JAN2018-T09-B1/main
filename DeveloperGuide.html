@@ -45,9 +45,10 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#sort-feature">3.2. Sort feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -870,20 +871,109 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="sort-feature"><a class="link" href="#sort-feature">3.2. Sort feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The sorting feature allows the user to sort the list of students according to certain
+parameters like name and tag. After the sorting process has completed, the user will be
+presented with a read only view of the sorted list on the <code>UI</code>, and the state of the
+list will not be modified.</p>
+</div>
+<div class="paragraph">
+<p>The figure below shows the Sequence Diagram for the interactions within the <code>Logic</code>
+component when "sort name" is typed into the <code>CommandBox</code> by the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortCommandSequenceDiagram.png" alt="SortCommandSequenceDiagram" width="650">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses <code>AddressBookParser</code> class to parse the user command,</p>
+</li>
+<li>
+<p>A <code>SortCommand</code> object is created which is then executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command executes and calls the <code>sortPersonList(parameter)</code> method, which then affects
+the <code>Model</code>.</p>
+</li>
+<li>
+<p>After the sorting process has been completed, the result is encapsulated as a
+<code>CommandResult</code> object, which is then passed back to the <code>Ui</code> as a message shown
+to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Below is an example of how the list looks like before and after the command "sort name"
+is executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortCommandByName.png" alt="SortCommandByName" width="650">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-list-appears-after-sorting-is-done-and-the-app-is-restarted"><a class="link" href="#aspect-how-the-list-appears-after-sorting-is-done-and-the-app-is-restarted">Aspect: How the list appears after sorting is done and the app is restarted</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1 (current choice): </strong> List remains in its initial state after each
+restart of the app</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Some users might prefer the default list that was created by themselves e.g. the need
+to track which student was added last.</p>
+</li>
+<li>
+<p>Cons: It will be a hassle to sort the list every time the app starts up if there
+are not many changes to the list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong> Alternative 2: </strong> List is in the sorted form after the app is restarted every time</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces the time taken to sort the list for each start up of the app.</p>
+</li>
+<li>
+<p>Cons: If the default list is required, <code>SortCommand</code> will have to be implemented
+as an <code>UndoableCommand</code> as well.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -914,7 +1004,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2485,7 +2575,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-21 17:43:34 UTC
+Last updated 2018-03-22 16:20:27 UTC
 </div>
 </div>
 </body>
