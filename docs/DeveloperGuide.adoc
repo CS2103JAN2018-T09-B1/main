@@ -414,6 +414,34 @@ _{Explain here how the data encryption feature will be implemented}_
 
 // end::dataencryption[]
 
+// tag::browserpanel[]
+=== Browser Panel Revamp
+
+.First Half of Browser Panel
+image::browser1.png[width="600"]
+.Second Half of Browser Panel
+image::browser2.png[width="600"]
+
+We will use a html page with w3.css framework support to implement the new Browser Panel.
+The browser panel can be controlled from the CLI interface, which manipulates the data in the browser panel.
+
+The browser will be invoked by the selection of a student from ui/BrowserPanel. loadPersonPage() invokes the html file
+of the student selected stored in resources/StudentPage.
+
+*To Be implemented*
+Creation of a html StudentPage file:
+
+After add command is called successfully, a template file from StudentPage will be duplicated as a backup,
+and renamed as the name that is called from the add command.
+
+*To Be implemented*
+Editing StudentPage file:
+After edit command is called, list of new string will be stored into a javascript file and parsed into the
+html file called by the function.
+
+
+// end::browserpanel[]
+
 === Logging
 
 We are using `java.util.logging` package for logging. The `LogsCenter` class is used to manage the logging levels and logging destinations.
@@ -852,9 +880,9 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 
 |Xin Hui |Academic Section: Helps teachers to view and manage students' academic information | Subject Class Database: Create subject class and integrate input into command. Add L1R5 calculation support into subject inputs.
 
-|Kun Hong |Administrative Information: Add support for automatic register number calculation and class allocation | Tag Support: Enhance tag functionalities in EduBuddy
+|Kun Hong |Administrative Information: Add student administrative information into EduBuddy | Tag Support: Enhance tag functionalities in EduBuddy
 
-|Keng Seng |Advanced Sorting Functionalities: Add advanced sorting functionalities into EduBuddy | Command Support: Adding commands to EduBuddy to enhance user experience
+|Keng Seng |Calendar Feature: Add calendar widget to support many administrative tasks(consultation, attendance) | Advanced Sorting Functionalities: Add advanced sorting functionalities into EduBuddy
 
 |=======================================================================
 
@@ -879,6 +907,8 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 |`* * *` |teacher |update students' academic results |view and obtain students' streaming score (eg.L1R5)
 
 |`* * *` |teacher |access student's academic and non-academic achievements |stream the students properly (e.g. Normal Academic, Normal Technical, Express)
+
+|`* * *` |teacher |access student profiles easily  | have first hand information on all my students without going through a lot of documentation
 
 |`* * *` |teacher |edit remarks of each individual student |update the students' individual needs that occur during class
 
