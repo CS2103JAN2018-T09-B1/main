@@ -47,53 +47,6 @@
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#sort-feature">3.2. Sort feature</a></li>
 <li><a href="#tagreplace-feature">3.3. TagReplace feature</a></li>
-<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
-</ul>
-</li>
-<li><a href="#documentation">4. Documentation</a>
-<ul class="sectlevel2">
-<li><a href="#editing-documentation">4.1. Editing Documentation</a></li>
-<li><a href="#publishing-documentation">4.2. Publishing Documentation</a></li>
-<li><a href="#converting-documentation-to-pdf-format">4.3. Converting Documentation to PDF format</a></li>
-</ul>
-</li>
-<li><a href="#Testing">5. Testing</a>
-<ul class="sectlevel2">
-<li><a href="#running-tests">5.1. Running Tests</a></li>
-<li><a href="#types-of-tests">5.2. Types of tests</a></li>
-<li><a href="#troubleshooting-testing">5.3. Troubleshooting Testing</a></li>
-</ul>
-</li>
-<li><a href="#dev-ops">6. Dev Ops</a>
-<ul class="sectlevel2">
-<li><a href="#build-automation">6.1. Build Automation</a></li>
-<li><a href="#continuous-integration">6.2. Continuous Integration</a></li>
-<li><a href="#coverage-reporting">6.3. Coverage Reporting</a></li>
-<li><a href="#documentation-previews">6.4. Documentation Previews</a></li>
-<li><a href="#making-a-release">6.5. Making a Release</a></li>
-<li><a href="#managing-dependencies">6.6. Managing Dependencies</a></li>
-</ul>
-</li>
-<li><a href="#GetStartedProgramming">Appendix A: Suggested Programming Tasks to Get Started</a>
-<ul class="sectlevel2">
-<li><a href="#GetStartedProgramming-EachComponent">A.1. Improving each component</a></li>
-<li><a href="#GetStartedProgramming-RemarkCommand">A.2. Creating a new command: <code>remark</code></a></li>
-</ul>
-</li>
-<li><a href="#product-scope">Appendix B: Product Scope</a></li>
-<li><a href="#feature-contribution">Appendix C: Feature Contribution</a></li>
-<li><a href="#user-stories">Appendix D: User Stories</a></li>
-<li><a href="#use-cases">Appendix E: Use Cases</a></li>
-<li><a href="#non-functional-requirements">Appendix F: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix G: Glossary</a></li>
-<li><a href="#product-survey">Appendix H: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix I: Instructions for Manual Testing</a>
-<ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">I.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">I.2. Deleting a person</a></li>
-<li><a href="#saving-data">I.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -283,7 +236,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <p>Get some sense of the overall design by reading <a href="#Design-Architecture">Section 2.1, &#8220;Architecture&#8221;</a>.</p>
 </li>
 <li>
-<p>Take a look at <a href="#GetStartedProgramming">Appendix A, <em>Suggested Programming Tasks to Get Started</em></a>.</p>
+<p>Take a look at <a href="#GetStartedProgramming">[GetStartedProgramming]</a>.</p>
 </li>
 </ol>
 </div>
@@ -1028,24 +981,90 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </li>
 </ul>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Subject streaming calculation feature (work in progress)
+==== Current Implementation
+The subject streaming calculation features will be supported by a calculation algorithm, <code>L1R5</code>, which will be located in <code>Logic Manager</code>. It will help to analyse the subjects that are assigned to the student, and determine which combination of subjects will produce the lowest <code>L1R5</code> score.
+The subjects and their respective grades can be assigned to the students by the <code>AddCommand</code>, with a subject prefix <code>sub/</code> followed by the <code>Subject Name</code> and <code>Subject Grade</code>.</p>
+</div>
+<div class="paragraph">
+<p>As the students are required to take at least 6 subjects, the subjects will be stored in as a parameter of each individual student as a <code>List&lt;Subject&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>==== Future implementation</p>
+</div>
+<div class="paragraph">
+<p>===== Aspect: Implementation of <code>L1R5Command</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a <code>L1R5Command</code> which can be invoked by inputting <code>L1R5</code> followed by the <code>INDEX</code> assigned to the student in the <code>Command Box</code>.
+This  will prompt the execution of a <code>L1R5</code> calculation function. The <code>L1R5Command</code> will extend the <code>Command</code> Interface.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/L1R5CommandDiagram.png" alt="L1R5CommandDiagram" width="800">
 </div>
 </div>
+<div class="paragraph">
+<p>===== Aspect: Implementation of calculation function <code>L1R5</code></p>
 </div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>When the calculation function is called by the <code>L1R5Command</code>, the specified student will be passed into the function.
+The function will load and store the list of subjects of the student and go through the list of subjects by their names to filter out which subject is L1, which subjects are R5.
+The calculation function will then determine which subject combination will produce the lowest overall <code>L1R5</code> score and output the lowest score.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>=== Mass Tag Removal feature
+==== Current Implementation</p>
+</div>
+<div class="paragraph">
+<p>The Mass Tag Removal feature is supported through the suggested Tag Removal feature for the Model Component in <a href="#GetStartedProgramming-EachComponent">[GetStartedProgramming-EachComponent]</a>.
+The command <code>TagDeleteCommand</code> is implemented to call the <code>deleteTag()</code> function in the <code>Model</code> interface.
+The <code>deleteTag()</code> function will loop through the students in the <code>AddressBook</code> and will remove the specified Tag from every student that has the specified Tag and the students' <code>Tag List</code> will be updated.</p>
+</div>
+<div class="paragraph">
+<p>==== Design Considerations</p>
+</div>
+<div class="paragraph">
+<p>===== Aspect: Implementation of <code>TagDeleteCommand</code>
+* Create a <code>TagDeleteCommand</code> where the user inputs <code>tagdelete [TAG_NAME]</code> or <code>td [TAG_NAME]</code> in the <code>Command Box</code>. When the user input fulfils the criteria of the expected input format, the command will execute.
+The <code>deleteTag()</code> function will be called and loops through the students in the <code>AddressBook</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the specified tag is not found tagged to any student, a <code>TagNotFoundException</code> will be thrown and a error message will be returned to the user. Else, the <code>Tag List</code> of each student will be loaded and stored in a temporary <code>List</code> variable and the specified tag will be removed from it.
+Then a new student object with the updated <code>Tag List</code> will be replace the original student object. Thus the <code>AddressBook</code> will eventually have the updated list of students where the specified tag have been removed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TagDeleteCommandSequenceDiagram.png" alt="TagDeleteCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>=== [Proposed] Data Encryption</p>
+</div>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
+<div class="paragraph">
+<p>=== Logging</p>
 </div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">[Implementation-Configuration]</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1074,18 +1093,15 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </li>
 </ul>
 </div>
+<div id="Implementation-Configuration" class="paragraph">
+<p>=== Configuration</p>
 </div>
-<div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
+<div class="paragraph">
+<p>== Documentation</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>We use asciidoc for writing documentation.</p>
 </div>
@@ -1101,21 +1117,22 @@ We chose asciidoc over Markdown because asciidoc, although a bit more complex th
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="editing-documentation"><a class="link" href="#editing-documentation">4.1. Editing Documentation</a></h3>
+<div class="paragraph">
+<p>=== Editing Documentation</p>
+</div>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
 Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
 </div>
+<div class="paragraph">
+<p>=== Publishing Documentation</p>
 </div>
-<div class="sect2">
-<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">4.2. Publishing Documentation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> to learn how to deploy GitHub Pages using Travis.</p>
 </div>
+<div class="paragraph">
+<p>=== Converting Documentation to PDF format</p>
 </div>
-<div class="sect2">
-<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">4.3. Converting Documentation to PDF format</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
 </div>
@@ -1144,14 +1161,12 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 </div>
 <div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
 </div>
+<div id="Testing" class="paragraph">
+<p>== Testing</p>
 </div>
+<div class="paragraph">
+<p>=== Running Tests</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="Testing"><a class="link" href="#Testing">5. Testing</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="running-tests"><a class="link" href="#running-tests">5.1. Running Tests</a></h3>
 <div class="paragraph">
 <p>There are three ways to run tests.</p>
 </div>
@@ -1211,9 +1226,9 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 <div class="paragraph">
 <p>To run tests in headless mode, open a console and run the command <code>gradlew clean headless allTests</code> (Mac/Linux: <code>./gradlew clean headless allTests</code>)</p>
 </div>
+<div class="paragraph">
+<p>=== Types of tests</p>
 </div>
-<div class="sect2">
-<h3 id="types-of-tests"><a class="link" href="#types-of-tests">5.2. Types of tests</a></h3>
 <div class="paragraph">
 <p>We have two types of tests:</p>
 </div>
@@ -1253,11 +1268,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">5.3. Troubleshooting Testing</a></h3>
 <div class="paragraph">
-<p><strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
+<p>=== Troubleshooting Testing
+<strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1269,38 +1282,34 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Dev Ops</p>
 </div>
+<div class="paragraph">
+<p>=== Build Automation</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="build-automation"><a class="link" href="#build-automation">6.1. Build Automation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html">UsingGradle.adoc</a> to learn how to use Gradle for build automation.</p>
 </div>
+<div class="paragraph">
+<p>=== Continuous Integration</p>
 </div>
-<div class="sect2">
-<h3 id="continuous-integration"><a class="link" href="#continuous-integration">6.2. Continuous Integration</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://www.appveyor.com/">AppVeyor</a> to perform <em>Continuous Integration</em> on our projects. See <a href="UsingTravis.html">UsingTravis.adoc</a> and <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a> for more details.</p>
 </div>
+<div class="paragraph">
+<p>=== Coverage Reporting</p>
 </div>
-<div class="sect2">
-<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">6.3. Coverage Reporting</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://coveralls.io/">Coveralls</a> to track the code coverage of our projects. See <a href="UsingCoveralls.html">UsingCoveralls.adoc</a> for more details.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="documentation-previews"><a class="link" href="#documentation-previews">6.4. Documentation Previews</a></h3>
 <div class="paragraph">
-<p>When a pull request has changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged. See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
+<p>=== Documentation Previews
+When a pull request has changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged. See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
 </div>
+<div class="paragraph">
+<p>=== Making a Release</p>
 </div>
-<div class="sect2">
-<h3 id="making-a-release"><a class="link" href="#making-a-release">6.5. Making a Release</a></h3>
 <div class="paragraph">
 <p>Here are the steps to create a new release.</p>
 </div>
@@ -1320,35 +1329,33 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Managing Dependencies</p>
 </div>
-<div class="sect2">
-<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">6.6. Managing Dependencies</a></h3>
 <div class="paragraph">
 <p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
 a. Include those libraries in the repo (this bloats the repo size)<br>
 b. Require developers to download those libraries manually (this creates extra work for developers)</p>
 </div>
+<div id="GetStartedProgramming" class="paragraph">
+<p>== Suggested Programming Tasks to Get Started</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="GetStartedProgramming"><a class="link" href="#GetStartedProgramming">Appendix A: Suggested Programming Tasks to Get Started</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Suggested path for new programmers:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>First, add small local-impact (i.e. the impact of the change does not go beyond the component) enhancements to one component at a time. Some suggestions are given in <a href="#GetStartedProgramming-EachComponent">Section A.1, &#8220;Improving each component&#8221;</a>.</p>
+<p>First, add small local-impact (i.e. the impact of the change does not go beyond the component) enhancements to one component at a time. Some suggestions are given in <a href="#GetStartedProgramming-EachComponent">[GetStartedProgramming-EachComponent]</a>.</p>
 </li>
 <li>
-<p>Next, add a feature that touches multiple components to learn how to implement an end-to-end feature across all components. <a href="#GetStartedProgramming-RemarkCommand">Section A.2, &#8220;Creating a new command: <code>remark</code>&#8221;</a> explains how to go about adding such a feature.</p>
+<p>Next, add a feature that touches multiple components to learn how to implement an end-to-end feature across all components. <a href="#GetStartedProgramming-RemarkCommand">[GetStartedProgramming-RemarkCommand]</a> explains how to go about adding such a feature.</p>
 </li>
 </ol>
 </div>
-<div class="sect2">
-<h3 id="GetStartedProgramming-EachComponent"><a class="link" href="#GetStartedProgramming-EachComponent">A.1. Improving each component</a></h3>
+<div id="GetStartedProgramming-EachComponent" class="paragraph">
+<p>=== Improving each component</p>
+</div>
 <div class="paragraph">
 <p>Each individual exercise in this section is component-based (i.e. you would not need to modify the other components to get it to work).</p>
 </div>
@@ -1766,19 +1773,18 @@ Do take a look at <a href="#Design-Storage">Section 2.5, &#8220;Storage componen
 </li>
 </ol>
 </div>
+<div id="GetStartedProgramming-RemarkCommand" class="paragraph">
+<p>=== Creating a new command: <code>remark</code></p>
 </div>
-<div class="sect2">
-<h3 id="GetStartedProgramming-RemarkCommand"><a class="link" href="#GetStartedProgramming-RemarkCommand">A.2. Creating a new command: <code>remark</code></a></h3>
 <div class="paragraph">
 <p>By creating this command, you will get a chance to learn how to implement a feature end-to-end, touching all major components of the app.</p>
 </div>
 <div class="paragraph">
 <p><strong>Scenario:</strong> You are a software maintainer for <code>addressbook</code>, as the former developer team has moved on to new projects. The current users of your application have a list of new feature requests that they hope the software will eventually have. The most popular request is to allow adding additional comments/notes about a particular contact, by providing a flexible <code>remark</code> field for each contact, rather than relying on tags alone. After designing the specification for the <code>remark</code> command, you are convinced that this feature is worth implementing. Your job is to implement the <code>remark</code> command.</p>
 </div>
-<div class="sect3">
-<h4 id="description"><a class="link" href="#description">A.2.1. Description</a></h4>
 <div class="paragraph">
-<p>Edits the remark for a person specified in the <code>INDEX</code>.<br>
+<p>==== Description
+Edits the remark for a person specified in the <code>INDEX</code>.<br>
 Format: <code>remark INDEX r/[REMARK]</code></p>
 </div>
 <div class="paragraph">
@@ -1796,13 +1802,12 @@ Removes the remark for the first person.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="step-by-step-instructions"><a class="link" href="#step-by-step-instructions">A.2.2. Step-by-step Instructions</a></h4>
-<div class="sect4">
-<h5 id="step-1-logic-teach-the-app-to-accept-remark-which-does-nothing"><a class="link" href="#step-1-logic-teach-the-app-to-accept-remark-which-does-nothing">[Step 1] Logic: Teach the app to accept 'remark' which does nothing</a></h5>
 <div class="paragraph">
-<p>Let&#8217;s start by teaching the application how to parse a <code>remark</code> command. We will add the logic of <code>remark</code> later.</p>
+<p>==== Step-by-step Instructions</p>
+</div>
+<div class="paragraph">
+<p>===== [Step 1] Logic: Teach the app to accept 'remark' which does nothing
+Let&#8217;s start by teaching the application how to parse a <code>remark</code> command. We will add the logic of <code>remark</code> later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1830,11 +1835,9 @@ Removes the remark for the first person.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-2-logic-teach-the-app-to-accept-remark-arguments"><a class="link" href="#step-2-logic-teach-the-app-to-accept-remark-arguments">[Step 2] Logic: Teach the app to accept 'remark' arguments</a></h5>
 <div class="paragraph">
-<p>Let&#8217;s teach the application to parse arguments that our <code>remark</code> command will accept. E.g. <code>1 r/Likes to drink coffee.</code></p>
+<p>===== [Step 2] Logic: Teach the app to accept 'remark' arguments
+Let&#8217;s teach the application to parse arguments that our <code>remark</code> command will accept. E.g. <code>1 r/Likes to drink coffee.</code></p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1869,11 +1872,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-3-ui-add-a-placeholder-for-remark-in-code-personcard-code"><a class="link" href="#step-3-ui-add-a-placeholder-for-remark-in-code-personcard-code">[Step 3] Ui: Add a placeholder for remark in <code>PersonCard</code></a></h5>
 <div class="paragraph">
-<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> s to display a remark for each person later.</p>
+<p>===== [Step 3] Ui: Add a placeholder for remark in <code>PersonCard</code>
+Let&#8217;s add a placeholder on all our <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> s to display a remark for each person later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1898,11 +1899,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-4-model-add-code-remark-code-class"><a class="link" href="#step-4-model-add-code-remark-code-class">[Step 4] Model: Add <code>Remark</code> class</a></h5>
 <div class="paragraph">
-<p>We have to properly encapsulate the remark in our <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/model/person/Person.java"><code>Person</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
+<p>===== [Step 4] Model: Add <code>Remark</code> class
+We have to properly encapsulate the remark in our <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/model/person/Person.java"><code>Person</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1927,11 +1926,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-5-model-modify-code-person-code-to-support-a-code-remark-code-field"><a class="link" href="#step-5-model-modify-code-person-code-to-support-a-code-remark-code-field">[Step 5] Model: Modify <code>Person</code> to support a <code>Remark</code> field</a></h5>
 <div class="paragraph">
-<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/model/person/Person.java"><code>Person</code></a>.</p>
+<p>===== [Step 5] Model: Modify <code>Person</code> to support a <code>Remark</code> field
+Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/model/person/Person.java"><code>Person</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1949,11 +1946,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-6-storage-add-code-remark-code-field-to-code-xmladaptedperson-code-class"><a class="link" href="#step-6-storage-add-code-remark-code-field-to-code-xmladaptedperson-code-class">[Step 6] Storage: Add <code>Remark</code> field to <code>XmlAdaptedPerson</code> class</a></h5>
 <div class="paragraph">
-<p>We now have <code>Remark</code> s for <code>Person</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/storage/XmlAdaptedPerson.java"><code>XmlAdaptedPerson</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
+<p>===== [Step 6] Storage: Add <code>Remark</code> field to <code>XmlAdaptedPerson</code> class
+We now have <code>Remark</code> s for <code>Person</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/storage/XmlAdaptedPerson.java"><code>XmlAdaptedPerson</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1975,11 +1970,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-6b-test-add-withremark-for-code-personbuilder-code"><a class="link" href="#step-6b-test-add-withremark-for-code-personbuilder-code">[Step 6b] Test: Add withRemark() for <code>PersonBuilder</code></a></h5>
 <div class="paragraph">
-<p>Since <code>Person</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/seedu/address/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/model/person/Person.java"><code>Person</code></a>.</p>
+<p>===== [Step 6b] Test: Add withRemark() for <code>PersonBuilder</code>
+Since <code>Person</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/seedu/address/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/model/person/Person.java"><code>Person</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Tests:</strong></p>
@@ -1994,11 +1987,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-7-ui-connect-code-remark-code-field-to-code-personcard-code"><a class="link" href="#step-7-ui-connect-code-remark-code-field-to-code-personcard-code">[Step 7] Ui: Connect <code>Remark</code> field to <code>PersonCard</code></a></h5>
 <div class="paragraph">
-<p>Our remark label in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
+<p>===== [Step 7] Ui: Connect <code>Remark</code> field to <code>PersonCard</code>
+Our remark label in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2020,11 +2011,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-8-logic-implement-code-remarkcommand-execute-code-logic"><a class="link" href="#step-8-logic-implement-code-remarkcommand-execute-code-logic">[Step 8] Logic: Implement <code>RemarkCommand#execute()</code> logic</a></h5>
 <div class="paragraph">
-<p>We now have everything set up&#8230;&#8203; but we still can&#8217;t modify the remarks. Let&#8217;s finish it up by adding in actual logic for our <code>remark</code> command.</p>
+<p>===== [Step 8] Logic: Implement <code>RemarkCommand#execute()</code> logic
+We now have everything set up&#8230;&#8203; but we still can&#8217;t modify the remarks. Let&#8217;s finish it up by adding in actual logic for our <code>remark</code> command.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2046,20 +2035,15 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>==== Full Solution</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="full-solution"><a class="link" href="#full-solution">A.2.3. Full Solution</a></h4>
 <div class="paragraph">
 <p>See this <a href="https://github.com/se-edu/addressbook-level4/pull/599">PR</a> for the step-by-step solution.</p>
 </div>
+<div class="paragraph">
+<p>== Product Scope</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="product-scope"><a class="link" href="#product-scope">Appendix B: Product Scope</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
 </div>
@@ -2094,11 +2078,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
 </div>
+<div class="paragraph">
+<p>== Feature Contribution</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="feature-contribution"><a class="link" href="#feature-contribution">Appendix C: Feature Contribution</a></h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all" style="width: 85%;">
 <colgroup>
 <col style="width: 25.8823%;">
@@ -2135,11 +2117,9 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>== User Stories</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">Appendix D: User Stories</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
@@ -2257,11 +2237,9 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>== Use Cases</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix E: Use Cases</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
@@ -2585,11 +2563,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Non Functional Requirements</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix F: Non Functional Requirements</a></h2>
-<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2606,13 +2582,38 @@ without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>== Glossary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix G: Glossary</a></h2>
-<div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a id="Grade"></a> Grade</dt>
+<dd>
+<p>The grading of the subjects by the level of competence the students show during the examinations.
+The level of achievement in each subject is indicated by the grade obtained, with A1 being the highest achievable grade and F9 the lowest:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A1/A2 (Distinction)</p>
+</li>
+<li>
+<p>B3/B4 (Merit)</p>
+</li>
+<li>
+<p>C5/C6 (Credit/Pass)</p>
+</li>
+<li>
+<p>D7/E8/F9 (Below O Level Pass)</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="L1R5"></a> L1R5</dt>
+<dd>
+<p>A grading system for Secondary School students taking "O Level Examination" at the end of their four years of studies in Secondary School.
+The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education.
+<code>L1</code> represents the First language (English) grade and <code>R5</code> represents 5 relevant subjects' grades. The score will be calculated by considering the subjects' grades.</p>
+</dd>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
@@ -2623,11 +2624,9 @@ without a noticeable sluggishness in performance for typical usage.</p>
 </dd>
 </dl>
 </div>
+<div class="paragraph">
+<p>== Product Survey</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix H: Product Survey</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Product Name</strong></p>
 </div>
@@ -2660,11 +2659,9 @@ without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Instructions for Manual Testing</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix I: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
 </div>
@@ -2680,8 +2677,9 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">I.1. Launch and Shutdown</a></h3>
+<div class="paragraph">
+<p>=== Launch and Shutdown</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2717,9 +2715,9 @@ Expected: The most recent window size and location is retained.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
+<div class="paragraph">
+<p>=== Deleting a person</p>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">I.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2749,9 +2747,9 @@ Expected: Similar to previous.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
+<div class="paragraph">
+<p>=== Saving data</p>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">I.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2773,9 +2771,13 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-25 03:27:50 UTC
+Last updated 2018-03-25 07:25:17 UTC
 </div>
 </div>
 </body>
