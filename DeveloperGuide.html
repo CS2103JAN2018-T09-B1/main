@@ -46,9 +46,10 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#sort-feature">3.2. Sort feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#tagreplace-feature">3.3. TagReplace feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -960,20 +961,91 @@ as an <code>UndoableCommand</code> as well.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="tagreplace-feature"><a class="link" href="#tagreplace-feature">3.3. TagReplace feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The tag replace is a command that replaces the target tag with the tag that we want.
+The tags would be passed in via the argument multimap which would extract the tags with t/ prefix.
+It would then be separated into two different tags, tag to be replaced and the tag to be placed.
+Then the Addressbook would proceed to look for the persons with the unwanted tag to remove the unwanted
+tag and to add the new tag to the person.</p>
+</div>
+<div class="paragraph">
+<p>The figure below shows the Sequence Diagram for the interactions within the <code>Logic</code>
+component when "tag replace t/TAGNAME t/TAGNAME" is typed into the <code>CommandBox</code> by the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TagReplaceCommandSequenceDiagram.png" alt="TagReplaceCommandSequenceDiagram" width="650">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the  command.</p>
+</li>
+<li>
+<p>This results in a <code>TagReplaceCommand</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution calls the <code>replaceTag</code> method which then affects the <code>Model</code>.</p>
+</li>
+<li>
+<p>The tag is then replaced and the result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Below is an example of how the list looks like before and after the command "tagreplace t/3G t/4G"
+is executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TagReplaceCommand.png" alt="TagReplaceCommand" width="650">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations.</a></h4>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-tag-replace-command"><a class="link" href="#aspect-data-structure-to-support-the-tag-replace-command">Aspect: Data structure to support the tag replace command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1: </strong> Reuse the set that exist in the Addressbook.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not introduce a new data structure to store the tags that are passed in.</p>
+</li>
+<li>
+<p>Cons: A set arranges its elements in alphabetical order. This disrupts the order in which the user has entered,
+and it would cause the wanted tag to be removed instead of the unwanted one.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1004,7 +1076,7 @@ as an <code>UndoableCommand</code> as well.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2121,7 +2193,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit remarks of each individual student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">update the students' individual needs that occur during class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update the students' individual needs that occur during class and to ease the writing of a testimonial.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2152,6 +2224,30 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">look up on student&#8217;s identity</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">recognize who the student is</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know which subjects that I have taught them before</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">customize my teaching methods for different students</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can track the student&#8217;s progress in the CCA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decide whether to involve the student more</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">key in the levels attained by the students in the various domains in L.E.A.P.S system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calculate the Co-Curricular Attainment achieved by the student.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the student&#8217;s injuries history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to know the need of my students.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2434,13 +2530,13 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <h3 id="use-case-sort-students-by-the-students-academic-streaming-results" class="discrete">Use case: Sort students by the students' academic streaming results</h3>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p><strong>Main Success Scenario</strong></p>
 </div>
@@ -2679,7 +2775,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-22 18:02:39 UTC
+Last updated 2018-03-25 03:27:50 UTC
 </div>
 </div>
 </body>

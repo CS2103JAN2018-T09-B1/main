@@ -36,15 +36,19 @@
 <li><a href="#locating-students-by-name-code-find-code-or-code-f-code">3.6. Locating students by name: <code>find</code> or <code>f</code></a></li>
 <li><a href="#deleting-a-student-code-delete-code-or-code-d-code">3.7. Deleting a student : <code>delete</code> or <code>d</code></a></li>
 <li><a href="#deleting-a-tag-code-tagdelete-code-or-code-td-code">3.8. Deleting a tag : <code>tagdelete</code> or <code>td</code></a></li>
-<li><a href="#selecting-a-person-code-select-code-or-code-s-code">3.9. Selecting a person : <code>select</code> or <code>s</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code-or-code-h-code">3.10. Listing entered commands : <code>history</code> or <code>h</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.11. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.12. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.13. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#creating-an-appointment-on-the-calendar-code-create-coming-in-v2-0-code">3.15. Creating an appointment on the calendar : <code>create [coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">3.16. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.17. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#replacing-a-tag-code-tagreplace-code-or-code-tr-code">3.9. Replacing a tag : <code>tagreplace</code> or <code>tr</code></a></li>
+<li><a href="#selecting-a-person-code-select-code-or-code-s-code">3.10. Selecting a person : <code>select</code> or <code>s</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code-or-code-h-code">3.11. Listing entered commands : <code>history</code> or <code>h</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.12. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.13. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.14. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#creating-an-appointment-on-the-calendar-code-create-coming-in-v2-0-code">3.16. Creating an appointment on the calendar : <code>create [coming in v2.0]</code></a></li>
+<li><a href="#remarks-command-code-coming-in-v2-0-code">3.17. Remarks Command <code>[coming in v2.0]</code></a></li>
+<li><a href="#cca-section-code-coming-in-v2-0-code">3.18. CCA section <code>[coming in v2.0]</code></a></li>
+<li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.19. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-the-data">3.20. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -368,7 +372,42 @@ Deletes the 'Class 1A' tag from every student in the EduBuddy.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-person-code-select-code-or-code-s-code">3.9. Selecting a person : <code>select</code> or <code>s</code></a></h3>
+<h3 id="replacing-a-tag-code-tagreplace-code-or-code-tr-code"><a class="link" href="#replacing-a-tag-code-tagreplace-code-or-code-tr-code">3.9. Replacing a tag : <code>tagreplace</code> or <code>tr</code></a></h3>
+<div class="paragraph">
+<p>Replaces the specified tag from every student in EduBuddy with a specific tag.<br>
+Format: <code>tagreplace t/TAGNAME t/TAGNAME</code> or <code>tr t/TAGNAME t/TAGNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Replaces the specified tag from every student in Edubuddy with a specific tag.</p>
+</li>
+<li>
+<p>The tag refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The tag must be a valid tag name that is assigned to at least one student in the Edubuddy.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tagreplace t/Class1A t/Class2A</code> or <code>tr t/Class1A t/Class2A</code><br>
+Replaces the 'Class 1A' tag from every student in the EduBuddy with 'Class 2A'.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="selecting-a-person-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-person-code-select-code-or-code-s-code">3.10. Selecting a person : <code>select</code> or <code>s</code></a></h3>
 <div class="paragraph">
 <p>Selects the student identified by the index number used in the last student listing.<br>
 Format: <code>select INDEX</code> or <code>s INDEX</code></p>
@@ -409,7 +448,7 @@ Selects the 1st student in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code-or-code-h-code"><a class="link" href="#listing-entered-commands-code-history-code-or-code-h-code">3.10. Listing entered commands : <code>history</code> or <code>h</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code-or-code-h-code"><a class="link" href="#listing-entered-commands-code-history-code-or-code-h-code">3.11. Listing entered commands : <code>history</code> or <code>h</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code> or <code>h</code></p>
@@ -430,7 +469,7 @@ Format: <code>history</code> or <code>h</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code-or-code-u-code"><a class="link" href="#undoing-previous-command-code-undo-code-or-code-u-code">3.11. Undoing previous command : <code>undo</code> or <code>u</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code-or-code-u-code"><a class="link" href="#undoing-previous-command-code-undo-code-or-code-u-code">3.12. Undoing previous command : <code>undo</code> or <code>u</code></a></h3>
 <div class="paragraph">
 <p>Restores EduBuddy to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code> or <code>u</code></p>
@@ -475,7 +514,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code-or-code-r-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.12. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code-or-code-r-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.13. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code> or <code>r</code></p>
@@ -507,21 +546,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.13. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.14. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from EduBuddy.<br>
 Format: <code>clear</code> or <code>c</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-an-appointment-on-the-calendar-code-create-coming-in-v2-0-code"><a class="link" href="#creating-an-appointment-on-the-calendar-code-create-coming-in-v2-0-code">3.15. Creating an appointment on the calendar : <code>create [coming in v2.0]</code></a></h3>
+<h3 id="creating-an-appointment-on-the-calendar-code-create-coming-in-v2-0-code"><a class="link" href="#creating-an-appointment-on-the-calendar-code-create-coming-in-v2-0-code">3.16. Creating an appointment on the calendar : <code>create [coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Creates an appointment with the student identified by the index number used
 in the last student listing and displays it on the calendar.
@@ -558,14 +597,33 @@ Creates an appointment with the 1st student on <code>01022018</code> at <code>15
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
+<h3 id="remarks-command-code-coming-in-v2-0-code"><a class="link" href="#remarks-command-code-coming-in-v2-0-code">3.17. Remarks Command <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><em>{Allows the teachers to write a remark for the student for all other teachers to see. e.g. Medical/Injuries history}</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cca-section-code-coming-in-v2-0-code"><a class="link" href="#cca-section-code-coming-in-v2-0-code">3.18. CCA section <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><em>{Allows the teachers to key in which CCA the students are in and to keep track of attendance.}</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.19. L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><em>{Allows the teachers to key in the levels attained by the student for the various domains in L.E.A.P.S
+  to calculate the Co-Curricular Attainment of the student.}</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.20. Saving the data</a></h3>
 <div class="paragraph">
 <p>EduBuddy data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.17. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -598,6 +656,16 @@ e.g. <code>a n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2</code><
 <p><strong>Delete</strong> : <code>delete INDEX</code> or <code>d INDEX</code><br>
 e.g. <code>delete 3</code><br>
 e.g. <code>d 3</code></p>
+</li>
+<li>
+<p><strong>TagDelete</strong> : <code>tagdelete TAGNAME</code> or <code>td TAGNAME</code><br>
+e.g. <code>tagdelete CLASS2A</code><br>
+e.g. <code>td CLASS2A</code></p>
+</li>
+<li>
+<p><strong>TagReplace</strong> : <code>tagreplace t/TAGNAME t/TAGNAME</code> or <code>tr t/TAGNAME t/TAGNAME</code><br>
+e.g. <code>tagreplace t/CLASS2A t/CLASS3A</code><br>
+e.g. <code>tr t/CLASS2A t/CLASS3A</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
@@ -637,7 +705,7 @@ e.g.<code>s 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-22 18:02:39 UTC
+Last updated 2018-03-25 03:27:50 UTC
 </div>
 </div>
 </body>
