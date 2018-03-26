@@ -51,8 +51,9 @@
 <li><a href="#subject-streaming-calculation-feature-work-in-progress">4.4. Subject streaming calculation feature (work in progress)</a></li>
 <li><a href="#mass-tag-removal-feature">4.5. Mass Tag Removal feature</a></li>
 <li><a href="#proposed-data-encryption">4.6. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
+<li><a href="#browser-panel-revamp">4.7. Browser Panel Revamp</a></li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1169,14 +1170,51 @@ The result will be shown on the <code>Command Box</code> in the format: <code>De
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
+<h3 id="browser-panel-revamp"><a class="link" href="#browser-panel-revamp">4.7. Browser Panel Revamp</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/browser1.png" alt="browser1" width="600">
+</div>
+<div class="title">Figure 11. First Half of Browser Panel</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/browser2.png" alt="browser2" width="600">
+</div>
+<div class="title">Figure 12. Second Half of Browser Panel</div>
+</div>
+<div class="paragraph">
+<p>We will use a html page with w3.css framework support to implement the new Browser Panel.
+The browser panel can be controlled from the CLI interface, which manipulates the data in the browser panel.</p>
+</div>
+<div class="paragraph">
+<p>The browser will be invoked by the selection of a student from ui/BrowserPanel. loadPersonPage() invokes the html file
+of the student selected stored in resources/StudentPage.</p>
+</div>
+<div class="paragraph">
+<p><strong>To Be implemented</strong>
+Creation of a html StudentPage file:</p>
+</div>
+<div class="paragraph">
+<p>After add command is called successfully, a template file from StudentPage will be duplicated as a backup,
+and renamed as the name that is called from the add command.</p>
+</div>
+<div class="paragraph">
+<p><strong>To Be implemented</strong>
+Editing StudentPage file:
+After edit command is called, list of new string will be stored into a javascript file and parsed into the
+html file called by the function.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1207,7 +1245,7 @@ The result will be shown on the <code>Command Box</code> in the format: <code>De
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1273,7 +1311,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -2260,7 +2298,7 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kun Hong</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Administrative Information: Add support for automatic register number calculation and class allocation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Administrative Information: Add student administrative information into EduBuddy</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tag Support: Enhance tag functionalities in EduBuddy</p></td>
 </tr>
 <tr>
@@ -2327,8 +2365,14 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access student profiles easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have first hand information on all my students without going through a lot of documentation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit remarks of each individual student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">update the students' individual needs that occur during class and to ease the writing of a testimonial.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update the students' individual needs that occur during class</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2937,7 +2981,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-25 16:41:48 UTC
+Last updated 2018-03-26 04:54:09 UTC
 </div>
 </div>
 </body>
