@@ -12,13 +12,19 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/se-edu/addressbook-level4/tree/master
 
-By: `Team T09-B1`      Since: `Mar 2018`      Licence: `MIT`
+By: `CS2103JAN2018-T09-B1`      Since: `Mar 2018`      Licence: `MIT`
 
+== Introduction
+Welcome to _EduBuddy_! This application is based on a Command Line Interface(CLI),
+and is designed for secondary school teachers to manage student profiles in
+a simple and efficient manner.
 
-
-
+This developer guide will help to provide you with a detailed walk-through of _EduBuddy_,
+from the application set up procedure, to the explanation of the features and
+troubleshooting methods.
 
 == Setting up
+This section helps to guide you through the necessary steps to launch our application.
 
 === Prerequisites
 
@@ -96,6 +102,8 @@ When you are ready to start coding,
 2. Take a look at <<GetStartedProgramming>>.
 
 == Design
+This section illustrates the overall design of our application and provides
+the details of its individual components.
 
 [[Design-Architecture]]
 === Architecture
@@ -440,12 +448,95 @@ image::TagReplaceCommand.png[width="650"]
 
 // end::TagReplace[]
 
+// tag::subject[]
+=== Subject streaming calculation feature (work in progress)
+==== Current Implementation
+The subject streaming calculation features will be supported by a calculation algorithm, `L1R5`, which will be located in `Logic Manager`. It will help to analyse the subjects that are assigned to the student, and determine which combination of subjects will produce the lowest `L1R5` score.
+The subjects and their respective grades can be assigned to the students by the `AddCommand`, with a subject prefix `sub/` followed by the `Subject Name` and `Subject Grade`.
+
+As the students are required to take at least 6 subjects, the subjects will be stored in as a parameter of each individual student as a `List<Subject>`.
+
+==== Future implementation
+
+===== Aspect: Implementation of `L1R5Command`
+
+*  Create a `L1R5Command` which can be invoked by inputting `L1R5` followed by the `INDEX` assigned to the student in the `Command Box`.
+This will prompt the execution of a `L1R5` calculation function. The `L1R5Command` will extend the `Command` Interface.
+
+image::L1R5CommandSequenceDiagram.png[width="800"]
+image::L1R5CommandDiagram.png[width="800"]
+
+===== Aspect: Implementation of calculation function `L1R5`
+
+*  When the calculation function is called by the `L1R5Command`, the specified student will be passed into the function.
+The function will load and store the list of subjects of the student and go through the list of subjects by their names to filter out which subject is L1, which subjects are R5.
+The calculation function will then determine which subject combination will produce the lowest overall `L1R5` score and output the lowest score.
+
+// end::subject[]
+
+// tag::masstagremoval[]
+=== Mass Tag Removal feature
+==== Current Implementation
+
+The Mass Tag Removal feature is supported through the suggested Tag Removal feature for the Model Component in <<GetStartedProgramming-EachComponent>>.
+The command `TagDeleteCommand` is implemented to call the `deleteTag()` function in the `Model` interface.
+The `deleteTag()` function will loop through the students in the `AddressBook` and will remove the specified Tag from every student that has the specified Tag and the students' `Tag List` will be updated.
+
+==== Design Considerations
+
+===== Aspect: Implementation of `TagDeleteCommand`
+// end::masstagremoval[]
+A `TagDeleteCommand` is where the user inputs `tagdelete [TAG_NAME]` or `td [TAG_NAME]` in the `Command Box`. When the user input fulfils the criteria of the expected input format, the command will execute.
+The `deleteTag()` function will be called and loops through the students in the `AddressBook`.
+
+* If the specified tag is not found tagged to any student, a `TagNotFoundException` will be thrown and a error message will be returned to the user.
+* Else, the `Tag List` of each student will be loaded and stored in a temporary `List` variable and the specified tag will be removed from it.
+Then a new student object with the updated `Tag List` will be replace the original student object. Thus the `AddressBook` will eventually have the updated list of students where the specified tag have been removed.
+
+. Logic uses the AddressBookParser class to parse the command.
+. This results in a TagDeleteCommand object which is executed by the LogicManager.
+. The command execution calls the deleteTag method which then affects the Model.
+. The tag is then deleted and the result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.
+The result will be shown on the `Command Box` in the format: `Deleted Tag: [TAG_NAME]`.
+
+image::TagDeleteCommandSequenceDiagram.png[width="800"]
+
+Figure: Sequence Diagram of TagDeleteCommand if the specified tag exists.
+
 // tag::dataencryption[]
 === [Proposed] Data Encryption
 
 _{Explain here how the data encryption feature will be implemented}_
 
 // end::dataencryption[]
+
+// tag::browserpanel[]
+=== Browser Panel Revamp
+
+.First Half of Browser Panel
+image::browser1.png[width="600"]
+.Second Half of Browser Panel
+image::browser2.png[width="600"]
+
+We will use a html page with w3.css framework support to implement the new Browser Panel.
+The browser panel can be controlled from the CLI interface, which manipulates the data in the browser panel.
+
+The browser will be invoked by the selection of a student from ui/BrowserPanel. loadPersonPage() invokes the html file
+of the student selected stored in resources/StudentPage.
+
+*To Be implemented*
+Creation of a html StudentPage file:
+
+After add command is called successfully, a template file from StudentPage will be duplicated as a backup,
+and renamed as the name that is called from the add command.
+
+*To Be implemented*
+Editing StudentPage file:
+After edit command is called, list of new string will be stored into a javascript file and parsed into the
+html file called by the function.
+
+
+// end::browserpanel[]
 
 === Logging
 
@@ -499,6 +590,8 @@ image::chrome_save_as_pdf.png[width="300"]
 
 [[Testing]]
 == Testing
+This section explains the various testing methods available in our application
+and also provides some troubleshooting techniques.
 
 === Running Tests
 
@@ -865,9 +958,9 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 *Target user profile*:
 
 * is a secondary school teacher
-* needs to know more about students they teach
+* needs to know more about the students that they have taught
 * has a need to track results
-* has a need to manage a significant number of contacts
+* has a need to manage a significant number of students
 * prefer desktop apps over other types
 * can type fast
 * prefers typing over mouse input
@@ -883,17 +976,15 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 |Name | Major |Minor
 |Johnny  |Display Panel: Add display panel functionalities to UI window | Data Integration: Integrate data input from user into display window
 
-|Xin Hui |Academic Section: Helps teachers to view and manage students' academic information | Subject Class Database: Create subject class and integrate input into command. Add L1R5 calculation support into subject inputs.
+|Xin Hui |Academic Section: Help teachers to view and manage students' academic information | Subject Class Database: Create subject class and integrate input into command. Add L1R5 calculation support into subject inputs.
 
-|Kun Hong |Administrative Information: Add support for automatic register number calculation and class allocation | Tag Support: Enhance tag functionalities in EduBuddy
+|Kun Hong |Administrative Information: Add student administrative information into EduBuddy | Tag Support: Enhance tag functionalities in EduBuddy
 
-|Keng Seng |Advanced Sorting Functionalities: Add advanced sorting functionalities into EduBuddy | Command Support: Adding commands to EduBuddy to enhance user experience
+
+
+|Keng Seng |Calendar: Add calendar features which supports different administrative tasks | Sorting feature: Add sorting functionalities based on various parameters
 
 |=======================================================================
-
-
-
-
 
 [appendix]
 == User Stories
@@ -913,7 +1004,10 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* * *` |teacher |access student's academic and non-academic achievements |stream the students properly (e.g. Normal Academic, Normal Technical, Express)
 
-|`* * *` |teacher |edit remarks of each individual student |update the students' individual needs that occur during class and to ease the writing of a testimonial.
+
+|`* * *` |teacher |access student profiles easily  | have first hand information on all my students without going through a lot of documentation
+
+|`* * *` |teacher |edit remarks of each individual student |update the students' individual needs that occur during class
 
 |`* *` |teacher |filter and group students |access information of specific students
 
@@ -940,7 +1034,7 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 [appendix]
 == Use Cases
 
-(For all use cases below, the *System* is the `AddressBook` and the *Actor* is the `user`, unless specified otherwise)
+(For all use cases below, the *System* is `EduBuddy` and the *Actor* is the `user`, unless specified otherwise)
 
 [discrete]
 === Use case: Delete person
@@ -1124,6 +1218,19 @@ _{More to be added}_
 
 [appendix]
 == Glossary
+
+[[Grade]] Grade::
+The grading of the subjects by the level of competence the students show during the examinations.
+The level of achievement in each subject is indicated by the grade obtained, with A1 being the highest achievable grade and F9 the lowest:
+** A1/A2 (Distinction)
+** B3/B4 (Merit)
+** C5/C6 (Credit/Pass)
+** D7/E8/F9 (Below O Level Pass)
+
+[[L1R5]] L1R5::
+A grading system for Secondary School students taking "O Level Examination" at the end of their four years of studies in Secondary School.
+The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education.
+`L1` represents the First language (English) grade and `R5` represents 5 relevant subjects' grades. The score will be calculated by considering the subjects' grades.
 
 [[mainstream-os]] Mainstream OS::
 Windows, Linux, Unix, OS-X

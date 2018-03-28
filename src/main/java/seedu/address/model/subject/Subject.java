@@ -92,7 +92,7 @@ public class Subject {
      * Format state as text for viewing.
      */
     public String toString() {
-        return subjectName + ' ' + subjectGrade;
+        return '[' + subjectName + ' ' + subjectGrade + ']';
     }
 
 }
