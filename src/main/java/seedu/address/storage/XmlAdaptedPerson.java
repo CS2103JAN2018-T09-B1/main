@@ -12,6 +12,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 import seedu.address.model.subject.Subject;
 import seedu.address.model.tag.Tag;
 
@@ -30,6 +31,8 @@ public class XmlAdaptedPerson {
     private List<XmlAdaptedTag> tagged = new ArrayList<>();
     @XmlElement
     private List<XmlAdaptedSubject> subjects = new ArrayList<>();
+    @XmlElement(required = true)
+    private String remark;
 
     /**
      * Constructs an XmlAdaptedPerson.
@@ -67,6 +70,7 @@ public class XmlAdaptedPerson {
         for (Subject subject : source.getSubjects()) {
             subjects.add(new XmlAdaptedSubject(subject));
         }
+        remark = source.getRemark().value;
     }
 
     /**
@@ -102,7 +106,13 @@ public class XmlAdaptedPerson {
 
         final Set<Tag> tags = new HashSet<>(personTags);
         final Set<Subject> subjects = new HashSet<>(personSubjects);
-        return new Person(name, nric, tags, subjects);
+
+        if (this.remark == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
+        }
+        final Remark remark = new Remark(this.remark);
+
+        return new Person(name, nric, tags, subjects, remark);
     }
 
     @Override
@@ -119,6 +129,7 @@ public class XmlAdaptedPerson {
         return Objects.equals(name, otherPerson.name)
                 && Objects.equals(nric, otherPerson.nric)
                 && tagged.equals(otherPerson.tagged)
-                && subjects.equals(otherPerson.subjects);
+                && subjects.equals(otherPerson.subjects)
+                && remark.equals(otherPerson.remark);
     }
 }

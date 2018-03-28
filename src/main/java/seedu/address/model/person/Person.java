@@ -22,17 +22,19 @@ public class Person {
 
     private final UniqueTagList tags;
     private final UniqueSubjectList subjects;
+    private final Remark remark;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Nric nric, Set<Tag> tags, Set<Subject> subjects) {
+    public Person(Name name, Nric nric, Set<Tag> tags, Set<Subject> subjects, Remark remark) {
         requireAllNonNull(name, nric, tags, subjects);
         this.name = name;
         this.nric = nric;
         // protect internal tags from changes in the arg list
         this.tags = new UniqueTagList(tags);
         this.subjects = new UniqueSubjectList(subjects);
+        this.remark = remark;
     }
 
     public Name getName() {
@@ -41,6 +43,10 @@ public class Person {
 
     public Nric getNric() {
         return nric;
+    }
+
+    public Remark getRemark() {
+        return remark;
     }
 
     /**
@@ -72,7 +78,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, nric, tags, subjects);
+        return Objects.hash(name, nric, tags, subjects, remark);
     }
 
     @Override
@@ -85,6 +91,8 @@ public class Person {
         getTags().forEach(builder::append);
         builder.append(" Subjects: ");
         getSubjects().forEach(builder::append);
+        builder.append(" Remarks: ")
+               .append(getRemark());
         return builder.toString();
     }
 

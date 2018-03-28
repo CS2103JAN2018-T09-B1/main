@@ -8,6 +8,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.subject.Subject;
 import seedu.address.model.tag.Tag;
@@ -19,17 +20,17 @@ public class SampleDataUtil {
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(new Name("Alex Yeoh"), new Nric("S8743880X"),
-                getTagSet("friends"), getSubjectSet("English A2")),
+                getTagSet("friends"), getSubjectSet("English A2"), new Remark("Class Rep")),
             new Person(new Name("Bernice Yu"), new Nric("S9927275Z"),
-                getTagSet("colleagues", "friends"), getSubjectSet("Mathematics A1")),
+                getTagSet("colleagues", "friends"), getSubjectSet("Mathematics A1"), new Remark("Math Rep")),
             new Person(new Name("Charlotte Oliveiro"), new Nric("S9321028H"),
-                getTagSet("neighbours"), getSubjectSet("Chemistry B3")),
+                getTagSet("neighbours"), getSubjectSet("Chemistry B3"), new Remark("Chemistry Rep")),
             new Person(new Name("David Li"), new Nric("S9103128J"),
-                getTagSet("family"), getSubjectSet("Physics B3")),
+                getTagSet("family"), getSubjectSet("Physics B3"), new Remark("Physics Rep")),
             new Person(new Name("Irfan Ibrahim"), new Nric("S9249202K"),
-                getTagSet("classmates"), getSubjectSet("Humanities B4")),
+                getTagSet("classmates"), getSubjectSet("Humanities B4"), new Remark("Humanities Rep")),
             new Person(new Name("Roy Balakrishnan"), new Nric("S9262441U"),
-                getTagSet("colleagues"), getSubjectSet("Chinese C5"))
+                getTagSet("colleagues"), getSubjectSet("Chinese C5"), new Remark("Chinese Rep"))
         };
     }
 
