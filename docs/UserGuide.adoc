@@ -202,6 +202,7 @@ Abbreviation Format: `s INDEX`
 
 ****
 * Selects the student and loads the student profile of the student at the specified `INDEX`.
+* Checks that the student selected has the expected number of subjects (minimum 6) and the right subject combination assigned to him/her.
 * The index refers to the index number shown in the most recent listing.
 * The index *must be a positive integer* `1, 2, 3, ...`
 ****
