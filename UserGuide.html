@@ -166,8 +166,25 @@ Format: <code>help</code></p>
 <h3 id="adding-a-person-code-add-code-or-code-a-code"><a class="link" href="#adding-a-person-code-add-code-or-code-a-code">3.2. Adding a person: <code>add</code> or <code>a</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to EduBuddy<br>
-Format: <code>add n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/English A2</code>
-Abbreviation Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/English A2</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code>
+Abbreviation Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>At least 1 subject from each L1R5 category should be assigned to a student.</p>
+</li>
+<li>
+<p>For example: English, Mathematics, History, Chinese, Physics, Music.</p>
+</li>
+<li>
+<p>For more examples on what subjects can be added, please refer to the FAQ section below.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -381,10 +398,7 @@ Abbreviation Format: <code>td TAGNAME</code></p>
 <p>Deletes the specified tag from every student in Edubuddy.</p>
 </li>
 <li>
-<p>The tag refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The tag must be a valid tag name that is assigned to at least one student in the Edubuddy.</p>
+<p>The tag must be a valid tag name that is assigned to at least one student in Edubuddy.</p>
 </li>
 </ul>
 </div>
@@ -451,6 +465,9 @@ Abbreviation Format: <code>s INDEX</code></p>
 <ul>
 <li>
 <p>Selects the student and loads the student profile of the student at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>Checks that the student selected has the expected number of subjects (minimum 6) and the right subject combination assigned to him/her.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the most recent listing.</p>
@@ -674,6 +691,124 @@ There is no need to save manually.</p>
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous EduBuddy folder.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: What is L1R5?<br>
+<strong>A</strong>: L1R5 is a grading system used in Singapore to determine the secondary school students' proficiency in the subjects taken for the O&#8217;Level Examinations.
+The score is used for the students to enroll into Junior Colleges, which is the next higher level of education. "L1" refers to the first language subject taken by the student, while "R5" refers to the 5 relevant subjects that are examinable by the students.
+The grade of L1R5 is then determined by taking the best grades of each category and summing them up, for example, if a student scores A1 for all 6 subjects are from each category, the score will be 6.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How are the grades for the subjects determined?<br>
+<strong>A</strong>: The level of achievement in each subject is indicated by the grade obtained, with A1 being the highest achievable grade and F9 the lowest:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 85%;">
+<colgroup>
+<col style="width: 48.8888%;">
+<col style="width: 51.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Grade</th>
+<th class="tableblock halign-left valign-top">Percentage of Competency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">75% - 100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">70% - 74%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65% - 69%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60% - 64%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">55% - 59%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50% - 54%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">45% - 49%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40% - 44%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0% - 39%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Q</strong>: What are the subjects are in the L1R5 category?<br>
+<strong>A</strong>: These are the following subjects that are examinable in O level Examinations in Singapore (as of Year 2018).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The subjects in the brackets are not to be used as input. The subjects not in brackets are preferred for better efficiency in typing.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 85%;">
+<colgroup>
+<col style="width: 48.8888%;">
+<col style="width: 51.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Subject Category</th>
+<th class="tableblock halign-left valign-top">Subjects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">English, HTamil(Higher Tamil), HChi(Higher Chinese), HMalay(Higher Malay)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hist(History), Geog(Geography), ComHum(Combined Humanities), ELit(English Literature), CLit(Chinese Literature),
+     MLit(Malay Literature), TLit(Tamil Literature), HArt(Higher Art), HMusic(Higher Music), BIndo(Bahasa Indonesia),
+     CSP(Chinese Special Programme), MSP(Malay Special Programme)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMath(Elementary Mathematics), AMath(Additional Mathematics), Phy(Physics), Chem(Chemistry), Bio(Biology), Sci(Combined Science)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consist of both R1 and R2 subjects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consist of L1, R1 and R2 subjects. French, German, Spanish, Hindi, Urdu, Gujarati, Panjabi, Bengali, Burmese,
+     Thai, Jap, Tamil, Chinese, Malay, DnT, Comp(Computing), FnN(Food and Nutrition), PoA(Principles of Accounting),
+     Econs(Economics), Drama, PE(Physical Education), Biz(Business Studies), Biotech(Biotechnology), Design(Design Studies)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consist of R4 subjects</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -747,7 +882,7 @@ e.g.<code>s 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-28 19:09:24 UTC
+Last updated 2018-04-01 17:27:18 UTC
 </div>
 </div>
 </body>
