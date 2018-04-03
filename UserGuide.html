@@ -166,8 +166,8 @@ Format: <code>help</code></p>
 <h3 id="adding-a-person-code-add-code-or-code-a-code"><a class="link" href="#adding-a-person-code-add-code-or-code-a-code">3.2. Adding a person: <code>add</code> or <code>a</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to EduBuddy<br>
-Format: <code>add n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code>
-Abbreviation Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;</code>
+Abbreviation Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -177,10 +177,13 @@ Abbreviation Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGI
 <p>At least 1 subject from each L1R5 category should be assigned to a student.</p>
 </li>
 <li>
-<p>For example: English, Mathematics, History, Chinese, Physics, Music.</p>
+<p>For example: English, EMath(Elementary Mathematics), Hist(History), Chinese, Phy(Physics), Music.</p>
 </li>
 <li>
-<p>For more examples on what subjects can be added, please refer to the FAQ section below.</p>
+<p>A <code>SPACE</code> should be inserted between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.</p>
+</li>
+<li>
+<p>For more examples on what subjects and subject grades can be added, please refer to the <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> section below.</p>
 </li>
 </ul>
 </div>
@@ -192,13 +195,13 @@ Abbreviation Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGI
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/91234567 ic/S9500186H t/1A t/20 sub/English B3 sub/Mathematics A2</code></p>
+<p><code>add n/John Doe p/91234567 ic/S9500186H t/1A t/20 sub/English B3 EMath A2</code></p>
 </li>
 <li>
 <p><code>add n/Betsy Crowe p/91234567 t/2B t/21 ic/S9511111I</code></p>
 </li>
 <li>
-<p><code>a n/John Doe p/91234567 ic/S9500186H t/1A t/2 sub/English B3 sub/Mathematics A2</code></p>
+<p><code>a n/John Doe p/91234567 ic/S9500186H t/1A t/2 sub/English B3 EMath A2</code></p>
 </li>
 <li>
 <p><code>a n/Betsy Crowe p/91234567 t/2B t/21 ic/S9511111I</code></p>
@@ -294,6 +297,9 @@ Edits the name of the 2nd student to be <code>Betsy Crower</code>.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="locating-students-by-name-code-find-code-or-code-f-code"><a class="link" href="#locating-students-by-name-code-find-code-or-code-f-code">3.6. Locating students by name: <code>find</code> or <code>f</code></a></h3>
@@ -340,6 +346,9 @@ Returns any student having names <code>Betsy</code>, <code>Tim</code>, or <code>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-student-code-delete-code-or-code-d-code"><a class="link" href="#deleting-a-student-code-delete-code-or-code-d-code">3.7. Deleting a student : <code>delete</code> or <code>d</code></a></h3>
@@ -382,6 +391,9 @@ Deletes the 1st student in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-tag-code-tagdelete-code-or-code-td-since-v1-1-code"><a class="link" href="#deleting-a-tag-code-tagdelete-code-or-code-td-since-v1-1-code">3.8. Deleting a tag : <code>tagdelete</code> or <code>td [since v1.1]</code></a></h3>
@@ -405,6 +417,14 @@ Abbreviation Format: <code>td TAGNAME</code></p>
 </div>
 </div>
 <div class="paragraph">
+<p>If successful, you will see the following result:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TagDeleteResult.png" alt="TagDeleteResult" width="800">
+</div>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -414,6 +434,9 @@ Abbreviation Format: <code>td TAGNAME</code></p>
 Deletes the 'Class 1A' tag from every student in the EduBuddy.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -429,9 +452,6 @@ Abbreviation Format: <code>tr t/TAGNAME t/TAGNAME</code></p>
 <ul>
 <li>
 <p>Replaces the specified tag from every student in Edubuddy with a specific tag.</p>
-</li>
-<li>
-<p>The tag refers to the index number shown in the most recent listing.</p>
 </li>
 <li>
 <p>The tag must be a valid tag name that is assigned to at least one student in the Edubuddy.</p>
@@ -450,6 +470,9 @@ Abbreviation Format: <code>tr t/TAGNAME t/TAGNAME</code></p>
 Replaces the 'Class 1A' tag from every student in the EduBuddy with 'Class 2A'.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -496,6 +519,9 @@ Selects the 1st student in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="listing-entered-commands-code-history-code-or-code-h-code"><a class="link" href="#listing-entered-commands-code-history-code-or-code-h-code">3.11. Listing entered commands : <code>history</code> or <code>h</code></a></h3>
@@ -517,6 +543,9 @@ Abbreviation Format: <code>h</code></p>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -564,6 +593,9 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="redoing-the-previously-undone-command-code-redo-code-or-code-r-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.13. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></h3>
@@ -596,6 +628,9 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <code>r</code> (reapplies the <code>clear</code> command)<br></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -649,6 +684,9 @@ Creates an appointment with the 1st student on <code>01022018</code> at <code>15
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="remarks-command-code-coming-in-v2-0-code"><a class="link" href="#remarks-command-code-coming-in-v2-0-code">3.17. Remarks Command <code>[coming in v2.0]</code></a></h3>
@@ -681,6 +719,9 @@ There is no need to save manually.</p>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 </div>
@@ -692,10 +733,17 @@ There is no need to save manually.</p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous EduBuddy folder.</p>
 </div>
 <div class="paragraph">
+<p><strong>Q</strong>: What is L1B4?<br>
+<strong>A</strong>: A grading system for Secondary School students taking "O Level Examination" at the end of their four years of studies in Secondary School.
+     The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education, Polytechnic.
+     <code>L1</code> represents the First language subject and <code>B4</code> represents 2 relevant subjects, according to the polytechnic course applied, and 2 other best subjects.
+     The score will be calculated by considering the subjects' grades. Each subject can only be considered once.</p>
+</div>
+<div class="paragraph">
 <p><strong>Q</strong>: What is L1R5?<br>
 <strong>A</strong>: L1R5 is a grading system used in Singapore to determine the secondary school students' proficiency in the subjects taken for the O&#8217;Level Examinations.
 The score is used for the students to enroll into Junior Colleges, which is the next higher level of education. "L1" refers to the first language subject taken by the student, while "R5" refers to the 5 relevant subjects that are examinable by the students.
-The grade of L1R5 is then determined by taking the best grades of each category and summing them up, for example, if a student scores A1 for all 6 subjects are from each category, the score will be 6.</p>
+The grade of L1R5 is then determined by taking the best grades of each category and summing them up, for example, if a student scores A1 for all 6 subjects are from each category, the score will be 6. Each subject can only be considered once.</p>
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: How are the grades for the subjects determined?<br>
@@ -753,7 +801,7 @@ The grade of L1R5 is then determined by taking the best grades of each category 
 </table>
 <div class="paragraph">
 <p><strong>Q</strong>: What are the subjects are in the L1R5 category?<br>
-<strong>A</strong>: These are the following subjects that are examinable in O level Examinations in Singapore (as of Year 2018).</p>
+<strong>A</strong>: These are the following subjects that are examinable in O-level Examinations in Singapore (as of Year 2018).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -809,6 +857,16 @@ The subjects in the brackets are not to be used as input. The subjects not in br
 </tr>
 </tbody>
 </table>
+<div class="ulist">
+<ul>
+<li>
+<p>The following subjects can be assigned to students but are not considered as O-Level subjects: ChiB (Chinese B), MalayB (Malay B), TamilB(Tamil B).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -818,8 +876,8 @@ The subjects in the brackets are not to be used as input. The subjects not in br
 <ul>
 <li>
 <p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code><br>
-e.g. <code>add n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2</code><br>
-e.g. <code>a n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2</code><br></p>
+e.g. <code>add n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2 Phy A1</code><br>
+e.g. <code>a n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2 Phy A1</code><br></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code> or <code>c</code></p>
@@ -877,12 +935,15 @@ e.g.<code>s 2</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-01 17:27:18 UTC
+Last updated 2018-04-03 15:35:27 UTC
 </div>
 </div>
 </body>

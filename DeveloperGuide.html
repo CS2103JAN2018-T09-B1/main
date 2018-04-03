@@ -48,7 +48,7 @@
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
 <li><a href="#sort-feature">4.2. Sort feature</a></li>
 <li><a href="#tagreplace-feature">4.3. TagReplace feature</a></li>
-<li><a href="#subject-streaming-calculation-feature-work-in-progress">4.4. Subject streaming calculation feature (work in progress)</a></li>
+<li><a href="#subject-streaming-calculation-feature">4.4. Subject streaming calculation feature</a></li>
 <li><a href="#mass-tag-removal-feature">4.5. Mass Tag Removal feature</a></li>
 <li><a href="#proposed-data-encryption">4.6. [Proposed] Data Encryption</a></li>
 <li><a href="#browser-panel-revamp">4.7. Browser Panel Revamp</a></li>
@@ -308,6 +308,9 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <p>Take a look at <a href="#GetStartedProgramming">Appendix A, <em>Suggested Programming Tasks to Get Started</em></a>.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -595,6 +598,9 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -894,6 +900,9 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 </div>
@@ -983,6 +992,9 @@ as an <code>UndoableCommand</code> as well.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 </div>
@@ -1054,54 +1066,128 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="subject-streaming-calculation-feature-work-in-progress"><a class="link" href="#subject-streaming-calculation-feature-work-in-progress">4.4. Subject streaming calculation feature (work in progress)</a></h3>
+<h3 id="subject-streaming-calculation-feature"><a class="link" href="#subject-streaming-calculation-feature">4.4. Subject streaming calculation feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The subject streaming calculation features will be supported by a calculation algorithm, <code>L1R5</code>, which will be located in <code>Logic Manager</code>. It will help to analyse the subjects that are assigned to the student, and determine which combination of subjects will produce the lowest <code>L1R5</code> score.
-The subjects and their respective grades can be assigned to the students by the <code>AddCommand</code>, with a subject prefix <code>sub/</code> followed by the <code>Subject Name</code> and <code>Subject Grade</code>.</p>
+<p>The subject streaming calculation features will be supported by calculation algorithms, <code>calculateL1R5</code> and <code>calculateL1B4</code> , which will be located in <code>Person.java</code>. The calculation algorithm will be called by the <code>SelectCommand</code>.
+It will help to analyse the subjects that are assigned to the student, and determine which combination of subjects will produce the lowest <code>L1R5</code> or <code>L1B4</code> score. The score will then be projected in the <code>Command Box</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditSelectCommandMarks.png" alt="EditSelectCommandMarks" width="800">
+</div>
+<div class="title">Figure 11. Sequence Diagram of implementation of Subject streaming calculation</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>SelectCommand</code> is executing, it retrieves the <code>Student</code> object that the user was referencing to and calls the <code>calculateL1R5/L1B4</code> method.</p>
+</li>
+<li>
+<p>In the calculation method, it will store the subject list of the student in <code>List&lt;Subject&gt; subjects</code> and loop through the list according to the <code>L1</code> subject category.</p>
+</li>
+<li>
+<p>The relevant subjects of the subject category will be saved in a temporary <code>List&lt;Subject&gt; subjectsToCheck</code> and the list will be passed into a <code>checkLowest()</code> method.</p>
+</li>
+<li>
+<p>In <code>checkLowest()</code>, the subject grades will be compared and the best subject will be removed from the list <code>subjects</code>.</p>
+</li>
+<li>
+<p>The best grade will be returned back to <code>calculateL1R5/L1B4</code> and stored in a temporary <code>int</code> variable, <code>score</code>. The function will then move on to check the other subject categories.</p>
+</li>
+<li>
+<p>After the calculation, <code>score</code> will be returned to the <code>SelectCommand</code> which will project the result in the <code>Command Box</code>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The subjects and their respective grades can be assigned to the students by the <code>AddCommand</code>, with a subject prefix <code>sub/</code> followed by the <code>Subject Name</code> and <code>Subject Grade</code>.
+As the students are required to take at least 6 subjects, the subjects will be stored in as a parameter of each individual student as a <code>List&lt;Subject&gt;</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-command-to-call-code-calculatel1r5-code-and-code-calculatel1b4-code"><a class="link" href="#aspect-implementation-of-command-to-call-code-calculatel1r5-code-and-code-calculatel1b4-code">Aspect: Implementation of command to call <code>calculateL1R5</code> and <code>calculateL1B4</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Add new command classes <code>L1R5Command</code> and <code>L1B4Command</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It would be easy to implement as there is no need to worry about affecting other classes.</p>
+</li>
+<li>
+<p>Cons: More commands for the user to remember.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Just override <code>execute()</code> of <code>SelectCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to update the <code>Display Panel</code> later on when the user wants to access the <code>Student&#8217;s</code> details.</p>
+</li>
+<li>
+<p>Cons: Need to update the test cases accordingly due to the change in the <code>execute()</code> function.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-calculation-function-code-l1r5-code-and-code-l1b4-code"><a class="link" href="#aspect-implementation-of-calculation-function-code-l1r5-code-and-code-l1b4-code">Aspect: Implementation of calculation function <code>L1R5</code> and <code>L1B4</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Add the calculation function in <code>Person.java</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to understand as the function needs to access the subject list of the student for calculation.</p>
+</li>
+<li>
+<p>Cons:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 :</strong> Implement the calculation function in <code>execute()</code> of <code>SelectCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduce the amount of coupling between <code>SelectCommand</code> and <code>Person</code>.</p>
+</li>
+<li>
+<p>Cons: Makes the <code>SelectCommand</code> more complicated as it is performing more than it should.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>As the students are required to take at least 6 subjects, the subjects will be stored in as a parameter of each individual student as a <code>List&lt;Subject&gt;</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="future-implementation"><a class="link" href="#future-implementation">4.4.2. Future implementation</a></h4>
-<div class="sect4">
-<h5 id="aspect-implementation-of-code-l1r5command-code"><a class="link" href="#aspect-implementation-of-code-l1r5command-code">Aspect: Implementation of <code>L1R5Command</code></a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>Create a <code>L1R5Command</code> which can be invoked by inputting <code>L1R5</code> followed by the <code>INDEX</code> assigned to the student in the <code>Command Box</code>.
-This will prompt the execution of a <code>L1R5</code> calculation function. The <code>L1R5Command</code> will extend the <code>Command</code> Interface.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/L1R5CommandSequenceDiagram.png" alt="L1R5CommandSequenceDiagram" width="800">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/L1R5CommandDiagram.png" alt="L1R5CommandDiagram" width="800">
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-implementation-of-calculation-function-code-l1r5-code"><a class="link" href="#aspect-implementation-of-calculation-function-code-l1r5-code">Aspect: Implementation of calculation function <code>L1R5</code></a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>When the calculation function is called by the <code>L1R5Command</code>, the specified student will be passed into the function.
-The function will load and store the list of subjects of the student and go through the list of subjects by their names to filter out which subject is L1, which subjects are R5.
-The calculation function will then determine which subject combination will produce the lowest overall <code>L1R5</code> score and output the lowest score.</p>
-</li>
-</ul>
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -1115,11 +1201,6 @@ The calculation function will then determine which subject combination will prod
 The command <code>TagDeleteCommand</code> is implemented to call the <code>deleteTag()</code> function in the <code>Model</code> interface.
 The <code>deleteTag()</code> function will loop through the students in the <code>AddressBook</code> and will remove the specified Tag from every student that has the specified Tag and the students' <code>Tag List</code> will be updated.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.5.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-implementation-of-code-tagdeletecommand-code"><a class="link" href="#aspect-implementation-of-code-tagdeletecommand-code">Aspect: Implementation of <code>TagDeleteCommand</code></a></h5>
 <div class="paragraph">
 <p>A <code>TagDeleteCommand</code> is where the user inputs <code>tagdelete [TAG_NAME]</code> or <code>td [TAG_NAME]</code> in the <code>Command Box</code>. When the user input fulfils the criteria of the expected input format, the command will execute.
 The <code>deleteTag()</code> function will be called and loops through the students in the <code>AddressBook</code>.</p>
@@ -1145,7 +1226,7 @@ Then a new student object with the updated <code>Tag List</code> will be replace
 </li>
 <li>
 <p>The tag is then deleted and the result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.
-The result will be shown on the <code>Command Box</code> in the format: <code>Deleted Tag: [TAG_NAME]</code>.</p>
+The user will see a message on the <code>Command Box</code> in the format: <code>Deleted Tag: [TAG_NAME]</code> and the <code>Tag</code> will be removed.</p>
 </li>
 </ol>
 </div>
@@ -1154,11 +1235,47 @@ The result will be shown on the <code>Command Box</code> in the format: <code>De
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagDeleteCommandSequenceDiagram.png" alt="TagDeleteCommandSequenceDiagram" width="800">
+<img src="images/TagDeleteSequenceDiagram.png" alt="TagDeleteSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 12. Sequence Diagram of TagDeleteCommand if the specified tag exists.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-tagdeletecommand-code"><a class="link" href="#aspect-implementation-of-code-tagdeletecommand-code">Aspect: Implementation of <code>TagDeleteCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Create a new method in <code>TagDeleteCommand</code> to delete tag</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to understand the structure of <code>TagDeleteCommand</code>.</p>
+</li>
+<li>
+<p>Cons: The <code>deleteTag()</code> function that was implemented would be redundant.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Call the <code>deleteTag()</code> function</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Implementation of the command would be easier as the main algorithm to delete the tag is within the code.</p>
+</li>
+<li>
+<p>Cons: Increases coupling between <code>Model</code> and <code>TagDeleteCommand</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Figure: Sequence Diagram of TagDeleteCommand if the specified tag exists.</p>
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -1175,13 +1292,13 @@ The result will be shown on the <code>Command Box</code> in the format: <code>De
 <div class="content">
 <img src="images/browser1.png" alt="browser1" width="600">
 </div>
-<div class="title">Figure 11. First Half of Browser Panel</div>
+<div class="title">Figure 13. First Half of Browser Panel</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/browser2.png" alt="browser2" width="600">
 </div>
-<div class="title">Figure 12. Second Half of Browser Panel</div>
+<div class="title">Figure 14. Second Half of Browser Panel</div>
 </div>
 <div class="paragraph">
 <p>We will use a html page with w3.css framework support to implement the new Browser Panel.
@@ -1204,6 +1321,9 @@ and renamed as the name that is called from the add command.</p>
 Editing StudentPage file:
 After edit command is called, list of new string will be stored into a javascript file and parsed into the
 html file called by the function.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -1248,6 +1368,9 @@ html file called by the function.</p>
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -1311,7 +1434,10 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -1442,6 +1568,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 </div>
@@ -1500,6 +1629,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
 a. Include those libraries in the repo (this bloats the repo size)<br>
 b. Require developers to download those libraries manually (this creates extra work for developers)</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -1939,6 +2071,9 @@ Do take a look at <a href="#Design-Storage">Section 3.5, &#8220;Storage componen
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="GetStartedProgramming-RemarkCommand"><a class="link" href="#GetStartedProgramming-RemarkCommand">A.2. Creating a new command: <code>remark</code></a></h3>
@@ -2226,6 +2361,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>See this <a href="https://github.com/se-edu/addressbook-level4/pull/599">PR</a> for the step-by-step solution.</p>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 </div>
@@ -2266,6 +2404,9 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -2308,6 +2449,9 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2436,6 +2580,9 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2764,6 +2911,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2779,11 +2929,12 @@ for <code>RemarkCommandParser</code>.</p>
 without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-.
-<em>{More to be added}</em></p>
+<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -2799,7 +2950,7 @@ The level of achievement in each subject is indicated by the grade obtained, wit
 </dd>
 </dl>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 85%;">
+<table class="tableblock frame-all grid-all" style="width: 30%;">
 <colgroup>
 <col style="width: 48.8888%;">
 <col style="width: 51.1112%;">
@@ -2851,11 +3002,18 @@ The level of achievement in each subject is indicated by the grade obtained, wit
 </table>
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a id="L1B4"></a> L1B4</dt>
+<dd>
+<p>A grading system for Secondary School students taking "O Level Examination" at the end of their four years of studies in Secondary School.
+The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education, Polytechnic.
+<code>L1</code> represents the First language subject and <code>B4</code> represents 2 relevant subjects, according to the polytechnic course applied, and 2 other best subjects.
+The score will be calculated by considering the subjects' grades. Each subject can only be considered once.</p>
+</dd>
 <dt class="hdlist1"><a id="L1R5"></a> L1R5</dt>
 <dd>
 <p>A grading system for Secondary School students taking "O Level Examination" at the end of their four years of studies in Secondary School.
-The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education.
-<code>L1</code> represents the First language subject and <code>R5</code> represents 5 relevant subjects. The score will be calculated by considering the subjects' grades.</p>
+The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education, Junior College.
+<code>L1</code> represents the First language subject and <code>R5</code> represents 5 relevant subjects. The score will be calculated by considering the subjects' grades. Each subject can only be considered once.</p>
 </dd>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
@@ -2925,6 +3083,16 @@ The subjects in the brackets are not to be used as input. The subjects not in br
 </tr>
 </tbody>
 </table>
+<div class="ulist">
+<ul>
+<li>
+<p>The following subjects can be assigned to students but are not considered as O-Level subjects: ChiB (Chinese B), MalayB (Malay B), TamilB(Tamil B).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2961,6 +3129,9 @@ The subjects in the brackets are not to be used as input. The subjects not in br
 <p>&#8230;&#8203;</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -3016,9 +3187,6 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">I.2. Deleting a person</a></h3>
@@ -3048,9 +3216,6 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="saving-data"><a class="link" href="#saving-data">I.3. Saving data</a></h3>
@@ -3069,7 +3234,7 @@ Expected: Similar to previous.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -3077,7 +3242,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-01 17:27:18 UTC
+Last updated 2018-04-03 15:35:27 UTC
 </div>
 </div>
 </body>
