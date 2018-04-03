@@ -29,21 +29,21 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code-or-code-a-code">3.2. Adding a person: <code>add</code> or <code>a</code></a></li>
-<li><a href="#listing-all-student-code-list-code-or-code-l-code">3.3. Listing all student : <code>list</code> or <code>l</code></a></li>
-<li><a href="#sorting-students-code-sort-since-v1-2-code">3.4. Sorting students : <code>sort [since v1.2]</code></a></li>
+<li><a href="#adding-a-student-code-add-code-or-code-a-code">3.2. Adding a student: <code>add</code> or <code>a</code></a></li>
+<li><a href="#listing-all-students-code-list-code-or-code-l-code">3.3. Listing all students : <code>list</code> or <code>l</code></a></li>
+<li><a href="#sorting-all-students-code-sort-code-since-v1-2">3.4. Sorting all students : <code>sort</code> [since v1.2]</a></li>
 <li><a href="#editing-a-student-code-edit-code-or-code-e-code">3.5. Editing a student : <code>edit</code> or <code>e</code></a></li>
-<li><a href="#locating-students-by-name-code-find-code-or-code-f-code">3.6. Locating students by name: <code>find</code> or <code>f</code></a></li>
+<li><a href="#finding-students-by-name-code-find-code-or-code-f-code">3.6. Finding students by name: <code>find</code> or <code>f</code></a></li>
 <li><a href="#deleting-a-student-code-delete-code-or-code-d-code">3.7. Deleting a student : <code>delete</code> or <code>d</code></a></li>
-<li><a href="#deleting-a-tag-code-tagdelete-code-or-code-td-since-v1-1-code">3.8. Deleting a tag : <code>tagdelete</code> or <code>td [since v1.1]</code></a></li>
-<li><a href="#replacing-a-tag-code-tagreplace-code-or-code-tr-since-v1-2-code">3.9. Replacing a tag : <code>tagreplace</code> or <code>tr [since v1.2]</code></a></li>
+<li><a href="#deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1">3.8. Deleting a tag : <code>tagdelete</code> or <code>td</code> [since v1.1]</a></li>
+<li><a href="#replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2">3.9. Replacing a tag : <code>tagreplace</code> or <code>tr</code> [since v1.2]</a></li>
 <li><a href="#selecting-a-person-code-select-code-or-code-s-code">3.10. Selecting a person : <code>select</code> or <code>s</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code-or-code-h-code">3.11. Listing entered commands : <code>history</code> or <code>h</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.12. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.13. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.14. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
-<li><a href="#creating-an-appointment-on-the-calendar-code-create-coming-in-v2-0-code">3.16. Creating an appointment on the calendar : <code>create [coming in v2.0]</code></a></li>
+<li><a href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.16. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></li>
 <li><a href="#remarks-command-code-coming-in-v2-0-code">3.17. Remarks Command <code>[coming in v2.0]</code></a></li>
 <li><a href="#cca-section-code-coming-in-v2-0-code">3.18. CCA section <code>[coming in v2.0]</code></a></li>
 <li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.19. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
@@ -60,7 +60,11 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>EduBuddy</em> is for those who <strong>prefer to use a desktop app for managing student profiles</strong>. More importantly, <em>EduBuddy</em> is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, EduBuddy can get your student profile management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p><em>EduBuddy</em> is designed for secondary school teachers who <strong>prefer to use a desktop app to manage student profiles</strong>.
+More importantly, <em>EduBuddy</em> is <strong>optimized for those who prefer to work with a
+Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI).
+If you can type fast, <em>EduBuddy</em> can get your student profile management tasks done faster
+than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -71,11 +75,11 @@
 <ol class="arabic">
 <li>
 <p>Ensure you have Java version <code>1.8.0_60</code> or later installed in your Computer.</p>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 Having any Java 8 version is not enough.<br>
@@ -86,16 +90,16 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p>Download the latest <code>EduBuddy.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>EduBuddy.jar</code> <a href="https://github.com/CS2103JAN2018-T09-B1/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for <em>EduBuddy</em>.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/UI.png" alt="UI" width="790">
+<img src="images/UI.png" alt="UI" width="800">
 </div>
 </div>
 </li>
@@ -111,10 +115,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code> or <code>l</code></strong> : lists all students</p>
 </li>
 <li>
-<p><strong><code>add</code> or <code>a</code></strong><code>n/John Doe p/91234567 ic/S9315585J t/1A t/20 sub/English B3</code> : adds a student named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code> or <code>a</code> </strong><code>n/John Doe p/91234567 ic/S9315585J t/1A t/20 sub/English B3</code> : adds a student named <code>John Doe</code> to <em>EduBuddy</em></p>
 </li>
 <li>
-<p><strong><code>delete</code> or <code>d</code></strong><code>3</code> : deletes the 3rd student shown in the current list</p>
+<p><strong><code>delete</code> or <code>d</code></strong> <code>3</code> : deletes the 3rd student shown in the current list</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -132,28 +136,23 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
-<div class="exampleblock">
-<div class="content">
 <div class="paragraph">
 <p><strong>Command Format</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
-</li>
-<li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME ic/S9500186H</code>, <code>ic/S9500186H n/NAME</code> is also acceptable.</p>
-</li>
-<li>
-<p>Items in square brackets are optional. e.g <code>n/NAME [t/CLASS]</code> can be used as <code>n/John Doe t/1A</code> or as <code>n/John Doe</code>.</p>
-</li>
-<li>
-<p>Command input is not case sensitive, e.g 'fInD Alex' , 'find alex' works the same.</p>
-</li>
-</ul>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.<br>
+Parameters can be in <strong>any order</strong> e.g. if the command specifies <code>n/NAME ic/S9500186H</code>, <code>ic/S9500186H n/NAME</code> is also acceptable.<br>
+Items in square brackets are <strong>optional</strong>. e.g <code>n/NAME [t/CLASS]</code> can be used as <code>n/John Doe t/1A</code> or as <code>n/John Doe</code>.<br>
+Command input is <strong>case insensitive</strong>, e.g <code>fInD Alex</code> and <code>find Alex</code> works the same.<br>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
@@ -163,31 +162,38 @@ Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code-or-code-a-code"><a class="link" href="#adding-a-person-code-add-code-or-code-a-code">3.2. Adding a person: <code>add</code> or <code>a</code></a></h3>
+<h3 id="adding-a-student-code-add-code-or-code-a-code"><a class="link" href="#adding-a-student-code-add-code-or-code-a-code">3.2. Adding a student: <code>add</code> or <code>a</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to EduBuddy<br>
-Format: <code>add n/NAME p/PHONE_NUMBER ic/NRIC  t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;</code>
+<p>Adds a student to <em>EduBuddy</em><br>
+Format: <code>add n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;</code><br>
 Abbreviation Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>At least 1 subject from each L1R5 category should be assigned to a student.</p>
-</li>
-<li>
-<p>For example: English, EMath(Elementary Mathematics), Hist(History), Chinese, Phy(Physics), Music.</p>
-</li>
-<li>
-<p>A <code>SPACE</code> should be inserted between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.</p>
-</li>
-<li>
-<p>For more examples on what subjects and subject grades can be added, please refer to the <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> section below.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Students with the same name can be added, provided that their IC numbers are different.
+</td>
+</tr>
+</table>
 </div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+A <code>SPACE</code> should be inserted between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.<br>
+At least 1 subject from each L1R5 category should be assigned to a student.<br>
+For example: English, EMath(Elementary Mathematics), Hist(History), Chinese, Phy(Physics), Music.<br>
+For more examples on what subjects and subject grades can be added, please refer to the <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> section below.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -210,29 +216,30 @@ Abbreviation Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGIS
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-student-code-list-code-or-code-l-code"><a class="link" href="#listing-all-student-code-list-code-or-code-l-code">3.3. Listing all student : <code>list</code> or <code>l</code></a></h3>
+<h3 id="listing-all-students-code-list-code-or-code-l-code"><a class="link" href="#listing-all-students-code-list-code-or-code-l-code">3.3. Listing all students : <code>list</code> or <code>l</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all students in EduBuddy.<br>
+<p>Shows a list of all students in <em>EduBuddy</em>.<br>
 Format: <code>list</code><br>
 Abbreviation Format: <code>l</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-students-code-sort-since-v1-2-code"><a class="link" href="#sorting-students-code-sort-since-v1-2-code">3.4. Sorting students : <code>sort [since v1.2]</code></a></h3>
+<h3 id="sorting-all-students-code-sort-code-since-v1-2"><a class="link" href="#sorting-all-students-code-sort-code-since-v1-2">3.4. Sorting all students : <code>sort</code> [since v1.2]</a></h3>
 <div class="paragraph">
-<p>Sorts the list of students in EduBuddy according to the given parameter<br>
+<p>Sorts the list of all students in <em>EduBuddy</em> according to the given parameter<br>
 Format: <code>sort PARAMETER</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>List of available PARAMETER: name, tag</p>
-</li>
-</ul>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+List of available PARAMETER: name, tag
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -253,26 +260,34 @@ Sorts the list of students by tag in alphabetical and numerical order (case inse
 <div class="sect2">
 <h3 id="editing-a-student-code-edit-code-or-code-e-code"><a class="link" href="#editing-a-student-code-edit-code-or-code-e-code">3.5. Editing a student : <code>edit</code> or <code>e</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing student in EduBuddy.<br>
+<p>Edits an existing student in <em>EduBuddy</em>.The existing fields will then be updated accordingly.<br>
 Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
 Abbreviation Format: <code>e INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Edits the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br>
+</td>
+</tr>
+</table>
 </div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+At least one of the optional fields must be provided.<br>
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -281,7 +296,7 @@ Abbreviation Format: <code>e INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS]
 <ul>
 <li>
 <p><code>edit 1 ic/S9123456A</code><br>
-Edits the nric number of the 1st student to be <code>S9123456A</code> respectively.</p>
+Edits the NRIC number of the 1st student to be <code>S9123456A</code>.</p>
 </li>
 <li>
 <p><code>edit 2 n/Betsy Crower</code><br>
@@ -289,7 +304,7 @@ Edits the name of the 2nd student to be <code>Betsy Crower</code>.</p>
 </li>
 <li>
 <p><code>e 1 ic/S9123456A</code><br>
-Edits the nric number of the 1st student to be <code>S9123456A</code> respectively.</p>
+Edits the NRIC number of the 1st student to be <code>S9123456A</code>.</p>
 </li>
 <li>
 <p><code>e 2 n/Betsy Crower</code><br>
@@ -302,34 +317,37 @@ Edits the name of the 2nd student to be <code>Betsy Crower</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-students-by-name-code-find-code-or-code-f-code"><a class="link" href="#locating-students-by-name-code-find-code-or-code-f-code">3.6. Locating students by name: <code>find</code> or <code>f</code></a></h3>
+<h3 id="finding-students-by-name-code-find-code-or-code-f-code"><a class="link" href="#finding-students-by-name-code-find-code-or-code-f-code">3.6. Finding students by name: <code>find</code> or <code>f</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
+<p>Finds a list of students whose name contains any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code>
 Abbreviation Format: <code>f KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Students matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code>.<br>
+The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code>.<br>
+Students matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code>.
+</td>
+</tr>
+</table>
 </div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the name is searched and only exact words will be matched e.g. <code>Han</code> will not match <code>Hans</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -353,26 +371,34 @@ Returns any student having names <code>Betsy</code>, <code>Tim</code>, or <code>
 <div class="sect2">
 <h3 id="deleting-a-student-code-delete-code-or-code-d-code"><a class="link" href="#deleting-a-student-code-delete-code-or-code-d-code">3.7. Deleting a student : <code>delete</code> or <code>d</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified student from EduBuddy.<br>
+<p>Deletes the specified student from <em>EduBuddy</em>.<br>
 Format: <code>delete INDEX</code><br>
 Abbreviation Format: <code>d INDEX</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the student at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Deletes the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
 </div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -382,7 +408,7 @@ Abbreviation Format: <code>d INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>d 2</code><br>
-Deletes the 2nd student in EduBuddy.</p>
+Deletes the 2nd student in <em>EduBuddy</em>.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -396,25 +422,35 @@ Deletes the 1st student in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-tag-code-tagdelete-code-or-code-td-since-v1-1-code"><a class="link" href="#deleting-a-tag-code-tagdelete-code-or-code-td-since-v1-1-code">3.8. Deleting a tag : <code>tagdelete</code> or <code>td [since v1.1]</code></a></h3>
+<h3 id="deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1"><a class="link" href="#deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1">3.8. Deleting a tag : <code>tagdelete</code> or <code>td</code> [since v1.1]</a></h3>
 <div class="paragraph">
-<p>Deletes the specified tag from every student in EduBuddy.<br>
+<p>Deletes the specified tag from every student in <em>EduBuddy</em>.<br>
 Format: <code>tagdelete TAGNAME</code><br>
 Abbreviation Format: <code>td TAGNAME</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the specified tag from every student in Edubuddy.</p>
-</li>
-<li>
-<p>The tag must be a valid tag name that is assigned to at least one student in Edubuddy.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The tag refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
 </div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The tag must be a valid tag name that is assigned to at least one student in the <em>EduBuddy</em>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>If successful, you will see the following result:</p>
@@ -431,7 +467,7 @@ Abbreviation Format: <code>td TAGNAME</code></p>
 <ul>
 <li>
 <p><code>tagdelete Class1A</code> or <code>td Class1A</code><br>
-Deletes the 'Class 1A' tag from every student in the EduBuddy.</p>
+Deletes the 'Class 1A' tag from every student in the <em>EduBuddy</em>.</p>
 </li>
 </ul>
 </div>
@@ -440,25 +476,35 @@ Deletes the 'Class 1A' tag from every student in the EduBuddy.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="replacing-a-tag-code-tagreplace-code-or-code-tr-since-v1-2-code"><a class="link" href="#replacing-a-tag-code-tagreplace-code-or-code-tr-since-v1-2-code">3.9. Replacing a tag : <code>tagreplace</code> or <code>tr [since v1.2]</code></a></h3>
+<h3 id="replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2"><a class="link" href="#replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2">3.9. Replacing a tag : <code>tagreplace</code> or <code>tr</code> [since v1.2]</a></h3>
 <div class="paragraph">
-<p>Replaces the specified tag from every student in EduBuddy with a specific tag.<br>
+<p>Replaces the specified tag from every student in <em>EduBuddy</em> with a specific tag.<br>
 Format: <code>tagreplace t/TAGNAME t/TAGNAME</code>
 Abbreviation Format: <code>tr t/TAGNAME t/TAGNAME</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Replaces the specified tag from every student in Edubuddy with a specific tag.</p>
-</li>
-<li>
-<p>The tag must be a valid tag name that is assigned to at least one student in the Edubuddy.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The tag refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
 </div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The tag must be a valid tag name that is assigned to at least one student in the <em>EduBuddy</em>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -467,7 +513,7 @@ Abbreviation Format: <code>tr t/TAGNAME t/TAGNAME</code></p>
 <ul>
 <li>
 <p><code>tagreplace t/Class1A t/Class2A</code> or <code>tr t/Class1A t/Class2A</code><br>
-Replaces the 'Class 1A' tag from every student in the EduBuddy with 'Class 2A'.</p>
+Replaces the 'Class 1A' tag from every student in <em>EduBuddy</em> with 'Class 2A'.</p>
 </li>
 </ul>
 </div>
@@ -482,25 +528,31 @@ Replaces the 'Class 1A' tag from every student in the EduBuddy with 'Class 2A'.<
 Format: <code>select INDEX</code><br>
 Abbreviation Format: <code>s INDEX</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the student and loads the student profile of the student at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>Checks that the student selected has the expected number of subjects (minimum 6) and the right subject combination assigned to him/her.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Checks that the student selected has the expected number of subjects (minimum 6) and the right subject combination assigned to him/her.<br>
+Selects the student and loads the student profile of the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
 </div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The index <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -510,7 +562,7 @@ Abbreviation Format: <code>s INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>select 2</code><br>
-Selects the 2nd student in EduBuddy.</p>
+Selects the 2nd student in <em>EduBuddy</em>.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -551,7 +603,7 @@ Abbreviation Format: <code>h</code></p>
 <div class="sect2">
 <h3 id="undoing-previous-command-code-undo-code-or-code-u-code"><a class="link" href="#undoing-previous-command-code-undo-code-or-code-u-code">3.12. Undoing previous command : <code>undo</code> or <code>u</code></a></h3>
 <div class="paragraph">
-<p>Restores EduBuddy to the state before the previous <em>undoable</em> command was executed.<br>
+<p>Restores <em>EduBuddy</em> to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code><br>
 Abbreviation Format: <code>u</code></p>
 </div>
@@ -563,7 +615,7 @@ Abbreviation Format: <code>u</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the EduBuddy&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify EduBuddy&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
 </td>
 </tr>
@@ -636,7 +688,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.14. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from EduBuddy.<br>
+<p>Clears all student entries from <em>EduBuddy</em>.<br>
 Format: <code>clear</code><br>
 Abbreviation Format: <code>c</code></p>
 </div>
@@ -649,29 +701,29 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-an-appointment-on-the-calendar-code-create-coming-in-v2-0-code"><a class="link" href="#creating-an-appointment-on-the-calendar-code-create-coming-in-v2-0-code">3.16. Creating an appointment on the calendar : <code>create [coming in v2.0]</code></a></h3>
+<h3 id="creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4"><a class="link" href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.16. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></h3>
 <div class="paragraph">
-<p>Creates an appointment with the student identified by the index number used
-in the last student listing and displays it on the calendar.
-E.g. setting a consultation time slot with students.<br>
-Format: <code>create INDEX date/DATE time/TIME</code></p>
+<p>Creates an appointment (e.g. setting a consultation time slot with students)
+with the student identified by the index number used
+in the last student listing and displays it on the calendar.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Date is in <strong>DDMMYY</strong> format</p>
-</li>
-<li>
-<p>Time is in <strong>24 hour</strong> format</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Format: <code>appointment INDEX d/DATE s/START_TIME e/END_TIME</code><br>
+Abbreviation Format: <code>appt INDEX d/DATE s/START_TIME e/END_TIME</code></p>
 </div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>DATE</code> should be in <strong>DDMMYYYY</strong> format e.g. 25th Dec 2018 would be 25122018.<br>
+<code>START_TIME</code> and <code>END_TIME</code> should be in <strong>24 hour</strong> format e.g. 3:30p.m. would be 1530.<br>
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -679,8 +731,12 @@ Format: <code>create INDEX date/DATE time/TIME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>create 1 date/01022018 time/1500</code><br>
-Creates an appointment with the 1st student on <code>01022018</code> at <code>1500</code></p>
+<p><code>appointment 1 d/01022018 s/1500 e/1600</code><br>
+Creates an appointment with the 1st student on 1st Feb 2018 from 3p.m. to 4p.m.</p>
+</li>
+<li>
+<p><code>appt 3 d/20042018 s/0930 e/1100</code><br>
+Creates an appointment with the 3rd student on 20th Apr 2018 from 9:30a.m. to 11a.m.</p>
 </li>
 </ul>
 </div>
@@ -872,69 +928,177 @@ The subjects in the brackets are not to be used as input. The subjects not in br
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code><br>
-e.g. <code>add n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2 Phy A1</code><br>
-e.g. <code>a n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2 Phy A1</code><br></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code> or <code>c</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code> or <code>d INDEX</code><br>
-e.g. <code>delete 3</code><br>
-e.g. <code>d 3</code></p>
-</li>
-<li>
-<p><strong>TagDelete</strong> : <code>tagdelete TAGNAME</code> or <code>td TAGNAME</code><br>
-e.g. <code>tagdelete CLASS2A</code><br>
-e.g. <code>td CLASS2A</code></p>
-</li>
-<li>
-<p><strong>TagReplace</strong> : <code>tagreplace t/TAGNAME t/TAGNAME</code> or <code>tr t/TAGNAME t/TAGNAME</code><br>
-e.g. <code>tagreplace t/CLASS2A t/CLASS3A</code><br>
-e.g. <code>tr t/CLASS2A t/CLASS3A</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
-<code>e INDEX [n/NAME] [p/PHONE_NUMBER] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
-e.g. <code>edit 2 n/James Lee</code><br>
-e.g. <code>e 2 n/James Lee</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code><br>
-e.g. <code>f James Jake</code></p>
-</li>
-<li>
-<p><strong>Sort</strong> : <code>sort PARAMETER</code><br>
-e.g. <code>sort name</code><br>
-e.g. <code>sort tag</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code> or <code>l</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Select</strong> : <code>select INDEX</code> or <code>s INDEX</code>+
-e.g.<code>select 2</code>
-e.g.<code>s 2</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code> or <code>h</code></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code> or <code>u</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code> or <code>r</code></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The table below provides a quick summary of all the commands available in EduBuddy.</p>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 24.4444%;">
+<col style="width: 25.5555%;">
+<col style="width: 27.7779%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a student entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code><br>
+OR<br>
+<code>a n/NAME ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2</code><br>
+OR<br>
+<code>a n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Appointment</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates an appointment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>appointment INDEX d/DATE s/START_TIME e/END_TIME</code><br>
+OR<br>
+<code>appt INDEX d/DATE s/START_TIME e/END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>appointment 1 d/25122018 s/1200 e/1300</code><br>
+OR<br>
+<code>appt 1 d/25122018 s/1200 e/1300</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clears all student entries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code><br>
+OR<br>
+<code>c</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code><br>
+OR<br>
+<code>c</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a student entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code><br>
+OR<br>
+<code>d INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code><br>
+OR<br>
+<code>d 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a student entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/NAME] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
+OR<br>
+<code>e INDEX [n/NAME] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/James Lee</code><br>
+OR<br>
+<code>e 2 n/James Lee</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exits <em>EduBuddy</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Finds student by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code><br>
+OR<br>
+<code>f KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find James Jake</code><br>
+OR<br>
+<code>f James Jake</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shows the help page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>History</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists the past commands entered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code><br>
+OR<br>
+<code>h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code><br>
+OR<br>
+<code>h</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all student entries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code><br>
+OR<br>
+<code>l</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code><br>
+OR<br>
+<code>l</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Redo</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo previous undo command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code><br>
+OR<br>
+<code>r</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code><br>
+OR<br>
+<code>r</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Selects the student entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code><br>
+OR<br>
+<code>s INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code><br>
+OR<br>
+<code>s 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorts student entries by parameters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort PARAMETER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort name</code><br>
+OR<br>
+<code>sort tag</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TagDelete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a tag from every student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagdelete TAGNAME</code><br>
+OR<br>
+<code>td TAGNAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagdelete CLASS2A</code><br>
+OR<br>
+<code>td CLASS2A</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TagReplace</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces a tag for every student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagreplace t/TAGNAME t/TAGNAME</code><br>
+OR<br>
+<code>tr t/TAGNAME t/TAGNAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagreplace t/CLASS2A t/CLASS3A</code><br>
+OR<br>
+<code>tr t/CLASS2A t/CLASS3A</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo previous command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code><br>
+OR<br>
+<code>u</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code><br>
+OR<br>
+<code>u</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
@@ -943,7 +1107,7 @@ e.g.<code>s 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-03 15:35:27 UTC
+Last updated 2018-04-03 19:03:05 UTC
 </div>
 </div>
 </body>
