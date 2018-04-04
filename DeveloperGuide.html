@@ -52,8 +52,9 @@
 <li><a href="#mass-tag-removal-feature">4.5. Mass Tag Removal feature</a></li>
 <li><a href="#proposed-data-encryption">4.6. [Proposed] Data Encryption</a></li>
 <li><a href="#browser-panel-revamp">4.7. Browser Panel Revamp</a></li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
+<li><a href="#remark-feature">4.8. Remark Feature</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1011,7 +1012,7 @@ tag and to add the new tag to the person.</p>
 </div>
 <div class="paragraph">
 <p>The figure below shows the Sequence Diagram for the interactions within the <code>Logic</code>
-component when "tag replace t/TAGNAME t/TAGNAME" is typed into the <code>CommandBox</code> by the user.</p>
+component when "tagreplace t/TAGNAME t/TAGNAME" is typed into the <code>CommandBox</code> by the user.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1327,14 +1328,65 @@ html file called by the function.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="remark-feature"><a class="link" href="#remark-feature">4.8. Remark Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new remark component is added to the person model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>This remark feature allows the user to add remarks to the student profile of the specified student.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RemarkClassSequenceDiagram.png" alt="RemarkClassSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 15. Sequence Diagram of AddRemarkCommand</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.8.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-remark-code-feature"><a class="link" href="#aspect-implementation-of-the-code-remark-code-feature">Aspect: Implementation of the <code>Remark</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just one method to add and delete the remark.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not create 2 command just to add and delete the remarks.</p>
+</li>
+<li>
+<p>Cons: The remark attached to the student in our student profile would not be able to exceed one line.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1365,7 +1417,7 @@ html file called by the function.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2925,7 +2977,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>1.8.0_60</code> or higher installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 450,000 students
+<p>Should be able to hold up to 1,200 students
 without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
@@ -3242,7 +3294,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-04 10:19:08 UTC
+Last updated 2018-04-04 19:46:10 UTC
 </div>
 </div>
 </body>
