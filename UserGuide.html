@@ -37,20 +37,19 @@
 <li><a href="#deleting-a-student-code-delete-code-or-code-d-code">3.7. Deleting a student : <code>delete</code> or <code>d</code></a></li>
 <li><a href="#deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1">3.8. Deleting a tag : <code>tagdelete</code> or <code>td</code> [since v1.1]</a></li>
 <li><a href="#replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2">3.9. Replacing a tag : <code>tagreplace</code> or <code>tr</code> [since v1.2]</a></li>
-<li><a href="#adding-a-remark-code-addremark-code">3.10. Adding a remark : <code>addremark</code></a></li>
-<li><a href="#deleting-a-remark-code-deleteremark-code">3.11. Deleting a remark : <code>deleteremark</code></a></li>
+<li><a href="#adding-a-remark-code-addremark-code-since-v1-4">3.10. Adding a remark : <code>addremark</code> [Since v1.4]</a></li>
+<li><a href="#deleting-a-remark-code-deleteremark-code-since-v1-4">3.11. Deleting a remark : <code>deleteremark</code> [Since v1.4]</a></li>
 <li><a href="#selecting-a-person-code-select-code-or-code-s-code">3.12. Selecting a person : <code>select</code> or <code>s</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code-or-code-h-code">3.13. Listing entered commands : <code>history</code> or <code>h</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.14. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.15. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></li>
-<li><a href="#remarks-command-code-since-v1-3-code">3.16. Remarks Command <code>[Since v1.3]</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.17. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.19. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></li>
-<li><a href="#cca-section-code-coming-in-v2-0-code">3.20. CCA section <code>[coming in v2.0]</code></a></li>
-<li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.21. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">3.22. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.16. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.18. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></li>
+<li><a href="#cca-section-code-coming-in-v2-0-code">3.19. CCA section <code>[coming in v2.0]</code></a></li>
+<li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.20. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-the-data">3.21. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -543,7 +542,7 @@ Replaces the 'Class 1A' tag from every student in <em>EduBuddy</em> with 'Class 
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-remark-code-addremark-code"><a class="link" href="#adding-a-remark-code-addremark-code">3.10. Adding a remark : <code>addremark</code></a></h3>
+<h3 id="adding-a-remark-code-addremark-code-since-v1-4"><a class="link" href="#adding-a-remark-code-addremark-code-since-v1-4">3.10. Adding a remark : <code>addremark</code> [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>Adds a remark to a specified student in EduBuddy.
 Format: <code>addremark INDEX r/REMARK</code></p>
@@ -572,7 +571,7 @@ Format: <code>addremark INDEX r/REMARK</code></p>
 <p>Examples:
 * <code>list</code><br>
 <code>addremark 2 r/Class Monitor</code><br>
-Adds a remark to the 2nd student in EduBuddy.</p>
+Adds a remark, Class Monitor, to the 2nd student in EduBuddy.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -581,7 +580,7 @@ Adds a remark to the 2nd student in EduBuddy.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-remark-code-deleteremark-code"><a class="link" href="#deleting-a-remark-code-deleteremark-code">3.11. Deleting a remark : <code>deleteremark</code></a></h3>
+<h3 id="deleting-a-remark-code-deleteremark-code-since-v1-4"><a class="link" href="#deleting-a-remark-code-deleteremark-code-since-v1-4">3.11. Deleting a remark : <code>deleteremark</code> [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>Delete a remark to a specified student in EduBuddy.
 Format: <code>deleteremark INDEX r/REMARK</code></p>
@@ -774,57 +773,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <code>undo</code> (reverses the <code>clear</code> command)<br>
 <code>undo</code> (reverses the <code>delete 1</code> command)<br>
 <code>r</code> (reapplies the <code>delete 1</code> command)<br>
-<code>r</code> (reapplies the <code>clear</code> command)<br></p>
+<code>r</code> (reapplies the <code>clear</code> command)<br>
+<strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remarks-command-code-since-v1-3-code"><a class="link" href="#remarks-command-code-since-v1-3-code">3.16. Remarks Command <code>[Since v1.3]</code></a></h3>
-<div class="paragraph">
-<p>Adds a remark to the student.<br>
-Format: <code>remark INDEX r/REMARK</code><br></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Adds a remark to the student profile of the student at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>remark 2</code><br>
-Adds a remark to the 2nd student in EduBuddy.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>remark 1</code><br>
-Adds a remark to the 1st student in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.17. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.16. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
 <div class="paragraph">
 <p>Clears all student entries from <em>EduBuddy</em>.<br>
 Format: <code>clear</code><br>
@@ -832,14 +788,14 @@ Abbreviation Format: <code>c</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4"><a class="link" href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.19. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></h3>
+<h3 id="creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4"><a class="link" href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.18. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></h3>
 <div class="paragraph">
 <p>Creates an appointment (e.g. setting a consultation time slot with students)
 with the student identified by the index number used
@@ -883,27 +839,27 @@ Creates an appointment with the 3rd student on 20th Apr 2018 from 9:30a.m. to 11
 </div>
 </div>
 <div class="sect2">
-<h3 id="cca-section-code-coming-in-v2-0-code"><a class="link" href="#cca-section-code-coming-in-v2-0-code">3.20. CCA section <code>[coming in v2.0]</code></a></h3>
+<h3 id="cca-section-code-coming-in-v2-0-code"><a class="link" href="#cca-section-code-coming-in-v2-0-code">3.19. CCA section <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Allows the teachers to key in which CCA the students are in and to keep track of attendance.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.21. L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
+<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.20. L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Allows the teachers to key in the levels attained by the student for the various domains in L.E.A.P.S
   to calculate the Co-Curricular Attainment of the student.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
 <div class="paragraph">
 <p>EduBuddy data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1215,9 +1171,19 @@ OR<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagreplace t/TAGNAME t/TAGNAME</code><br>
 OR<br>
 <code>tr t/TAGNAME t/TAGNAME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagreplace t/CLASS2A t/CLASS3A</code><br>
-OR<br>
-<code>tr t/CLASS2A t/CLASS3A</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AddRemark</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a remark to a specific student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addremark 1 r/REMARK</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DeleteRemark</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a remark from a specific student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteremark 1 r/REMARK</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo</strong></p></td>
@@ -1239,7 +1205,7 @@ OR<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 03:10:51 UTC
+Last updated 2018-04-05 03:36:28 UTC
 </div>
 </div>
 </body>
