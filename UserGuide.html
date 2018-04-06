@@ -43,9 +43,9 @@
 <li><a href="#listing-entered-commands-code-history-code-or-code-h-code">3.13. Listing entered commands : <code>history</code> or <code>h</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.14. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.15. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.16. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
-<li><a href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.18. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></li>
+<li><a href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.16. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></li>
+<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.17. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></li>
 <li><a href="#cca-section-code-coming-in-v2-0-code">3.19. CCA section <code>[coming in v2.0]</code></a></li>
 <li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.20. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
 <li><a href="#saving-the-data">3.21. Saving the data</a></li>
@@ -100,7 +100,7 @@ This app will not work with earlier versions of Java 8.
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/UI.png" alt="UI" width="800">
+<img src="images/Ui.png" alt="Ui" width="800">
 </div>
 </div>
 </li>
@@ -166,20 +166,8 @@ Format: <code>help</code></p>
 <h3 id="adding-a-student-code-add-code-or-code-a-code"><a class="link" href="#adding-a-student-code-add-code-or-code-a-code">3.2. Adding a student: <code>add</code> or <code>a</code></a></h3>
 <div class="paragraph">
 <p>Adds a student to <em>EduBuddy</em><br>
-Format: <code>add n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;</code><br>
-Abbreviation Format: <code>a n/NAME p/PHONE_NUMBER ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Students with the same name can be added, provided that their IC numbers are different.
-</td>
-</tr>
-</table>
+Format: <code>add n/NAME ic/NRIC [t/CLASS] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;]</code><br>
+Abbreviation Format: <code>a n/NAME ic/NRIC [t/CLASS] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;]</code></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -189,6 +177,17 @@ Students with the same name can be added, provided that their IC numbers are dif
 </td>
 <td class="content">
 A <code>SPACE</code> should be inserted between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 At least 1 subject from each L1R5 category should be assigned to a student.<br>
 For example: English, EMath(Elementary Mathematics), Hist(History), Chinese, Phy(Physics), Music.<br>
 For more examples on what subjects and subject grades can be added, please refer to the <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> section below.
@@ -202,16 +201,16 @@ For more examples on what subjects and subject grades can be added, please refer
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/91234567 ic/S9500186H t/1A t/20 sub/English B3 EMath A2</code></p>
+<p><code>add n/John Doe ic/S9500186H t/1A r/English Rep sub/English B3 EMath A2</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe p/91234567 t/2B t/21 ic/S9511111I</code></p>
+<p><code>add n/Betsy Crowe ic/S9511111I</code></p>
 </li>
 <li>
-<p><code>a n/John Doe p/91234567 ic/S9500186H t/1A t/2 sub/English B3 EMath A2</code></p>
+<p><code>a n/John Doe ic/S9500186H t/1A r/English Rep sub/English B3 EMath A2</code></p>
 </li>
 <li>
-<p><code>a n/Betsy Crowe p/91234567 t/2B t/21 ic/S9511111I</code></p>
+<p><code>a n/Betsy Crowe ic/S9511111I</code></p>
 </li>
 </ul>
 </div>
@@ -780,22 +779,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.16. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
-<div class="paragraph">
-<p>Clears all student entries from <em>EduBuddy</em>.<br>
-Format: <code>clear</code><br>
-Abbreviation Format: <code>c</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4"><a class="link" href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.18. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></h3>
+<h3 id="creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4"><a class="link" href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.16. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></h3>
 <div class="paragraph">
 <p>Creates an appointment (e.g. setting a consultation time slot with students)
 with the student identified by the index number used
@@ -819,6 +803,19 @@ Abbreviation Format: <code>appt INDEX d/DATE s/START_TIME e/END_TIME</code></p>
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After the appointment is successfully created, right click on the calendar and select
+<code>Reload page</code> to see your appointment.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -836,6 +833,21 @@ Creates an appointment with the 3rd student on 20th Apr 2018 from 9:30a.m. to 11
 </div>
 <div class="paragraph">
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.17. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
+<div class="paragraph">
+<p>Clears all student entries from <em>EduBuddy</em>.<br>
+Format: <code>clear</code><br>
+Abbreviation Format: <code>c</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -1205,7 +1217,7 @@ OR<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 03:36:28 UTC
+Last updated 2018-04-06 03:09:45 UTC
 </div>
 </div>
 </body>
