@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Tey Xin Hui - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Tey Xin Hui - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-edubuddy"><a class="link" href="#project-edubuddy">PROJECT: EduBuddy</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EduBuddy is a desktop application designed for secondary school teachers to manage student information better.
+The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Added commands which manages student&#8217;s academic information</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:</p>
+</li>
+<li>
+<p>Justification:</p>
+</li>
+<li>
+<p>Highlights:</p>
+</li>
+<li>
+<p>Credits:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Created subject database and added L1R5 calculation support</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/functional/TeyXinHui.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/test/TeyXinHui.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+</li>
+<li>
+<p>Documentation:</p>
+</li>
+<li>
+<p>Community:</p>
+</li>
+<li>
+<p>Tools:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="selecting-a-person-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-person-code-select-code-or-code-s-code">Selecting a person : <code>select</code> or <code>s</code></a></h3>
+<div class="paragraph">
+<p>When you want to view a student&#8217;s personal details like academic grades, cca grades etc, you can view it by selecting the student.</p>
+</div>
+<div class="paragraph">
+<p>Selects the student identified by the index number used in the last student listing.<br>
+Format: <code>select INDEX</code><br>
+Abbreviation Format: <code>s INDEX</code></p>
+</div>
+<div class="ulist NOTE">
+<ul class="NOTE">
+<li>
+<p>Selects the student and loads the student profile of the student at the specified <code>INDEX</code>.<br></p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The index <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SelectCommandSuccess.png" alt="SelectCommandSuccess" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>select 4</code><br>
+Selects the 4th student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Johnny</code><br>
+<code>s 1</code><br>
+Selects the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-streaming-score-code-stream-code-since-v1-5"><a class="link" href="#viewing-streaming-score-code-stream-code-since-v1-5">Viewing streaming score: <code>stream</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>If you want to know if the student is qualified to enter the next education level, Junior College or Polytechnic, you can view the respective streaming score using this command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stream INDEX STREAM_TYPE</code>
+You will be able to see a success message in the CommandBox, For example: <code>Student: John Doe. L1R5 Score: 8</code>.</p>
+</div>
+<div class="ulist NOTE">
+<ul class="NOTE">
+<li>
+<p>Selects the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br></p>
+</li>
+<li>
+<p><code>STREAM_TYPE</code> refers to the different streaming categories.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STREAM_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Streaming categories</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1R5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1B4-A or L1R2B2-A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1B4-B or L1R2B2-B</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1B4-C or L1R2B2-C</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1B4-D or L1R2B2-D</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist IMPORTANT">
+<ul class="IMPORTANT">
+<li>
+<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, &#8230;&#8203;</p>
+</li>
+<li>
+<p><code>STREAM_TYPE</code> <strong>must be a positive integer</strong>: 1, 2, 3, 4, 5.</p>
+</li>
+<li>
+<p>The <code>Student</code> should have the right subject combination to calculate the respective score.</p>
+</li>
+<li>
+<p>If you want to change the subject details, you can use the <code>Edit</code> feature at <a href="#Editing a student : <code>edit</code> or <code>e</code>">[Editing a student : <code>edit</code> or <code>e</code>]</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stream 1 1</code><br>
+Returns the L1R5 score obtained by the student based on his/her grades.</p>
+</li>
+<li>
+<p><code>stream 1 2</code><br>
+Returns the L1B4-A score obtained by the student based on his/her grades.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="subject-streaming-calculation-feature"><a class="link" href="#subject-streaming-calculation-feature">Subject streaming calculation feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The subject streaming calculation features will be supported by calculation algorithms, <code>calculateL1R5</code> and <code>calculateL1B4</code> , which will be located in <code>Person.java</code>. The calculation algorithm will be called by the <code>SelectCommand</code>.
+It will help to analyse the subjects that are assigned to the student, and determine which combination of subjects will produce the lowest <code>L1R5</code> or <code>L1B4</code> score. The score will then be projected in the <code>Command Box</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditSelectCommandMarks.png" alt="EditSelectCommandMarks" width="800">
+</div>
+<div class="title">Figure 1. Sequence Diagram of implementation of Subject streaming calculation</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>SelectCommand</code> is executing, it retrieves the <code>Student</code> object that the user was referencing to and calls the <code>calculateL1R5/L1B4</code> method.</p>
+</li>
+<li>
+<p>In the calculation method, it will store the subject list of the student in <code>List&lt;Subject&gt; subjects</code> and loop through the list according to the <code>L1</code> subject category.</p>
+</li>
+<li>
+<p>The relevant subjects of the subject category will be saved in a temporary <code>List&lt;Subject&gt; subjectsToCheck</code> and the list will be passed into a <code>checkLowest()</code> method.</p>
+</li>
+<li>
+<p>In <code>checkLowest()</code>, the subject grades will be compared and the best subject will be removed from the list <code>subjects</code>.</p>
+</li>
+<li>
+<p>The best grade will be returned back to <code>calculateL1R5/L1B4</code> and stored in a temporary <code>int</code> variable, <code>score</code>. The function will then move on to check the other subject categories.</p>
+</li>
+<li>
+<p>After the calculation, <code>score</code> will be returned to the <code>SelectCommand</code> which will project the result in the <code>Command Box</code>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The subjects and their respective grades can be assigned to the students by the <code>AddCommand</code>, with a subject prefix <code>sub/</code> followed by the <code>Subject Name</code> and <code>Subject Grade</code>.
+As the students are required to take at least 6 subjects, the subjects will be stored in as a parameter of each individual student as a <code>List&lt;Subject&gt;</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-command-to-call-code-calculatel1r5-code-and-code-calculatel1b4-code"><a class="link" href="#aspect-implementation-of-command-to-call-code-calculatel1r5-code-and-code-calculatel1b4-code">Aspect: Implementation of command to call <code>calculateL1R5</code> and <code>calculateL1B4</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Add new command classes <code>L1R5Command</code> and <code>L1B4Command</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It would be easy to implement as there is no need to worry about affecting other classes.</p>
+</li>
+<li>
+<p>Cons: More commands for the user to remember.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Just override <code>execute()</code> of <code>SelectCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to update the <code>Display Panel</code> later on when the user wants to access the <code>Student&#8217;s</code> details.</p>
+</li>
+<li>
+<p>Cons: Need to update the test cases accordingly due to the change in the <code>execute()</code> function.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-calculation-function-code-l1r5-code-and-code-l1b4-code"><a class="link" href="#aspect-implementation-of-calculation-function-code-l1r5-code-and-code-l1b4-code">Aspect: Implementation of calculation function <code>L1R5</code> and <code>L1B4</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Add the calculation function in <code>Person.java</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to understand as the function needs to access the subject list of the student for calculation.</p>
+</li>
+<li>
+<p>Cons:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 :</strong> Implement the calculation function in <code>execute()</code> of <code>SelectCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduce the amount of coupling between <code>SelectCommand</code> and <code>Person</code>.</p>
+</li>
+<li>
+<p>Cons: Makes the <code>SelectCommand</code> more complicated as it is performing more than it should.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-11 19:49:44 UTC
+</div>
+</div>
+</body>
+</html>

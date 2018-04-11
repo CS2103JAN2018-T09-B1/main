@@ -37,19 +37,21 @@
 <li><a href="#deleting-a-student-code-delete-code-or-code-d-code">3.7. Deleting a student : <code>delete</code> or <code>d</code></a></li>
 <li><a href="#deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1">3.8. Deleting a tag : <code>tagdelete</code> or <code>td</code> [since v1.1]</a></li>
 <li><a href="#replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2">3.9. Replacing a tag : <code>tagreplace</code> or <code>tr</code> [since v1.2]</a></li>
-<li><a href="#adding-a-remark-code-addremark-code-since-v1-4">3.10. Adding a remark : <code>addremark</code> [Since v1.4]</a></li>
-<li><a href="#deleting-a-remark-code-deleteremark-code-since-v1-4">3.11. Deleting a remark : <code>deleteremark</code> [Since v1.4]</a></li>
+<li><a href="#adding-a-remark-code-addremark-code-since-v1-4">3.10. Adding a remark : <code>addremark</code> [since v1.4]</a></li>
+<li><a href="#deleting-a-remark-code-deleteremark-code-since-v1-4">3.11. Deleting a remark : <code>deleteremark</code> [since v1.4]</a></li>
 <li><a href="#selecting-a-person-code-select-code-or-code-s-code">3.12. Selecting a person : <code>select</code> or <code>s</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code-or-code-h-code">3.13. Listing entered commands : <code>history</code> or <code>h</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.14. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.15. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></li>
 <li><a href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.16. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></li>
-<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.17. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#cca-section-code-coming-in-v2-0-code">3.19. CCA section <code>[coming in v2.0]</code></a></li>
-<li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.20. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">3.21. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#viewing-streaming-score-code-stream-code-since-v1-5">3.17. Viewing streaming score: <code>stream</code> [since v1.5]</a></li>
+<li><a href="#adding-a-cca-to-a-student-code-addcca-code-since-v1-5">3.18. Adding a CCA to a student : <code>addcca</code> [since v1.5]</a></li>
+<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.19. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
+<li><a href="#cca-section-code-coming-in-v2-0-code">3.21. CCA section <code>[coming in v2.0]</code></a></li>
+<li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.22. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-the-data">3.23. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.24. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -158,16 +160,19 @@ Command input is <strong>case insensitive</strong>, e.g <code>fInD Alex</code> a
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Shows the help page.<br>
+<p>If you are unsure about the features of the <em>EduBuddy</em>, or require any technical assistance, type <code>help</code> and you will be shown with the help page.<br>
 Format: <code>help</code></p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-student-code-add-code-or-code-a-code"><a class="link" href="#adding-a-student-code-add-code-or-code-a-code">3.2. Adding a student: <code>add</code> or <code>a</code></a></h3>
 <div class="paragraph">
 <p>Adds a student to <em>EduBuddy</em><br>
-Format: <code>add n/NAME ic/NRIC [t/CLASS] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;]</code><br>
-Abbreviation Format: <code>a n/NAME ic/NRIC [t/CLASS] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE SUBJECT_NAME2 SUBJECT_GRADE2&#8230;&#8203;]</code></p>
+Format: <code>add n/NAME ic/NRIC nok/NAME_OF_KIN [t/CLASS] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code><br>
+Abbreviation Format: <code>a n/NAME ic/NRIC nok/NAME_OF_KIN [t/CLASS] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -176,24 +181,27 @@ Abbreviation Format: <code>a n/NAME ic/NRIC [t/CLASS] [r/REMARK] [sub/SUBJECT_NA
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
+When adding a student, at least a <code>NAME</code>, a <code>NRIC</code> and a <code>NAME_OF_KIN</code> should be provided.<br>
 A <code>SPACE</code> should be inserted between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.<br>
 </td>
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-At least 1 subject from each L1R5 category should be assigned to a student.<br>
-For example: English, EMath(Elementary Mathematics), Hist(History), Chinese, Phy(Physics), Music.<br>
-For more examples on what subjects and subject grades can be added, please refer to the <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> section below.
-</td>
-</tr>
-</table>
+<div class="ulist NOTE">
+<ul class="NOTE">
+<li>
+<p>At least 1 subject from each L1R5 category should be assigned to a student.<br></p>
+</li>
+<li>
+<p>For example: English, EMath(Elementary Mathematics), Hist(History), Chinese, Phy(Physics), Music.<br></p>
+</li>
+<li>
+<p>For more examples on what subjects and subject grades can be added, please refer to the <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> section below.</p>
+</li>
+<li>
+<p>If you want to change the details later, you can use the <code>Edit</code> feature at <a href="#editing-a-student-code-edit-code-or-code-e-code">Section 3.5, &#8220;Editing a student : <code>edit</code> or <code>e</code>&#8221;</a>.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -201,18 +209,22 @@ For more examples on what subjects and subject grades can be added, please refer
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe ic/S9500186H t/1A r/English Rep sub/English B3 EMath A2</code></p>
+<p><code>add n/John Doe ic/S9500186H nok/Jonathan t/1A r/English Rep
+sub/English B3 EMath A2 Chinese A1 Phy A1 AMath A1 Hist A2</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe ic/S9511111I</code></p>
+<p><code>add n/Betsy Crowe ic/S9511111I nok/Betty Crowe</code></p>
 </li>
 <li>
-<p><code>a n/John Doe ic/S9500186H t/1A r/English Rep sub/English B3 EMath A2</code></p>
+<p><code>a n/John Doe ic/S9500186H nok/Jonathan t/1A r/English Rep sub/English B3 EMath A2 Chinese A1 Phy A1 AMath A1 Hist A2</code></p>
 </li>
 <li>
-<p><code>a n/Betsy Crowe ic/S9511111I</code></p>
+<p><code>a n/Betsy Crowe ic/S9511111I nok/Betty</code></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -221,6 +233,9 @@ For more examples on what subjects and subject grades can be added, please refer
 <p>Shows a list of all students in <em>EduBuddy</em>.<br>
 Format: <code>list</code><br>
 Abbreviation Format: <code>l</code></p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -256,13 +271,16 @@ Sorts the list of students by tag in alphabetical and numerical order (case inse
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-student-code-edit-code-or-code-e-code"><a class="link" href="#editing-a-student-code-edit-code-or-code-e-code">3.5. Editing a student : <code>edit</code> or <code>e</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing student in <em>EduBuddy</em>.The existing fields will then be updated accordingly.<br>
-Format: <code>edit INDEX [n/NAME] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
-Abbreviation Format: <code>e INDEX [n/NAME] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE]</code></p>
+Format: <code>edit INDEX [n/NAME] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code><br>
+Abbreviation Format: <code>e INDEX [n/NAME] [ic/NRIC] [t/CLASS] [t/CLASS_REGISTER] [sub/SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -276,18 +294,18 @@ Edits the student at the specified <code>INDEX</code>. The index refers to the i
 </tr>
 </table>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-At least one of the optional fields must be provided.<br>
-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
-</td>
-</tr>
-</table>
+<div class="ulist IMPORTANT">
+<ul class="IMPORTANT">
+<li>
+<p>At least one of the optional fields must be provided.<br></p>
+</li>
+<li>
+<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;<br></p>
+</li>
+<li>
+<p>When editing subjects, the previous subjects will be overwritten by the new subjects.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -424,21 +442,14 @@ Deletes the 1st student in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1"><a class="link" href="#deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1">3.8. Deleting a tag : <code>tagdelete</code> or <code>td</code> [since v1.1]</a></h3>
 <div class="paragraph">
-<p>Deletes the specified tag from every student in <em>EduBuddy</em>.<br>
+<p>When you have added the wrong <code>Class tag</code>,
+or when the secondary 4 students have moved to the next higher education level,
+and you want to remove the <code>Class tag</code> from every student who has the <code>Class tag</code> assigned to them.</p>
+</div>
+<div class="paragraph">
+<p>This command deletes the specified tag from every student in <em>EduBuddy</em>.<br>
 Format: <code>tagdelete TAGNAME</code><br>
 Abbreviation Format: <code>td TAGNAME</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The tag refers to the index number shown in the most recent listing.
-</td>
-</tr>
-</table>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -453,21 +464,18 @@ The tag must be a valid tag name that is assigned to at least one student in the
 </table>
 </div>
 <div class="paragraph">
-<p>If successful, you will see the following result:</p>
+<p>Examples:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagDeleteResult.png" alt="TagDeleteResult" width="800">
+<img src="images/TagDeleteResult.png" alt="TagDeleteResult" width="650">
 </div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>tagdelete Class1A</code> or <code>td Class1A</code><br>
-Deletes the 'Class 1A' tag from every student in the <em>EduBuddy</em>.</p>
+<p><code>tagdelete 4A</code> or <code>td 4A</code><br>
+Deletes the '4A' tag from every student in the <em>EduBuddy</em>.</p>
 </li>
 </ul>
 </div>
@@ -531,17 +539,17 @@ Replaces the 'Class 1A' tag from every student in <em>EduBuddy</em> with 'Class 
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/TagReplaceCommand.png" alt="TagReplaceCommand" width="650">
 </div>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-remark-code-addremark-code-since-v1-4"><a class="link" href="#adding-a-remark-code-addremark-code-since-v1-4">3.10. Adding a remark : <code>addremark</code> [Since v1.4]</a></h3>
+<h3 id="adding-a-remark-code-addremark-code-since-v1-4"><a class="link" href="#adding-a-remark-code-addremark-code-since-v1-4">3.10. Adding a remark : <code>addremark</code> [since v1.4]</a></h3>
 <div class="paragraph">
 <p>Adds a remark to a specified student in EduBuddy.
 Format: <code>addremark INDEX r/REMARK</code></p>
@@ -579,7 +587,7 @@ Adds a remark, Class Monitor, to the 2nd student in EduBuddy.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-remark-code-deleteremark-code-since-v1-4"><a class="link" href="#deleting-a-remark-code-deleteremark-code-since-v1-4">3.11. Deleting a remark : <code>deleteremark</code> [Since v1.4]</a></h3>
+<h3 id="deleting-a-remark-code-deleteremark-code-since-v1-4"><a class="link" href="#deleting-a-remark-code-deleteremark-code-since-v1-4">3.11. Deleting a remark : <code>deleteremark</code> [since v1.4]</a></h3>
 <div class="paragraph">
 <p>Delete a remark to a specified student in EduBuddy.
 Format: <code>deleteremark INDEX r/REMARK</code></p>
@@ -619,23 +627,22 @@ Deletes the remark, Class Monitor, from the 2nd student in EduBuddy.</p>
 <div class="sect2">
 <h3 id="selecting-a-person-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-person-code-select-code-or-code-s-code">3.12. Selecting a person : <code>select</code> or <code>s</code></a></h3>
 <div class="paragraph">
+<p>When you want to view a student&#8217;s personal details like academic grades, cca grades etc, you can view it by selecting the student.</p>
+</div>
+<div class="paragraph">
 <p>Selects the student identified by the index number used in the last student listing.<br>
 Format: <code>select INDEX</code><br>
 Abbreviation Format: <code>s INDEX</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Checks that the student selected has the expected number of subjects (minimum 6) and the right subject combination assigned to him/her.<br>
-Selects the student and loads the student profile of the student at the specified <code>INDEX</code>.<br>
-The index refers to the index number shown in the most recent listing.
-</td>
-</tr>
-</table>
+<div class="ulist NOTE">
+<ul class="NOTE">
+<li>
+<p>Selects the student and loads the student profile of the student at the specified <code>INDEX</code>.<br></p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -652,15 +659,20 @@ The index <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
 <div class="paragraph">
 <p>Examples:</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SelectCommandSuccess.png" alt="SelectCommandSuccess" width="800">
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd student in <em>EduBuddy</em>.</p>
+<code>select 4</code><br>
+Selects the 4th student in <em>EduBuddy</em>.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
+<p><code>find Johnny</code><br>
 <code>s 1</code><br>
 Selects the 1st student in the results of the <code>find</code> command.</p>
 </li>
@@ -772,10 +784,12 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <code>undo</code> (reverses the <code>clear</code> command)<br>
 <code>undo</code> (reverses the <code>delete 1</code> command)<br>
 <code>r</code> (reapplies the <code>delete 1</code> command)<br>
-<code>r</code> (reapplies the <code>clear</code> command)<br>
-<strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+<code>r</code> (reapplies the <code>clear</code> command)<br></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -789,19 +803,18 @@ in the last student listing and displays it on the calendar.</p>
 <p>Format: <code>appointment INDEX d/DATE s/START_TIME e/END_TIME</code><br>
 Abbreviation Format: <code>appt INDEX d/DATE s/START_TIME e/END_TIME</code></p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<code>DATE</code> should be in <strong>DDMMYYYY</strong> format e.g. 25th Dec 2018 would be 25122018.<br>
-<code>START_TIME</code> and <code>END_TIME</code> should be in <strong>24 hour</strong> format e.g. 3:30p.m. would be 1530.<br>
-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
-</td>
-</tr>
-</table>
+<div class="ulist IMPORTANT">
+<ul class="IMPORTANT">
+<li>
+<p><code>DATE</code> should be in <strong>DDMMYYYY</strong> format e.g. 25th Dec 2018 would be 25122018.<br></p>
+</li>
+<li>
+<p><code>START_TIME</code> and <code>END_TIME</code> should be in <strong>24 hour</strong> format e.g. 3:30p.m. would be 1530.<br></p>
+</li>
+<li>
+<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -827,7 +840,91 @@ Creates an appointment with the 1st student on 1st Feb 2018 from 3p.m. to 4p.m.<
 </li>
 <li>
 <p><code>appt 3 d/20042018 s/0930 e/1100</code><br>
-Creates an appointment with the 3rd student on 20th Apr 2018 from 9:30a.m. to 11a.m.</p>
+Creates an appointment with the 3rd student on 20th Apr 2018 from 9:30a.m. to 11a.m.
+<strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-streaming-score-code-stream-code-since-v1-5"><a class="link" href="#viewing-streaming-score-code-stream-code-since-v1-5">3.17. Viewing streaming score: <code>stream</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>If you want to know if the student is qualified to enter the next education level, Junior College or Polytechnic, you can view the respective streaming score using this command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stream INDEX STREAM_TYPE</code>
+You will be able to see a success message in the CommandBox, For example: <code>Student: John Doe. L1R5 Score: 8</code>.</p>
+</div>
+<div class="ulist NOTE">
+<ul class="NOTE">
+<li>
+<p>Selects the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br></p>
+</li>
+<li>
+<p><code>STREAM_TYPE</code> refers to the different streaming categories.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STREAM_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Streaming categories</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1R5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1B4-A or L1R2B2-A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1B4-B or L1R2B2-B</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1B4-C or L1R2B2-C</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1B4-D or L1R2B2-D</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist IMPORTANT">
+<ul class="IMPORTANT">
+<li>
+<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, &#8230;&#8203;</p>
+</li>
+<li>
+<p><code>STREAM_TYPE</code> <strong>must be a positive integer</strong>: 1, 2, 3, 4, 5.</p>
+</li>
+<li>
+<p>The <code>Student</code> should have the right subject combination to calculate the respective score.</p>
+</li>
+<li>
+<p>If you want to change the subject details, you can use the <code>Edit</code> feature at <a href="#editing-a-student-code-edit-code-or-code-e-code">Section 3.5, &#8220;Editing a student : <code>edit</code> or <code>e</code>&#8221;</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stream 1 1</code><br>
+Returns the L1R5 score obtained by the student based on his/her grades.</p>
+</li>
+<li>
+<p><code>stream 1 2</code><br>
+Returns the L1B4-A score obtained by the student based on his/her grades.</p>
 </li>
 </ul>
 </div>
@@ -836,42 +933,66 @@ Creates an appointment with the 3rd student on 20th Apr 2018 from 9:30a.m. to 11
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.17. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
+<h3 id="adding-a-cca-to-a-student-code-addcca-code-since-v1-5"><a class="link" href="#adding-a-cca-to-a-student-code-addcca-code-since-v1-5">3.18. Adding a CCA to a student : <code>addcca</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Adds a CCA to the student records in <em>EduBuddy</em>.<br>
+Format: <code>addcca 1 cca/CCA pos/POSITION</code><br>
+You will be able to see the success message, <code>CCA added: CCA: POSITION</code><br>
+<code>Person: NAME</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.19. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
 <div class="paragraph">
 <p>Clears all student entries from <em>EduBuddy</em>.<br>
 Format: <code>clear</code><br>
 Abbreviation Format: <code>c</code></p>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="cca-section-code-coming-in-v2-0-code"><a class="link" href="#cca-section-code-coming-in-v2-0-code">3.19. CCA section <code>[coming in v2.0]</code></a></h3>
+<h3 id="cca-section-code-coming-in-v2-0-code"><a class="link" href="#cca-section-code-coming-in-v2-0-code">3.21. CCA section <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Allows the teachers to key in which CCA the students are in and to keep track of attendance.}</em></p>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.20. L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
+<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.22. L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Allows the teachers to key in the levels attained by the student for the various domains in L.E.A.P.S
   to calculate the Co-Curricular Attainment of the student.}</em></p>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.23. Saving the data</a></h3>
 <div class="paragraph">
 <p>EduBuddy data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.24. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -889,17 +1010,36 @@ There is no need to save manually.</p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous EduBuddy folder.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: What is L1B4?<br>
+<p><strong>Q</strong>: What is L1B4 (as known as L1R2B2)?<br>
 <strong>A</strong>: A grading system for Secondary School students taking "O-Level Examination" at the end of their four years of studies in Secondary School.
      The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education, Polytechnic.
      <code>L1</code> represents the First language subject and <code>B4</code> represents 2 relevant subjects, according to the polytechnic course applied, and 2 other best subjects.
-     The score will be calculated by considering the subjects' grades. Each subject can only be considered once.</p>
+     The category the relevant subject is under(for example: L1B4-A, L1B4-B, L1B4-C, L1B4D), will determine which subjects are the relevant subjects.
+The score will be calculated by considering the subjects' grades. Each subject can only be considered once.</p>
+</div>
+<div class="paragraph">
+<p>If you want to find out more about the subject categories (L1B4-A, L1B4-B, L1B4-C, L1B4D),
+please visit:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Singapore Polytechnic: <a href="https://www.sp.edu.sg/wps/portal/vp-spws/!ut/p/a0/04_Sj9CPykssy0xPLMnMz0vMAfGjzOJDPUxdjdxMTQws3J1cDDwt_MJMXZxDDE3cDfQLsh0VAYY7oWE!/?PC_Z7_UH5E2F540G6P00IO8K5AU61JM5027774_WCM_CONTEXT=/wps/wcm/connect/lib-spws/site-spwebsite/future+students/admissions/selection+criteria+for+gce+o+level+holders+-aggregate+computation+%28admissions+-+course+intakes+and+cut-off+points%29" class="bare">https://www.sp.edu.sg/wps/portal/vp-spws/!ut/p/a0/04_Sj9CPykssy0xPLMnMz0vMAfGjzOJDPUxdjdxMTQws3J1cDDwt_MJMXZxDDE3cDfQLsh0VAYY7oWE!/?PC_Z7_UH5E2F540G6P00IO8K5AU61JM5027774_WCM_CONTEXT=/wps/wcm/connect/lib-spws/site-spwebsite/future+students/admissions/selection+criteria+for+gce+o+level+holders+-aggregate+computation+%28admissions+-+course+intakes+and+cut-off+points%29</a></p>
+</li>
+<li>
+<p>Temasek Polytechnic: <a href="http://www.tp.edu.sg/admissions/gce-o-level-aggregate-scores-computation" class="bare">http://www.tp.edu.sg/admissions/gce-o-level-aggregate-scores-computation</a></p>
+</li>
+<li>
+<p>Other Polytechnics: <a href="https://www.moe.gov.sg/education/post-secondary#polytechnics" class="bare">https://www.moe.gov.sg/education/post-secondary#polytechnics</a></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: What is L1R5?<br>
 <strong>A</strong>: L1R5 is a grading system used in Singapore to determine the secondary school students' proficiency in the subjects taken for "O-Level Examination".
 The score is used for the students to enroll into Junior Colleges, which is the next higher level of education. "L1" refers to the first language subject taken by the student, while "R5" refers to the 5 relevant subjects that are examinable by the students.
-The grade of L1R5 is then determined by taking the best grades of each category and summing them up, for example, if a student scores A1 for all 6 subjects are from each category, the score will be 6. Each subject can only be considered once.</p>
+The grade of L1R5 is then determined by taking the best grades of each category and summing them up, for example, if a student scores A1 for all 6 subjects are from each category, the score will be 6. Each subject can only be considered once.
+For more information, please visit: <a href="https://www.moe.gov.sg/admissions/direct-admissions/dsa-jc/eligibility" class="bare">https://www.moe.gov.sg/admissions/direct-admissions/dsa-jc/eligibility</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: How are the grades for the subjects determined?<br>
@@ -966,7 +1106,8 @@ The grade of L1R5 is then determined by taking the best grades of each category 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The subjects in the brackets are not to be used as input. The subjects not in brackets are preferred for better efficiency in typing.
+The subjects in the brackets are not to be used as input. The subjects not in brackets are preferred for better efficiency in typing.<br>
+For example, type in: <code>Hist A1</code> <strong>not</strong> <code>History A1</code>
 </td>
 </tr>
 </table>
@@ -1021,6 +1162,79 @@ The subjects in the brackets are not to be used as input. The subjects not in br
 </ul>
 </div>
 <div class="paragraph">
+<p><strong>Q</strong>: What is CCA and CCA score?<br>
+<strong>A</strong>:
+CCA stands for Co-Curricular Activities. It functions as a non-academic activity where students can have a more enriching experience in school. Find out more at: <a href="https://www.moe.gov.sg/education/programmes/co-curricular-activities" class="bare">https://www.moe.gov.sg/education/programmes/co-curricular-activities</a>.<br></p>
+</div>
+<div class="paragraph">
+<p>CCA score is used as an indicator of the students' contribution in the non-academic aspect, and can be used to improve the students' streaming score.
+For more information about CCA score, please visit: <a href="https://www.moe.gov.sg/docs/default-source/document/education/programmes/co-curricular-activities/leaps-2.pdf" class="bare">https://www.moe.gov.sg/docs/default-source/document/education/programmes/co-curricular-activities/leaps-2.pdf</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What is LEAPS?<br>
+<strong>A</strong>: It stands for Leadership, Enrichment, Achievement, Participation, and Service. It is a grading system for the schools to determine the CCA score for each student.<br>
+For more information about LEAPS, please visit: <a href="https://www.moe.gov.sg/docs/default-source/document/education/programmes/co-curricular-activities/leaps-2.pdf" class="bare">https://www.moe.gov.sg/docs/default-source/document/education/programmes/co-curricular-activities/leaps-2.pdf</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What comprises the post-secondary education?<br>
+<strong>A</strong>: There are many different platforms of post-secondary education. We are currently focusing on Polytechnics and Junior Colleges.
+For more information about the platforms, please visit:
+<a href="https://www.moe.gov.sg/education/post-secondary" class="bare">https://www.moe.gov.sg/education/post-secondary</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Why the information in the User Guide is not updated?<br>
+<strong>A</strong>: The <em>EduBuddy</em> is created in the Year 2018, so the information are all based in 2018. And, we are not part of the Ministry of Education so we may be lacking in expertise in this area.
+If you want to see the latest update on the education system, you can visit: <a href="https://www.moe.gov.sg/home" class="bare">https://www.moe.gov.sg/home</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you want us to update the <em>EduBuddy</em>, you can post issues on our website, <a href="https://github.com/CS2103JAN2018-T09-B1/main/issues" class="bare">https://github.com/CS2103JAN2018-T09-B1/main/issues</a>.
+Please go through the following 2 steps to post an issue:</p>
+</li>
+</ul>
+</div>
+<div id="IMPORTANT" class="paragraph">
+<p>You should have a <code>GitHub</code> account to post an issue. If you don&#8217;t, you can create one at <a href="https://github.com/join" class="bare">https://github.com/join</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/NewIssueStep1.png" alt="NewIssueStep1" width="800">
+</div>
+<div class="title">Figure 1. Step 1: Create new issue</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/NewIssueStep2.png" alt="NewIssueStep2" width="800">
+</div>
+<div class="title">Figure 2. Step 2: Submit new issue</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you want to see that your issue is posted, you can follow the next 2 steps.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/NewIssueStep3.png" alt="NewIssueStep3" width="800">
+</div>
+<div class="title">Figure 3. Step 3: Return to main issue page</div>
+</div>
+<div class="paragraph">
+<p>or you can go back to <a href="https://github.com/CS2103JAN2018-T09-B1/main/issues" class="bare">https://github.com/CS2103JAN2018-T09-B1/main/issues</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/NewIssueStep4.png" alt="NewIssueStep4" width="800">
+</div>
+<div class="title">Figure 4. Step 4: View issue</div>
+</div>
+<div class="paragraph">
+<p>We will let you know through your <code>GitHub</code> account or the email linked to your <code>GitHub</code> account once we have address your issue.</p>
+</div>
+<div class="paragraph">
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
@@ -1053,9 +1267,9 @@ The subjects in the brackets are not to be used as input. The subjects not in br
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code><br>
 OR<br>
 <code>a n/NAME ic/NRIC t/CLASS t/CLASS_REGISTER sub/SUBJECT_NAME SUBJECT_GRADE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/James Ho ic/S9500186H t/1A t/20 sub/English A2 EMath A1 Chinese A1 Phy A1 AMath A1 Hist A2</code><br>
 OR<br>
-<code>a n/James Ho p/22224444 ic/S9500186H t/1A t/20 sub/English A2</code></p></td>
+<code>a n/James Ho ic/S9500186H t/1A t/20 sub/English A2 EMath A1 Chinese A1 Phy A1 AMath A1 Hist A2</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Appointment</strong></p></td>
@@ -1168,6 +1382,14 @@ OR<br>
 <code>sort tag</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Stream</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a specific streaming score of a student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stream INDEX STREAM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stream 1 1</code><br>
+OR<br>
+<code>stream 1 2</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TagDelete</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a tag from every student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagdelete TAGNAME</code><br>
@@ -1217,7 +1439,7 @@ OR<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-08 02:01:59 UTC
+Last updated 2018-04-11 19:49:44 UTC
 </div>
 </div>
 </body>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Chua Kun Hong - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Chua Kun Hong - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-edubuddy"><a class="link" href="#project-edubuddy">PROJECT: EduBuddy</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EduBuddy is a desktop application designed for secondary school teachers to manage student information better.
+The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Added commands which manages student&#8217;s administrative information</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:</p>
+</li>
+<li>
+<p>Justification:</p>
+</li>
+<li>
+<p>Highlights:</p>
+</li>
+<li>
+<p>Credits:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Enhanced tag command functionalities</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/functional/chuakunhong.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/test/chuakunhong.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+</li>
+<li>
+<p>Documentation:</p>
+</li>
+<li>
+<p>Community:</p>
+</li>
+<li>
+<p>Tools:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1"><a class="link" href="#deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1">Deleting a tag : <code>tagdelete</code> or <code>td</code> [since v1.1]</a></h3>
+<div class="paragraph">
+<p>When you have added the wrong <code>Class tag</code>,
+or when the secondary 4 students have moved to the next higher education level,
+and you want to remove the <code>Class tag</code> from every student who has the <code>Class tag</code> assigned to them.</p>
+</div>
+<div class="paragraph">
+<p>This command deletes the specified tag from every student in <em>EduBuddy</em>.<br>
+Format: <code>tagdelete TAGNAME</code><br>
+Abbreviation Format: <code>td TAGNAME</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The tag must be a valid tag name that is assigned to at least one student in the <em>EduBuddy</em>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagDeleteResult.png" alt="TagDeleteResult" width="650">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tagdelete 4A</code> or <code>td 4A</code><br>
+Deletes the '4A' tag from every student in the <em>EduBuddy</em>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2"><a class="link" href="#replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2">Replacing a tag : <code>tagreplace</code> or <code>tr</code> [since v1.2]</a></h3>
+<div class="paragraph">
+<p>Replaces the specified tag from every student in <em>EduBuddy</em> with a specific tag.<br>
+Format: <code>tagreplace t/TAGNAME t/TAGNAME</code>
+Abbreviation Format: <code>tr t/TAGNAME t/TAGNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Replaces the specified tag from every student in Edubuddy with a specific tag.</p>
+</li>
+<li>
+<p>The tag must be a valid tag name that is assigned to at least one student in the Edubuddy.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The tag refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The tag must be a valid tag name that is assigned to at least one student in the <em>EduBuddy</em>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tagreplace t/Class1A t/Class2A</code> or <code>tr t/Class1A t/Class2A</code><br>
+Replaces the 'Class 1A' tag from every student in <em>EduBuddy</em> with 'Class 2A'.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagReplaceCommand.png" alt="TagReplaceCommand" width="650">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-remark-code-addremark-code-since-v1-4"><a class="link" href="#adding-a-remark-code-addremark-code-since-v1-4">Adding a remark : <code>addremark</code> [since v1.4]</a></h3>
+<div class="paragraph">
+<p>Adds a remark to a specified student in EduBuddy.
+Format: <code>addremark INDEX r/REMARK</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a remark to the the student at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The remark refers to anything that the teachers wants to comment</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;`</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>list</code><br>
+<code>addremark 2 r/Class Monitor</code><br>
+Adds a remark, Class Monitor, to the 2nd student in EduBuddy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddRemarkCommand.png" alt="AddRemarkCommand" width="650">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-remark-code-deleteremark-code-since-v1-4"><a class="link" href="#deleting-a-remark-code-deleteremark-code-since-v1-4">Deleting a remark : <code>deleteremark</code> [since v1.4]</a></h3>
+<div class="paragraph">
+<p>Delete a remark to a specified student in EduBuddy.
+Format: <code>deleteremark INDEX r/REMARK</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes a remark from the the student at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The remark refers to any part of the existing remark that is in the student profile for the student that you want.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;`</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>list</code><br>
+<code>deleteremark 2 r/Class Monitor</code><br>
+Deletes the remark, Class Monitor, from the 2nd student in EduBuddy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteRemarkCommand.png" alt="DeleteRemarkCommand" width="650">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-cca-to-a-student-code-addcca-code-since-v1-5"><a class="link" href="#adding-a-cca-to-a-student-code-addcca-code-since-v1-5">Adding a CCA to a student : <code>addcca</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Adds a CCA to the student records in <em>EduBuddy</em>.<br>
+Format: <code>addcca 1 cca/CCA pos/POSITION</code><br>
+You will be able to see the success message, <code>CCA added: CCA: POSITION</code><br>
+<code>Person: NAME</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="tagreplace-feature"><a class="link" href="#tagreplace-feature">TagReplace feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The tag replace is a command that replaces the target tag with the tag that we want.
+The tags would be passed in via the argument multimap which would extract the tags with t/ prefix.
+It would then be separated into two different tags, tag to be replaced and the tag to be placed.
+Then the Addressbook would proceed to look for the persons with the unwanted tag to remove the unwanted
+tag and to add the new tag to the person.</p>
+</div>
+<div class="paragraph">
+<p>The figure below shows the Sequence Diagram for the interactions within the <code>Logic</code>
+component when "tagreplace t/TAGNAME t/TAGNAME" is typed into the <code>CommandBox</code> by the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagReplaceCommandSequenceDiagram.png" alt="TagReplaceCommandSequenceDiagram" width="650">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the  command.</p>
+</li>
+<li>
+<p>This results in a <code>TagReplaceCommand</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution calls the <code>replaceTag</code> method which then affects the <code>Model</code>.</p>
+</li>
+<li>
+<p>The tag is then replaced and the result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Below is an example of how the list looks like before and after the command "tagreplace t/3G t/4G"
+is executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagReplaceCommand.png" alt="TagReplaceCommand" width="650">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations.</a></h4>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-tag-replace-command"><a class="link" href="#aspect-data-structure-to-support-the-tag-replace-command">Aspect: Data structure to support the tag replace command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1: </strong> Reuse the set that exist in the Addressbook.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not introduce a new data structure to store the tags that are passed in.</p>
+</li>
+<li>
+<p>Cons: A set arranges its elements in alphabetical order. This disrupts the order in which the user has entered,
+and it would cause the wanted tag to be removed instead of the unwanted one.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mass-tag-removal-feature"><a class="link" href="#mass-tag-removal-feature">Mass Tag Removal feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Mass Tag Removal feature is supported through the suggested Tag Removal feature for the Model Component in <a href="#GetStartedProgramming-EachComponent">[GetStartedProgramming-EachComponent]</a>.
+The command <code>TagDeleteCommand</code> is implemented to call the <code>deleteTag()</code> function in the <code>Model</code> interface.
+The <code>deleteTag()</code> function will loop through the students in the <code>AddressBook</code> and will remove the specified Tag from every student that has the specified Tag and the students' <code>Tag List</code> will be updated.</p>
+</div>
+<div class="paragraph">
+<p>A <code>TagDeleteCommand</code> is where the user inputs <code>tagdelete [TAG_NAME]</code> or <code>td [TAG_NAME]</code> in the <code>Command Box</code>. When the user input fulfils the criteria of the expected input format, the command will execute.
+The <code>deleteTag()</code> function will be called and loops through the students in the <code>AddressBook</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the specified tag is not found tagged to any student, a <code>TagNotFoundException</code> will be thrown and a error message will be returned to the user.</p>
+</li>
+<li>
+<p>Else, the <code>Tag List</code> of each student will be loaded and stored in a temporary <code>List</code> variable and the specified tag will be removed from it.
+Then a new student object with the updated <code>Tag List</code> will be replace the original student object. Thus the <code>AddressBook</code> will eventually have the updated list of students where the specified tag have been removed.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logic uses the AddressBookParser class to parse the command.</p>
+</li>
+<li>
+<p>This results in a TagDeleteCommand object which is executed by the LogicManager.</p>
+</li>
+<li>
+<p>The command execution calls the deleteTag method which then affects the Model.</p>
+</li>
+<li>
+<p>The tag is then deleted and the result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.
+The user will see a message on the <code>Command Box</code> in the format: <code>Deleted Tag: [TAG_NAME]</code> and the <code>Tag</code> will be removed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagDeleteSequenceDiagram.png" alt="TagDeleteSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 1. Sequence Diagram of TagDeleteCommand if the specified tag exists.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-tagdeletecommand-code"><a class="link" href="#aspect-implementation-of-code-tagdeletecommand-code">Aspect: Implementation of <code>TagDeleteCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Create a new method in <code>TagDeleteCommand</code> to delete tag</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to understand the structure of <code>TagDeleteCommand</code>.</p>
+</li>
+<li>
+<p>Cons: The <code>deleteTag()</code> function that was implemented would be redundant.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Call the <code>deleteTag()</code> function</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Implementation of the command would be easier as the main algorithm to delete the tag is within the code.</p>
+</li>
+<li>
+<p>Cons: Increases coupling between <code>Model</code> and <code>TagDeleteCommand</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="remark-feature"><a class="link" href="#remark-feature">Remark Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new remark component is added to the person model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagramWithRemark.png" alt="ModelClassDiagramWithRemark" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>This remark feature allows the user to add remarks to the student profile of the specified student.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RemarkClassSequenceDiagram.png" alt="RemarkClassSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 15. Sequence Diagram of AddRemarkCommand</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-remark-code-feature"><a class="link" href="#aspect-implementation-of-the-code-remark-code-feature">Aspect: Implementation of the <code>Remark</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just one method to add and delete the remark.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not create 2 command just to add and delete the remarks.</p>
+</li>
+<li>
+<p>Cons: The remark attached to the student in our student profile would not be able to exceed one line.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-11 19:49:44 UTC
+</div>
+</div>
+</body>
+</html>

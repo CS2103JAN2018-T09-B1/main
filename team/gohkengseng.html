@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Goh Keng Seng - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Goh Keng Seng - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-edubuddy"><a class="link" href="#project-edubuddy">PROJECT: EduBuddy</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EduBuddy is a desktop application designed for secondary school teachers to manage student information better.
+The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement: Added the ability to create appointments and display it on the UI</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to manage and keep track of their appointments easily</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because nowadays, secondary
+school teachers tend to have a rather hectic lifestyle due to added on responsibilities, so this
+feature will help to keep track of any appointments with students in a more organized manner.</p>
+</li>
+<li>
+<p>Credits: External libraries from <a href="https://developers.google.com/calendar/v3/reference/">Google Calendar API</a> was used.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement: added a sort command that allows the user to sort the list of students
+based on different parameters</strong></p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/functional/kengsengg.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/test/kengsengg.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases on GitHub and code integration</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+</li>
+<li>
+<p>Documentation:</p>
+</li>
+<li>
+<p>Community:</p>
+</li>
+<li>
+<p>Tools:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="sorting-all-students-code-sort-code-since-v1-2"><a class="link" href="#sorting-all-students-code-sort-code-since-v1-2">Sorting all students : <code>sort</code> [since v1.2]</a></h3>
+<div class="paragraph">
+<p>Sorts the list of all students in <em>EduBuddy</em> according to the given parameter<br>
+Format: <code>sort PARAMETER</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+List of available PARAMETER: name, tag
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort name</code><br>
+Sorts the list of students by name in alphabetical order (case insensitive).</p>
+</li>
+<li>
+<p><code>sort tag</code><br>
+Sorts the list of students by tag in alphabetical and numerical order (case insensitive)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4"><a class="link" href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></h3>
+<div class="paragraph">
+<p>Creates an appointment (e.g. setting a consultation time slot with students)
+with the student identified by the index number used
+in the last student listing and displays it on the calendar.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>appointment INDEX d/DATE s/START_TIME e/END_TIME</code><br>
+Abbreviation Format: <code>appt INDEX d/DATE s/START_TIME e/END_TIME</code></p>
+</div>
+<div class="ulist IMPORTANT">
+<ul class="IMPORTANT">
+<li>
+<p><code>DATE</code> should be in <strong>DDMMYYYY</strong> format e.g. 25th Dec 2018 would be 25122018.<br></p>
+</li>
+<li>
+<p><code>START_TIME</code> and <code>END_TIME</code> should be in <strong>24 hour</strong> format e.g. 3:30p.m. would be 1530.<br></p>
+</li>
+<li>
+<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After the appointment is successfully created, right click on the calendar and select
+<code>Reload page</code> to see your appointment.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>appointment 1 d/01022018 s/1500 e/1600</code><br>
+Creates an appointment with the 1st student on 1st Feb 2018 from 3p.m. to 4p.m.</p>
+</li>
+<li>
+<p><code>appt 3 d/20042018 s/0930 e/1100</code><br>
+Creates an appointment with the 3rd student on 20th Apr 2018 from 9:30a.m. to 11a.m.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="sort-feature"><a class="link" href="#sort-feature">Sort feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The sorting feature allows the user to sort the list of students according to certain
+parameters like name and tag. After the sorting process has completed, the user will be
+presented with a read only view of the sorted list on the <code>UI</code>, and the state of the
+list will not be modified.</p>
+</div>
+<div class="paragraph">
+<p>The figure below shows the Sequence Diagram for the interactions within the <code>Logic</code>
+component when "sort name" is typed into the <code>CommandBox</code> by the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortCommandSequenceDiagram.png" alt="SortCommandSequenceDiagram" width="650">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses <code>AddressBookParser</code> class to parse the user command,</p>
+</li>
+<li>
+<p>A <code>SortCommand</code> object is created which is then executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command executes and calls the <code>sortPersonList(parameter)</code> method, which then affects
+the <code>Model</code>.</p>
+</li>
+<li>
+<p>After the sorting process has been completed, the result is encapsulated as a
+<code>CommandResult</code> object, which is then passed back to the <code>Ui</code> as a message shown
+to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Below is an example of how the list looks like before and after the command "sort name"
+is executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortCommandByName.png" alt="SortCommandByName" width="650">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-list-appears-after-sorting-is-done-and-the-app-is-restarted"><a class="link" href="#aspect-how-the-list-appears-after-sorting-is-done-and-the-app-is-restarted">Aspect: How the list appears after sorting is done and the app is restarted</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1 (current choice): </strong> List remains in its initial state after each
+restart of the app</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Some users might prefer the default list that was created by themselves e.g. the need
+to track which student was added last.</p>
+</li>
+<li>
+<p>Cons: It will be a hassle to sort the list every time the app starts up if there
+are not many changes to the list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong> Alternative 2: </strong> List is in the sorted form after the app is restarted every time</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces the time taken to sort the list for each start up of the app.</p>
+</li>
+<li>
+<p>Cons: If the default list is required, <code>SortCommand</code> will have to be implemented
+as an <code>UndoableCommand</code> as well.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-11 19:49:44 UTC
+</div>
+</div>
+</body>
+</html>
