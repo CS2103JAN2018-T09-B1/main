@@ -479,6 +479,12 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
+<p>The UI Browser window uses HTML&#8217;s w3.css framework. The layout of the Browser Panel is defined from <code>src/main/resources/StudentPage/template.html</code>.</p>
+</div>
+<div class="paragraph">
+<p>The UI Browser window then reflects the user profile&#8217;s respective HTML file when a user is selected, found in {user.home}/StudentPage.</p>
+</div>
+<div class="paragraph">
 <p>The <code>UI</code> component,</p>
 </div>
 <div class="ulist">
@@ -1310,18 +1316,16 @@ The browser panel can be controlled from the CLI interface, which manipulates th
 of the student selected stored in resources/StudentPage.</p>
 </div>
 <div class="paragraph">
-<p><strong>To Be implemented</strong>
-Creation of a html StudentPage file:</p>
+<p>Creation of a html StudentPage file:</p>
 </div>
 <div class="paragraph">
 <p>After add command is called successfully, a template file from StudentPage will be duplicated as a backup,
 and renamed as the name that is called from the add command.</p>
 </div>
 <div class="paragraph">
-<p><strong>To Be implemented</strong>
-Editing StudentPage file:
-After edit command is called, list of new string will be stored into a javascript file and parsed into the
-html file called by the function.</p>
+<p>Editing StudentPage file:
+After any command that changes the data in the BrowserPanel is called, the HTML file will be stored as a string and edited accordingly.
+The file is then output to {user.home}/StudentPage.</p>
 </div>
 <div class="paragraph">
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
@@ -3294,7 +3298,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 19:49:44 UTC
+Last updated 2018-04-11 20:31:50 UTC
 </div>
 </div>
 </body>
