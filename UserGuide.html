@@ -46,12 +46,14 @@
 <li><a href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.16. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></li>
 <li><a href="#viewing-streaming-score-code-stream-code-since-v1-5">3.17. Viewing streaming score: <code>stream</code> [since v1.5]</a></li>
 <li><a href="#adding-a-cca-to-a-student-code-addcca-code-since-v1-5">3.18. Adding a CCA to a student : <code>addcca</code> [since v1.5]</a></li>
-<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.19. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
-<li><a href="#cca-section-code-coming-in-v2-0-code">3.21. CCA section <code>[coming in v2.0]</code></a></li>
-<li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.22. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">3.23. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.24. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#deleting-a-cca-from-a-student-code-deletecca-code-since-v1-5">3.19. Deleting a CCA from a student : <code>deletecca</code> [since v1.5]</a></li>
+<li><a href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">3.20. Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></li>
+<li><a href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">3.21. Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></li>
+<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.22. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></li>
+<li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.24. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-the-data">3.25. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.26. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -938,14 +940,225 @@ Returns the L1B4-A score obtained by the student based on his/her grades.</p>
 <div class="sect2">
 <h3 id="adding-a-cca-to-a-student-code-addcca-code-since-v1-5"><a class="link" href="#adding-a-cca-to-a-student-code-addcca-code-since-v1-5">3.18. Adding a CCA to a student : <code>addcca</code> [since v1.5]</a></h3>
 <div class="paragraph">
-<p>Adds a CCA to the student records in <em>EduBuddy</em>.<br>
-Format: <code>addcca 1 cca/CCA pos/POSITION</code><br>
-You will be able to see the success message, <code>CCA added: CCA: POSITION</code><br>
+<p>Adds a CCA and the student&#8217;s position in the CCA into the student records in <em>EduBuddy</em>.<br>
+Format: <code>addcca INDEX cca/CCA pos/POSITION</code><br>
+You will be able to see the success message,<br>
+<code>CCA added: CCA: POSITION</code><br>
 <code>Person: NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Adds a CCA and the student&#8217;s position in the CCA to the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>addcca 2 cca/Basketball pos/Member</code><br>
+Adds the cca basketball with the position member to the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>addcca 1 cca/Choir pos/Member</code><br>
+Adds the cca Choir with the position member to the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.19. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
+<h3 id="deleting-a-cca-from-a-student-code-deletecca-code-since-v1-5"><a class="link" href="#deleting-a-cca-from-a-student-code-deletecca-code-since-v1-5">3.19. Deleting a CCA from a student : <code>deletecca</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Deletes a CCA and the student&#8217;s position in the CCA from the student records in <em>EduBuddy</em>.<br>
+Format: <code>deletecca INDEX cca/CCA pos/POSITION</code><br>
+You will be able to see the success message,<br>
+<code>CCA deleted: CCA: POSITION</code><br>
+<code>Person: NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Deletes a CCA and the student&#8217;s position in the CCA from the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>deletecca 2 cca/Basketball pos/Member</code><br>
+Deletes the cca basketball with the position member from the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>addcca 1 cca/Choir pos/Member</code><br>
+Deletes the cca Choir with the position member from the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5"><a class="link" href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">3.20. Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Adds an injury history to the student of the specified index, in the student records in <em>EduBuddy</em>.<br>
+Format: <code>addinjuries INDEX injuries/INJURY</code><br>
+You will be able to see the success message,<br>
+<code>Injuries History added: INJURY</code><br>
+<code>Person: NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Adds an injury history to the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>addinjuries 2 injuries/Dislocated Right Shoulder</code><br>
+Adds the injury, dislocated right shoulder to the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>addinjuries 1 injuries/Right Ligament Tear</code><br>
+Adds the injury, right ligament tear to the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5"><a class="link" href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">3.21. Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Deletes a injury history from the student records in <em>EduBuddy</em>.<br>
+Format: <code>deleteinjuries INDEX injuries/INJURIES</code><br>
+You will be able to see the success message,<br>
+<code>Injuries deleted: INJURIES</code><br>
+<code>Person: NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Deletes a injury history from the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>deleteinjuries 2 injuries/Torn Ligament</code><br>
+Deletes the injury history,torn ligament from the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>deleteinjuries 1 injuries/Dislocated Shoulder</code><br>
+Deletes the injury history from the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.22. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
 <div class="paragraph">
 <p>Clears all student entries from <em>EduBuddy</em>.<br>
 Format: <code>clear</code><br>
@@ -956,7 +1169,7 @@ Abbreviation Format: <code>c</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
@@ -966,16 +1179,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cca-section-code-coming-in-v2-0-code"><a class="link" href="#cca-section-code-coming-in-v2-0-code">3.21. CCA section <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{Allows the teachers to key in which CCA the students are in and to keep track of attendance.}</em></p>
-</div>
-<div class="paragraph">
-<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.22. L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
+<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.24. L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Allows the teachers to key in the levels attained by the student for the various domains in L.E.A.P.S
   to calculate the Co-Curricular Attainment of the student.}</em></p>
@@ -985,7 +1189,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.23. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.25. Saving the data</a></h3>
 <div class="paragraph">
 <p>EduBuddy data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -995,7 +1199,7 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.24. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.26. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1442,7 +1646,7 @@ OR<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 06:02:32 UTC
+Last updated 2018-04-12 09:11:47 UTC
 </div>
 </div>
 </body>
