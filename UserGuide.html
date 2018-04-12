@@ -49,11 +49,12 @@
 <li><a href="#deleting-a-cca-from-a-student-code-deletecca-code-since-v1-5">3.19. Deleting a CCA from a student : <code>deletecca</code> [since v1.5]</a></li>
 <li><a href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">3.20. Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></li>
 <li><a href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">3.21. Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></li>
-<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.22. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></li>
-<li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.24. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">3.25. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.26. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#changing-theme-of-edubuddy-code-theme-code-since-v1-5">3.22. Changing theme of EduBuddy : <code>theme</code> [since v1.5]</a></li>
+<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.23. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></li>
+<li><a href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.25. L.E.A.P.S System <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-the-data">3.26. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.27. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -719,6 +720,20 @@ Abbreviation Format: <code>h</code></p>
 Format: <code>undo</code><br>
 Abbreviation Format: <code>u</code></p>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Use select command after undo command to update Student Profile Page.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1158,7 +1173,46 @@ Deletes the injury history from the 1st student in the results of the <code>find
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.22. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
+<h3 id="changing-theme-of-edubuddy-code-theme-code-since-v1-5"><a class="link" href="#changing-theme-of-edubuddy-code-theme-code-since-v1-5">3.22. Changing theme of EduBuddy : <code>theme</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Changes colour theme of  <em>EduBuddy</em> to dark or light theme.<br>
+Format: <code>theme colour</code><br>
+You will be able to see the success message,<br>
+<code>Theme Changed!</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>colour</code> *must be 'dark' or 'light'
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>theme</code> dark<br>
+Changes visual theme to dark theme.</p>
+</li>
+<li>
+<p><code>theme</code> light<br>
+Changes visual theme to light theme.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.23. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
 <div class="paragraph">
 <p>Clears all student entries from <em>EduBuddy</em>.<br>
 Format: <code>clear</code><br>
@@ -1169,7 +1223,7 @@ Abbreviation Format: <code>c</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
@@ -1179,7 +1233,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.24. L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
+<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code">3.25. L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Allows the teachers to key in the levels attained by the student for the various domains in L.E.A.P.S
   to calculate the Co-Curricular Attainment of the student.}</em></p>
@@ -1189,7 +1243,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.25. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.26. Saving the data</a></h3>
 <div class="paragraph">
 <p>EduBuddy data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1199,7 +1253,7 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.26. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.27. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1627,11 +1681,15 @@ OR<br>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Theme</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Changes theme of EduBuddy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>theme COLOR</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>theme dark</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Undo previous command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code><br>
-OR<br>
-<code>u</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code><br>
 OR<br>
 <code>u</code></p></td>
@@ -1646,7 +1704,7 @@ OR<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 17:25:56 UTC
+Last updated 2018-04-12 20:18:54 UTC
 </div>
 </div>
 </body>

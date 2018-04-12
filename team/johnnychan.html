@@ -148,13 +148,21 @@ and renamed as the name that is called from the add command.</p>
 After any command that changes the data in the BrowserPanel is called, the HTML file will be stored as a string and edited accordingly.
 The file is then output to {user.home}/StudentPage.</p>
 </div>
+<div class="literalblock">
+<div class="content">
+<pre>When a user inputs new data, the selected 'logic' command invokes the addPage and deletePage method from ModelManager.
+From the 'model''s addPage command, 'template.html' from resources/StudentPage is called.
+A new folder is created in {user.home}/StudentPage which creates a 'storage' for the user profile pages.
+These user-profile pages are updated in real time when called by the UI BrowserPanel object.</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 17:25:56 UTC
+Last updated 2018-04-12 20:18:54 UTC
 </div>
 </div>
 </body>
