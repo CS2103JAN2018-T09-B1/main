@@ -36,26 +36,22 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: Added commands which manages student&#8217;s academic information</p>
+<p><strong>Major enhancement</strong>: Added L1R5 and L1B4 calculation support</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does:</p>
+<p>What it does: It helps to calculate the streaming score of each student by looking at the list of subjects assigned to the student.</p>
 </li>
 <li>
-<p>Justification:</p>
-</li>
-<li>
-<p>Highlights:</p>
-</li>
-<li>
-<p>Credits:</p>
+<p>Justification: The streaming score is an important indicator of how well the students are doing academically. The process of calculating the score is tedious as you have to compare across many subjects and grades to obtain the best possible score.
+Therefore, the calculation support just requires the teacher to key in the subject grades for the student and the teacher would be able to view the score easily as the
+calculation support will calculate the score for the teacher.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Created subject database and added L1R5 and L1B4 calculation support</p>
+<p><strong>Minor enhancement</strong>: Created subject database and allow users to add/edit subject details</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/functional/TeyXinHui.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/test/TeyXinHui.md">Test code</a>]</p>
@@ -66,6 +62,13 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 <ul>
 <li>
 <p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Opened, closed, and verified some issues on the issue tracker.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Enhancements to existing features:</p>
@@ -86,12 +89,6 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Community:</p>
-</li>
-<li>
-<p>Tools:</p>
 </li>
 </ul>
 </div>
@@ -121,35 +118,35 @@ you can use this feature to save your troubles.<br>
 You just need to follow the format below and replace the words in "[ ]" with the corresponding subject(s) details.<br>
 Format: <code>addsub INDEX sub/[SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code><br></p>
 </div>
-<div class="ulist NOTE">
-<ul class="NOTE">
-<li>
-<p>Adds subject(s) the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br></p>
-</li>
-<li>
-<p>If you want to view the subjects of the student, please refer to <a href="#Selecting a person : <code>select</code> or <code>s</code>">[Selecting a person : <code>select</code> or <code>s</code>]</a></p>
-</li>
-<li>
-<p>This feature is undoable, so if you need to restore the <em>EduBuddy</em> to the state before you enter this command, type in <code>undo</code>.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-Adds subject(s) the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br>
+-If you want to view the subjects of the student, please refer to <a href="#Selecting a person : <code>select</code> or <code>s</code>">[Selecting a person : <code>select</code> or <code>s</code>]</a><br>
+-This feature is undoable, so if you need to restore the <em>EduBuddy</em> to the state before you enter this command, type in <code>undo</code>.
+</td>
+</tr>
+</table>
 </div>
-<div class="ulist IMPORTANT">
-<ul class="IMPORTANT">
-<li>
-<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;<br></p>
-</li>
-<li>
-<p>There should be a <code>SPACE</code> between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.</p>
-</li>
-<li>
-<p>If the student is already assigned to the subject that you want to add, that subject will not be overwritten.</p>
-</li>
-<li>
-<p>If you have typed in duplicate subjects, for example, <code>addsub 1 sub/English A1 English A1</code>, the system will return an error message as shown in Figure&#8230;&#8203;<br>
-You can remove the duplicate subject (<code>addsub 1 sub/English A1</code>) and press <code>Enter</code> to add the subject(s).</p>
-</li>
-</ul>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;<br>
+-There should be a <code>SPACE</code> between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.<br>
+-If the student is already assigned to the subject that you want to add, that subject will not be overwritten.<br>
+-If you have typed in duplicate subjects, for example, <code>addsub 1 sub/English A1 English A1</code>, the system will return an error message.
+You can remove the duplicate subject (<code>addsub 1 sub/English A1</code>) and press <code>Enter</code> to add the subject(s).
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -253,26 +250,31 @@ Deletes the '4A' tag from every student in the <em>EduBuddy</em>.</p>
 <p>Format: <code>stream INDEX STREAM_TYPE</code>
 You will be able to see a success message in the CommandBox, For example: <code>Student: John Doe. L1R5 Score: 8</code>.</p>
 </div>
-<div class="ulist NOTE">
-<ul class="NOTE">
-<li>
-<p>Selects the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br></p>
-</li>
-<li>
-<p><code>STREAM_TYPE</code> refers to the different streaming categories.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-Selects the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br>
+-<code>STREAM_TYPE</code> refers to the different streaming categories.
+</td>
+</tr>
+</table>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all" style="width: 85%;">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<tbody>
+<thead>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">STREAM_TYPE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Streaming categories</p></td>
+<th class="tableblock halign-left valign-top">STREAM_TYPE</th>
+<th class="tableblock halign-left valign-top">Streaming categories</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">L1R5</p></td>
@@ -295,24 +297,21 @@ You will be able to see a success message in the CommandBox, For example: <code>
 </tr>
 </tbody>
 </table>
-<div class="ulist IMPORTANT">
-<ul class="IMPORTANT">
-<li>
-<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, &#8230;&#8203;</p>
-</li>
-<li>
-<p><code>STREAM_TYPE</code> <strong>must be a positive integer</strong>: 1, 2, 3, 4, 5.</p>
-</li>
-<li>
-<p>The <code>Student</code> should have the right subject combination to calculate the respective score, else you will see that the score is 0.</p>
-</li>
-<li>
-<p>If you want to change the subject details, you can use the <code>Edit</code> feature at <a href="#Editing a student : <code>edit</code> or <code>e</code>">[Editing a student : <code>edit</code> or <code>e</code>]</a>.</p>
-</li>
-<li>
-<p>If you want to add additional subjects later, you can use the the <code>AddSubject</code> feature at <a href="#Add subjects to a student : <code>addsub</code>">[Add subjects to a student : <code>addsub</code>]</a>.</p>
-</li>
-</ul>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, &#8230;&#8203;
+-<code>STREAM_TYPE</code> <strong>must be a positive integer</strong>: 1, 2, 3, 4, 5.
+-The <code>Student</code> should have the right subject combination to calculate the respective score, else you will see that the score is 0.
+-If you want to change the subject details, you can use the <code>Edit</code> feature at <a href="#Editing a student : <code>edit</code> or <code>e</code>">[Editing a student : <code>edit</code> or <code>e</code>]</a>.
+-If you want to add additional subjects later, you can use the the <code>AddSubject</code> feature at <a href="#Add subjects to a student : <code>addsub</code>">[Add subjects to a student : <code>addsub</code>]</a>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -740,7 +739,7 @@ As the students are required to take at least 6 subjects, the subjects will be s
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 16:16:48 UTC
+Last updated 2018-04-14 18:19:10 UTC
 </div>
 </div>
 </body>

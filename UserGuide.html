@@ -182,28 +182,32 @@ this feature allows you to add a student and his/her details to <em>EduBuddy</em
 Format: <code>add n/NAME ic/NRIC nok/NAME_OF_KIN [t/CLASS] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code><br>
 Abbreviation Format: <code>a n/NAME ic/NRIC nok/NAME_OF_KIN [t/CLASS] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code></p>
 </div>
-<div class="ulist NOTE">
-<ul class="NOTE">
-<li>
-<p>For more examples on what subjects and subject grades can be added, please refer to the <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> section below.</p>
-</li>
-<li>
-<p>If you want to change the students' details later, you can use the <code>Edit</code> feature at <a href="#editing-a-student-code-edit-code-or-code-e-code">Section 3.5, &#8220;Editing a student : <code>edit</code> or <code>e</code>&#8221;</a>.</p>
-</li>
-<li>
-<p>If you want to add additional subjects later, you can use the the <code>AddSubject</code> feature at <a href="#adding-subjects-to-a-student-code-addsub-code-since-v1-5">Section 3.6, &#8220;Adding subjects to a student : <code>addsub</code> [since v1.5]&#8221;</a></p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-For more examples on what subjects and subject grades can be added, please refer to the <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> section below.<br>
+-If you want to change the students' details later, you can use the <code>Edit</code> feature at <a href="#editing-a-student-code-edit-code-or-code-e-code">Section 3.5, &#8220;Editing a student : <code>edit</code> or <code>e</code>&#8221;</a>.<br>
+-If you want to add additional subjects later, you can use the the <code>AddSubject</code> feature at <a href="#adding-subjects-to-a-student-code-addsub-code-since-v1-5">Section 3.6, &#8220;Adding subjects to a student : <code>addsub</code> [since v1.5]&#8221;</a>
+</td>
+</tr>
+</table>
 </div>
-<div class="ulist IMPORTANT">
-<ul class="IMPORTANT">
-<li>
-<p>When adding a student, at least a <code>NAME</code>, a <code>NRIC</code> and a <code>NAME_OF_KIN</code> should be provided.<br></p>
-</li>
-<li>
-<p>A <code>SPACE</code> should be inserted between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.<br></p>
-</li>
-</ul>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+-When adding a student, at least a <code>NAME</code>, a <code>NRIC</code> and a <code>NAME_OF_KIN</code> should be provided.<br>
+-A <code>SPACE</code> should be inserted between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -301,18 +305,19 @@ Edits the student at the specified <code>INDEX</code>. The index refers to the i
 </tr>
 </table>
 </div>
-<div class="ulist IMPORTANT">
-<ul class="IMPORTANT">
-<li>
-<p>At least one of the optional fields must be provided.<br></p>
-</li>
-<li>
-<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;<br></p>
-</li>
-<li>
-<p>When editing the fields, for example: subjects, the previous information will be overwritten by the new subjects.</p>
-</li>
-</ul>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+-At least one of the optional fields must be provided.<br>
+-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;<br>
+-When editing the fields, for example: subjects, the previous information will be overwritten by the new subjects.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -347,35 +352,35 @@ you can use this feature to save your troubles.<br>
 You just need to follow the format below and replace the words in "[ ]" with the corresponding subject(s) details.<br>
 Format: <code>addsub INDEX sub/[SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code><br></p>
 </div>
-<div class="ulist NOTE">
-<ul class="NOTE">
-<li>
-<p>Adds subject(s) the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br></p>
-</li>
-<li>
-<p>If you want to view the subjects of the student, please refer to <a href="#selecting-a-person-code-select-code-or-code-s-code">Section 3.13, &#8220;Selecting a person : <code>select</code> or <code>s</code>&#8221;</a></p>
-</li>
-<li>
-<p>This feature is undoable, so if you need to restore the <em>EduBuddy</em> to the state before you enter this command, type in <code>undo</code>.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-Adds subject(s) the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br>
+-If you want to view the subjects of the student, please refer to <a href="#selecting-a-person-code-select-code-or-code-s-code">Section 3.13, &#8220;Selecting a person : <code>select</code> or <code>s</code>&#8221;</a><br>
+-This feature is undoable, so if you need to restore the <em>EduBuddy</em> to the state before you enter this command, type in <code>undo</code>.
+</td>
+</tr>
+</table>
 </div>
-<div class="ulist IMPORTANT">
-<ul class="IMPORTANT">
-<li>
-<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;<br></p>
-</li>
-<li>
-<p>There should be a <code>SPACE</code> between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.</p>
-</li>
-<li>
-<p>If the student is already assigned to the subject that you want to add, that subject will not be overwritten.</p>
-</li>
-<li>
-<p>If you have typed in duplicate subjects, for example, <code>addsub 1 sub/English A1 English A1</code>, the system will return an error message as shown in Figure&#8230;&#8203;<br>
-You can remove the duplicate subject (<code>addsub 1 sub/English A1</code>) and press <code>Enter</code> to add the subject(s).</p>
-</li>
-</ul>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;<br>
+-There should be a <code>SPACE</code> between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.<br>
+-If the student is already assigned to the subject that you want to add, that subject will not be overwritten.<br>
+-If you have typed in duplicate subjects, for example, <code>addsub 1 sub/English A1 English A1</code>, the system will return an error message.
+You can remove the duplicate subject (<code>addsub 1 sub/English A1</code>) and press <code>Enter</code> to add the subject(s).
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -434,9 +439,9 @@ Abbreviation Format: <code>f KEYWORD [MORE_KEYWORDS]</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code>.<br>
-The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code>.<br>
-Students matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code>.
+-The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code>.<br>
+-The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code>.<br>
+-Students matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code>.
 </td>
 </tr>
 </table>
@@ -480,15 +485,18 @@ you can remove the student&#8217;s details from <em>EduBuddy</em> using this fea
 Format: <code>delete INDEX</code><br>
 Abbreviation Format: <code>d INDEX</code></p>
 </div>
-<div class="ulist NOTE">
-<ul class="NOTE">
-<li>
-<p>Deletes the student at the specified <code>INDEX</code>.<br></p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-Deletes the student at the specified <code>INDEX</code>.<br>
+-The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -730,15 +738,18 @@ Deletes the remark, Class Monitor, from the 2nd student in EduBuddy.</p>
 Format: <code>select INDEX</code><br>
 Abbreviation Format: <code>s INDEX</code></p>
 </div>
-<div class="ulist NOTE">
-<ul class="NOTE">
-<li>
-<p>Selects the student and loads the student profile of the student at the specified <code>INDEX</code>.<br></p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-Selects the student and loads the student profile of the student at the specified <code>INDEX</code>.<br>
+-The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -916,18 +927,19 @@ in the last student listing and displays it on the calendar.</p>
 <p>Format: <code>appointment INDEX d/DATE s/START_TIME e/END_TIME</code><br>
 Abbreviation Format: <code>appt INDEX d/DATE s/START_TIME e/END_TIME</code></p>
 </div>
-<div class="ulist IMPORTANT">
-<ul class="IMPORTANT">
-<li>
-<p><code>DATE</code> should be in <strong>DDMMYYYY</strong> format e.g. 25th Dec 2018 would be 25122018.<br></p>
-</li>
-<li>
-<p><code>START_TIME</code> and <code>END_TIME</code> should be in <strong>24 hour</strong> format e.g. 3:30p.m. would be 1530.<br></p>
-</li>
-<li>
-<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+-<code>DATE</code> should be in <strong>DDMMYYYY</strong> format e.g. 25th Dec 2018 would be 25122018.<br>
+-<code>START_TIME</code> and <code>END_TIME</code> should be in <strong>24 hour</strong> format e.g. 3:30p.m. would be 1530.<br>
+-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -968,26 +980,31 @@ Creates an appointment with the 3rd student on 20th Apr 2018 from 9:30a.m. to 11
 <p>Format: <code>stream INDEX STREAM_TYPE</code>
 You will be able to see a success message in the CommandBox, For example: <code>Student: John Doe. L1R5 Score: 8</code>.</p>
 </div>
-<div class="ulist NOTE">
-<ul class="NOTE">
-<li>
-<p>Selects the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br></p>
-</li>
-<li>
-<p><code>STREAM_TYPE</code> refers to the different streaming categories.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-Selects the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br>
+-<code>STREAM_TYPE</code> refers to the different streaming categories.
+</td>
+</tr>
+</table>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all" style="width: 85%;">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<tbody>
+<thead>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">STREAM_TYPE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Streaming categories</p></td>
+<th class="tableblock halign-left valign-top">STREAM_TYPE</th>
+<th class="tableblock halign-left valign-top">Streaming categories</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">L1R5</p></td>
@@ -1010,24 +1027,21 @@ You will be able to see a success message in the CommandBox, For example: <code>
 </tr>
 </tbody>
 </table>
-<div class="ulist IMPORTANT">
-<ul class="IMPORTANT">
-<li>
-<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, &#8230;&#8203;</p>
-</li>
-<li>
-<p><code>STREAM_TYPE</code> <strong>must be a positive integer</strong>: 1, 2, 3, 4, 5.</p>
-</li>
-<li>
-<p>The <code>Student</code> should have the right subject combination to calculate the respective score, else you will see that the score is 0.</p>
-</li>
-<li>
-<p>If you want to change the subject details, you can use the <code>Edit</code> feature at <a href="#editing-a-student-code-edit-code-or-code-e-code">Section 3.5, &#8220;Editing a student : <code>edit</code> or <code>e</code>&#8221;</a>.</p>
-</li>
-<li>
-<p>If you want to add additional subjects later, you can use the the <code>AddSubject</code> feature at <a href="#Add subjects to a student : <code>addsub</code>">[Add subjects to a student : <code>addsub</code>]</a>.</p>
-</li>
-</ul>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, &#8230;&#8203;
+-<code>STREAM_TYPE</code> <strong>must be a positive integer</strong>: 1, 2, 3, 4, 5.
+-The <code>Student</code> should have the right subject combination to calculate the respective score, else you will see that the score is 0.
+-If you want to change the subject details, you can use the <code>Edit</code> feature at <a href="#editing-a-student-code-edit-code-or-code-e-code">Section 3.5, &#8220;Editing a student : <code>edit</code> or <code>e</code>&#8221;</a>.
+-If you want to add additional subjects later, you can use the the <code>AddSubject</code> feature at <a href="#Add subjects to a student : <code>addsub</code>">[Add subjects to a student : <code>addsub</code>]</a>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1064,8 +1078,8 @@ You will be able to see the success message,<br>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Adds a CCA and the student&#8217;s position in the CCA to the student at the specified <code>INDEX</code>.<br>
-The index refers to the index number shown in the most recent listing.
+-Adds a CCA and the student&#8217;s position in the CCA to the student at the specified <code>INDEX</code>.<br>
+-The index refers to the index number shown in the most recent listing.
 </td>
 </tr>
 </table>
@@ -1119,8 +1133,8 @@ You will be able to see the success message,<br>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Deletes a CCA and the student&#8217;s position in the CCA from the student at the specified <code>INDEX</code>.<br>
-The index refers to the index number shown in the most recent listing.
+-Deletes a CCA and the student&#8217;s position in the CCA from the student at the specified <code>INDEX</code>.<br>
+-The index refers to the index number shown in the most recent listing.
 </td>
 </tr>
 </table>
@@ -1174,8 +1188,8 @@ You will be able to see the success message,<br>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Adds an injury history to the student at the specified <code>INDEX</code>.<br>
-The index refers to the index number shown in the most recent listing.
+-Adds an injury history to the student at the specified <code>INDEX</code>.<br>
+-The index refers to the index number shown in the most recent listing.
 </td>
 </tr>
 </table>
@@ -1229,8 +1243,8 @@ You will be able to see the success message,<br>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Deletes a injury history from the student at the specified <code>INDEX</code>.<br>
-The index refers to the index number shown in the most recent listing.
+-Deletes a injury history from the student at the specified <code>INDEX</code>.<br>
+-The index refers to the index number shown in the most recent listing.
 </td>
 </tr>
 </table>
@@ -1806,7 +1820,7 @@ OR<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 16:16:48 UTC
+Last updated 2018-04-14 18:19:10 UTC
 </div>
 </div>
 </body>
