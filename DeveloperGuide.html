@@ -50,12 +50,13 @@
 <li><a href="#tagreplace-feature">4.3. TagReplace feature</a></li>
 <li><a href="#subject-streaming-calculation-feature">4.4. Subject streaming calculation feature</a></li>
 <li><a href="#mass-tag-removal-feature">4.5. Mass Tag Removal feature</a></li>
-<li><a href="#proposed-data-encryption">4.6. [Proposed] Data Encryption</a></li>
-<li><a href="#browser-panel-revamp">4.7. Browser Panel Revamp</a></li>
-<li><a href="#theme-feature">4.8. Theme Feature</a></li>
-<li><a href="#remark-feature">4.9. Remark Feature</a></li>
-<li><a href="#logging">4.10. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.11. Configuration</a></li>
+<li><a href="#addsubjectcommand-feature">4.6. AddSubjectCommand feature</a></li>
+<li><a href="#proposed-data-encryption">4.7. [Proposed] Data Encryption</a></li>
+<li><a href="#browser-panel-revamp">4.8. Browser Panel Revamp</a></li>
+<li><a href="#theme-feature">4.9. Theme Feature</a></li>
+<li><a href="#remark-feature">4.10. Remark Feature</a></li>
+<li><a href="#logging">4.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1080,22 +1081,56 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The subject streaming calculation features will be supported by calculation algorithms, <code>calculateL1R5</code> and <code>calculateL1B4</code> , which will be located in <code>Person.java</code>. The calculation algorithm will be called by the <code>SelectCommand</code>.
-It will help to analyse the subjects that are assigned to the student, and determine which combination of subjects will produce the lowest <code>L1R5</code> or <code>L1B4</code> score. The score will then be projected in the <code>Command Box</code>.</p>
+<p>The subject streaming calculation features will be supported by calculation algorithms, <code>calculateL1R5</code>, <code>calculateL1B4A</code>, <code>calculateL1B4B, `calculateL1B4C</code> and <code>calculateL1B4D, which will be located in `Person.java</code>. The calculation algorithm will be called by the <code>SelectCommand</code>.
+It will help to analyse the subjects that are assigned to the student, and determine which combination of subjects will produce the lowest <code>L1R5</code>, <code>L1B4A</code>, <code>L1B4B</code>, <code>L1B4C</code> or <code>L1B4D</code> score respectively. The score will then be projected in the <code>Command Box</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/EditSelectCommandMarks.png" alt="EditSelectCommandMarks" width="800">
+<img src="images/StreamCommand.png" alt="StreamCommand" width="700">
 </div>
 <div class="title">Figure 11. Sequence Diagram of implementation of Subject streaming calculation</div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>In <code>StreamCommandParser</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>When the <code>SelectCommand</code> is executing, it retrieves the <code>Student</code> object that the user was referencing to and calls the <code>calculateL1R5/L1B4</code> method.</p>
+<p>The user will key in the necessary command, <code>stream INDEX STREAM_TYPE</code> to call the <code>StreamCommand</code>.</p>
 </li>
 <li>
-<p>In the calculation method, it will store the subject list of the student in <code>List&lt;Subject&gt; subjects</code> and loop through the list according to the <code>L1</code> subject category.</p>
+<p>The Logic uses the AddressBookParser to parse the command to <code>StreamCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>StreamCommandParser</code> will take in the values and return a new <code>StreamCommand</code> object, with the parameters, <code>index</code> and <code>type</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In <code>StreamCommand</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>StreamCommand</code> is executing, it retrieves the <code>Person</code> object that the user was referencing to using the <code>index</code> parameter
+and pass in the <code>Person</code> object and <code>type</code> parameter into a <code>scoreCalculation()</code> method.</p>
+</li>
+<li>
+<p>In the <code>scoreCalculation</code> method, the method will determine what type of streaming score the user wants to get using the <code>type</code> paramter.</p>
+</li>
+<li>
+<p>Then the necessary calculation algorithm in the <code>Person.java</code> will be called.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In <code>Person.java</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the calculation algorithm, it will store the subject list of the student in <code>List&lt;Subject&gt; subjects</code> and loop through the list according to the <code>L1</code> subject category.</p>
 </li>
 <li>
 <p>The relevant subjects of the subject category will be saved in a temporary <code>List&lt;Subject&gt; subjectsToCheck</code> and the list will be passed into a <code>checkLowest()</code> method.</p>
@@ -1111,6 +1146,9 @@ It will help to analyse the subjects that are assigned to the student, and deter
 </li>
 </ol>
 </div>
+</li>
+</ul>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1118,7 +1156,7 @@ It will help to analyse the subjects that are assigned to the student, and deter
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The subjects and their respective grades can be assigned to the students by the <code>AddCommand</code>, with a subject prefix <code>sub/</code> followed by the <code>Subject Name</code> and <code>Subject Grade</code>.
+The subjects and their respective grades can be assigned to the students by the <code>AddCommand</code>, <code>EditCommand</code> or <code>AddSubjectCommand</code>, with a subject prefix <code>sub/</code> followed by the <code>Subject Name</code> and <code>Subject Grade</code>.
 As the students are required to take at least 6 subjects, the subjects will be stored in as a parameter of each individual student as a <code>List&lt;Subject&gt;</code>.
 </td>
 </tr>
@@ -1129,7 +1167,7 @@ As the students are required to take at least 6 subjects, the subjects will be s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> Add new command classes <code>L1R5Command</code> and <code>L1B4Command</code></p>
+<p><strong>Alternative 1 (current choice):</strong> Add new command class <code>StreamCommand</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1142,7 +1180,7 @@ As the students are required to take at least 6 subjects, the subjects will be s
 </div>
 </li>
 <li>
-<p><strong>Alternative 2 (current choice):</strong> Just override <code>execute()</code> of <code>SelectCommand</code></p>
+<p><strong>Alternative 2 :</strong> Just override <code>execute()</code> of <code>SelectCommand</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1179,7 +1217,7 @@ As the students are required to take at least 6 subjects, the subjects will be s
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduce the amount of coupling between <code>SelectCommand</code> and <code>Person</code>.</p>
+<p>Pros: Reduce the amount of coupling between <code>SelectCommand</code> and <code>Model</code>.</p>
 </li>
 <li>
 <p>Cons: Makes the <code>SelectCommand</code> more complicated as it is performing more than it should.</p>
@@ -1200,7 +1238,7 @@ As the students are required to take at least 6 subjects, the subjects will be s
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The Mass Tag Removal feature is supported through the suggested Tag Removal feature for the Model Component in <a href="#GetStartedProgramming-EachComponent">Section 8, &#8220;Product Scope&#8221;</a>.
+<p>The Mass Tag Removal feature is supported through the suggested Tag Removal feature in the Model Component.
 The command <code>TagDeleteCommand</code> is implemented to call the <code>deleteTag()</code> function in the <code>Model</code> interface.
 The <code>deleteTag()</code> function will loop through the students in the <code>AddressBook</code> and will remove the specified Tag from every student that has the specified Tag and the students' <code>Tag List</code> will be updated.</p>
 </div>
@@ -1216,29 +1254,38 @@ The <code>deleteTag()</code> function will be called and loops through the stude
 <li>
 <p>Else, the <code>Tag List</code> of each student will be loaded and stored in a temporary <code>List</code> variable and the specified tag will be removed from it.
 Then a new student object with the updated <code>Tag List</code> will be replace the original student object. Thus the <code>AddressBook</code> will eventually have the updated list of students where the specified tag have been removed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Parser</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Logic uses the AddressBookParser class to parse the command.</p>
+<p>Logic uses the AddressBookParser class to parse the command into <code>TagDeleteCommandParser</code>.</p>
 </li>
 <li>
-<p>This results in a TagDeleteCommand object which is executed by the LogicManager.</p>
+<p>The parser will then return a new TagDeleteCommand object with the parameter <code>tagName</code> which is executed by the LogicManager.</p>
 </li>
 <li>
-<p>The command execution calls the deleteTag method which then affects the Model.</p>
+<p>The command execution calls the deleteTag method which then cycle through the list of students in the <em>EduBuddy</em> and removes the tags containing the <code>tagName</code> from the students.</p>
 </li>
 <li>
-<p>The tag is then deleted and the result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.
-The user will see a message on the <code>Command Box</code> in the format: <code>Deleted Tag: [TAG_NAME]</code> and the <code>Tag</code> will be removed.</p>
+<p>The tag is then deleted and the result of the command execution will be returned as a CommandResult object which is passed back to the Ui.</p>
+</li>
+<li>
+<p>The user will see a message on the <code>Command Box</code> in the format: <code>Deleted Tag: [TAG_NAME]</code> and the <code>Tag</code> will be removed.</p>
 </li>
 </ol>
 </div>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagDeleteSequenceDiagram.png" alt="TagDeleteSequenceDiagram" width="800">
+<img src="images/TagDeleteCommandSequenceDiagram.png" alt="TagDeleteCommandSequenceDiagram" width="800">
 </div>
 <div class="title">Figure 12. Sequence Diagram of TagDeleteCommand if the specified tag exists.</div>
 </div>
@@ -1284,24 +1331,169 @@ The user will see a message on the <code>Command Box</code> in the format: <code
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.6. [Proposed] Data Encryption</a></h3>
+<h3 id="addsubjectcommand-feature"><a class="link" href="#addsubjectcommand-feature">4.6. AddSubjectCommand feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The AddSubjectCommand feature is located in the <code>Logic</code> component.
+The <code>AddSubjectCommand</code> can be used when the user inputs <code>addsub INDEX sub/[SUBJECT_NAME SUBJECT_GRADE&#8230;&#8203;]</code> in the <code>Command Box</code>. When the user input fulfils the criteria of the expected input format, the command will execute.
+The command will then find the student located at the specified <code>INDEX</code> and creates a new student with the previous details of the selected student.
+The new student will have the updated <code>Set&lt;Subject&gt;</code> and will replace the selected student in the <em>EduBuddy</em>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the student already possess the subject that was keyed in, the subject will not be added to the subject list of the student. This is to prevent the student having duplicate subjects assigned to him/her.</p>
+</li>
+<li>
+<p>If the user typed in duplicate subjects in the input, for example: <code>addsub 1 sub/English A1 English A1</code>, an <code>IllegalValueException</code> will be thrown and an error message, "There should not be duplicate subject(s) assigned to student."</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Parser</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logic uses the <code>AddressBookParser</code> class to parse the command into <code>AddSubjectCommandParser</code>.</p>
+</li>
+<li>
+<p>The parser will first parse the <code>INDEX</code> and <code>subjects</code> using the <code>parseIndex</code> and <code>parseSubjects</code> in the <code>ParserUtil</code> class, to check if they are valid inputs.</p>
+</li>
+<li>
+<p>The parser will then creates a new <code>AddSubjectCommand</code> object with the attributes <code>index</code> and <code>editPersonDescriptor</code>, which is executed by the LogicManager.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In <code>AddSubjectCommand</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The command execution of <code>AddSubjectCommand</code> will create a new student object using a <code>createEditedPerson()</code> method, which will call <code>checkIfSubjectExists()</code> method.</p>
+</li>
+<li>
+<p>The method will check if the subjects to be added exist in the original list of subjects assigned to the student. A boolean variable <code>isPresent</code> will keep be used to indicate if the subjects exist.</p>
+</li>
+<li>
+<p>If <code>isPresent</code> is false, the subjects will be added to a new <code>Set&lt;Subject&gt;</code> object which contains the both the new and old subjects of the student.</p>
+</li>
+<li>
+<p>A new student containing the previous details and the updated subject list will be created and replace the selected student in the <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p>The result of the command execution will be returned as a CommandResult object which is passed back to the Ui.</p>
+</li>
+<li>
+<p>The user will see a message on the <code>Command Box</code> in the format: <code>Edited Person: [NAME]. Updated Subjects: [SUBJECT_NAME SUBJECT_GRADE]&#8230;&#8203;</code> will be removed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddSubjectCommandActivityDiagram.png" alt="AddSubjectCommandActivityDiagram" width="800">
+</div>
+<div class="title">Figure 13. Sequence Diagram of AddSubjectCommand</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-addsubjectcommand-code"><a class="link" href="#aspect-implementation-of-code-addsubjectcommand-code">Aspect: Implementation of <code>AddSubjectCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> The user continues to use the <code>AddCommand</code> to add all the subjects at one time or use <code>EditCommand</code> to change the subjects details.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive for the user as the commands do what the user expects from their names.</p>
+</li>
+<li>
+<p>Cons: The user have to key in a long command line as each student has to be assigned to at least 6 subjects.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Create a new <code>AddSubjectCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The user just needs to type in the subjects that he/she did not add earlier.</p>
+</li>
+<li>
+<p>Cons: More commands for the user to remember.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-the-number-of-people-that-the-user-can-add-subjects-to-using-the-command"><a class="link" href="#aspect-the-number-of-people-that-the-user-can-add-subjects-to-using-the-command">Aspect: The number of people that the user can add subjects to using the command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> The command can be implemented as a mass adding command, where the subjects keyed in can be added to all the students in <em>EduBuddy</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It would be convenient as the teacher do not need to key in similar subjects for everyone.</p>
+</li>
+<li>
+<p>Cons: The students may have different subject combination and different grades for different subjects, and this consideration neglects this fact.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> The command can only add to one specified student at a time.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The algorithm will be slightly less complicated and easier to implement.</p>
+</li>
+<li>
+<p>Cons: Depending on the situation, the user may want a mass adding feature implemented as it would be more convenient.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="browser-panel-revamp"><a class="link" href="#browser-panel-revamp">4.7. Browser Panel Revamp</a></h3>
+<h3 id="browser-panel-revamp"><a class="link" href="#browser-panel-revamp">4.8. Browser Panel Revamp</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/browser1.png" alt="browser1" width="600">
 </div>
-<div class="title">Figure 13. First Half of Browser Panel</div>
+<div class="title">Figure 14. First Half of Browser Panel</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/browser2.png" alt="browser2" width="600">
 </div>
-<div class="title">Figure 14. Second Half of Browser Panel</div>
+<div class="title">Figure 15. Second Half of Browser Panel</div>
 </div>
 <div class="paragraph">
 <p>We will use a html page with w3.css framework support to implement the new Browser Panel.
@@ -1336,9 +1528,9 @@ These user-profile pages are updated in real time when called by the UI BrowserP
 </div>
 </div>
 <div class="sect2">
-<h3 id="theme-feature"><a class="link" href="#theme-feature">4.8. Theme Feature</a></h3>
+<h3 id="theme-feature"><a class="link" href="#theme-feature">4.9. Theme Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The theme command is a command that changes the theme of the program.
 The input from the user would be parsed with a dedicated parser class 'ChangeThemeCommandParser'.
@@ -1363,7 +1555,7 @@ The themes are found in resources/view.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.8.2. Design Considerations.</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.9.2. Design Considerations.</a></h4>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-tag-replace-command-2"><a class="link" href="#aspect-data-structure-to-support-the-tag-replace-command-2">Aspect: Data structure to support the tag replace command</a></h5>
 <div class="ulist">
@@ -1391,9 +1583,9 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remark-feature"><a class="link" href="#remark-feature">4.9. Remark Feature</a></h3>
+<h3 id="remark-feature"><a class="link" href="#remark-feature">4.10. Remark Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A new remark component is added to the person model.</p>
 </div>
@@ -1415,7 +1607,7 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-the-code-remark-code-feature"><a class="link" href="#aspect-implementation-of-the-code-remark-code-feature">Aspect: Implementation of the <code>Remark</code> feature</a></h5>
 <div class="ulist">
@@ -1442,14 +1634,14 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.10. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.11, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1480,7 +1672,7 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.11. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1549,7 +1741,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 16. Saving documentation as PDF files in Chrome</div>
 </div>
 <div class="paragraph">
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
@@ -1886,12 +2078,6 @@ b. Require developers to download those libraries manually (this creates extra w
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort students' results</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know who are the ones that need more academic help easily</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">update students' classes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know which classes they are in easily</p></td>
 </tr>
@@ -1972,12 +2158,6 @@ b. Require developers to download those libraries manually (this creates extra w
 <td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">view the student&#8217;s injuries history</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to know the need of my students.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know which subjects that I have taught them before</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">customize my teaching methods for different students</p></td>
 </tr>
 </tbody>
 </table>
@@ -2214,7 +2394,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </li>
 </ul>
 </div>
-<h3 id="use-case-update-students-academic-results" class="discrete">Use case: Update students' academic results</h3>
+<h3 id="use-case-add-students-academic-results" class="discrete">Use case: Add students' academic results</h3>
 <div class="paragraph">
 <p><strong>Main Success Scenario</strong></p>
 </div>
@@ -2227,7 +2407,7 @@ b. Require developers to download those libraries manually (this creates extra w
 <p>AddressBook shows a list of persons</p>
 </li>
 <li>
-<p>User requests to update students' academic results</p>
+<p>User requests to update students' academic results using <code>AddCommand</code></p>
 </li>
 <li>
 <p>AddressBook shows updated details of academic results</p>
@@ -2254,6 +2434,16 @@ b. Require developers to download those libraries manually (this creates extra w
 <ul class="none">
 <li>
 <p>3a1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given subject(s) is/are invalid, for example, the name or the grade.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2263,7 +2453,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </li>
 </ul>
 </div>
-<h3 id="use-case-sort-students-by-the-students-academic-streaming-results" class="discrete">Use case: Sort students by the students' academic streaming results</h3>
+<h3 id="use-case-view-students-academic-results" class="discrete">Use case: View students' academic results</h3>
 <div class="paragraph">
 <p><strong>Main Success Scenario</strong></p>
 </div>
@@ -2276,10 +2466,10 @@ b. Require developers to download those libraries manually (this creates extra w
 <p>AddressBook shows a list of persons</p>
 </li>
 <li>
-<p>User requests to sort students by students' academic results</p>
+<p>User requests to view students' academic results using <code>SelectCommand</code></p>
 </li>
 <li>
-<p>AddressBook shows sorted list of students</p>
+<p>AddressBook shows updated details of academic results</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2298,11 +2488,159 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </li>
 <li>
-<p>3a. Students do not have subjects assigned to them.</p>
+<p>3a. The given index is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3a1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. No subjects are assigned to the student.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. UI shows an empty list of subjects.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-view-students-streaming-results" class="discrete">Use case: View students' streaming results</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list or find persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to view students' streaming results using <code>SelectCommand</code> or <code>StreamCommand</code></p>
+</li>
+<li>
+<p>AddressBook shows updated details of streaming results</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index or parameter is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. No subjects are assigned to the student.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. Streaming results will be shown as zero.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. Not enough subjects are assigned to the student.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. Streaming results will be shown as zero.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-update-students-academic-results" class="discrete">Use case: Update students' academic results</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list or find persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to update students' academic results using <code>EditCommand</code> or <code>AddSubjectCommand</code></p>
+</li>
+<li>
+<p>AddressBook shows updated details of academic results</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given subject(s) is/are invalid, for example, the name or the grade.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. There are duplicate subjects in the user input.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2344,6 +2682,10 @@ without a noticeable sluggishness in performance for typical usage.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1">[[CCA}} CCA</dt>
+<dd>
+<p>CCA stands for Co-Curricular Activities. It functions as a non-academic activity where students can have a more enriching experience in school. Find out more by clicking <a href="https://www.moe.gov.sg/education/programmes/co-curricular-activities">here</a>.</p>
+</dd>
 <dt class="hdlist1"><a id="Grade"></a> Grade</dt>
 <dd>
 <p>The grading of the subjects by the level of competence the students show during the "O-Level examination".
@@ -2408,13 +2750,33 @@ The level of achievement in each subject is indicated by the grade obtained, wit
 <p>A grading system for Secondary School students taking "O-Level Examination" at the end of their four years of studies in Secondary School.
 The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education, Polytechnic.
 <code>L1</code> represents the First language subject and <code>B4</code> represents 2 relevant subjects, according to the polytechnic course applied, and 2 other best subjects.
+The category the relevant subject is under(for example: L1B4-A, L1B4-B, L1B4-C, L1B4D), will determine which subjects are the relevant subjects.
 The score will be calculated by considering the subjects' grades. Each subject can only be considered once.</p>
 </dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>If you want to find out more about the subject categories (L1B4-A, L1B4-B, L1B4-C, L1B4D),
+please visit:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.sp.edu.sg/wps/portal/vp-spws/!ut/p/a0/04_Sj9CPykssy0xPLMnMz0vMAfGjzOJDPUxdjdxMTQws3J1cDDwt_MJMXZxDDE3cDfQLsh0VAYY7oWE!/?PC_Z7_UH5E2F540G6P00IO8K5AU61JM5027774_WCM_CONTEXT=/wps/wcm/connect/lib-spws/site-spwebsite/future+students/admissions/selection+criteria+for+gce+o+level+holders+-aggregate+computation+%28admissions+-+course+intakes+and+cut-off+points%29">Singapore Polytechnic</a></p>
+</li>
+<li>
+<p><a href="http://www.tp.edu.sg/admissions/gce-o-level-aggregate-scores-computation">Temasek Polytechnic</a></p>
+</li>
+<li>
+<p><a href="https://www.moe.gov.sg/education/post-secondary#polytechnics">Other Polytechnics</a></p>
+<div class="dlist">
+<dl>
 <dt class="hdlist1"><a id="L1R5"></a> L1R5</dt>
 <dd>
-<p>A grading system for Secondary School students taking "O-Level Examination" at the end of their four years of studies in Secondary School.
-The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education, Junior College.
-<code>L1</code> represents the First language subject and <code>R5</code> represents 5 relevant subjects. The score will be calculated by considering the subjects' grades. Each subject can only be considered once.</p>
+<p>1R5 is a grading system used in Singapore to determine the secondary school students' proficiency in the subjects taken for "O-Level Examination".
+The score is used for the students to enroll into Junior Colleges, which is the next higher level of education. "L1" refers to the first language subject taken by the student, while "R5" refers to the 5 relevant subjects that are examinable by the students.
+The grade of L1R5 is then determined by taking the best grades of each category and summing them up, for example, if a student scores A1 for all 6 subjects are from each category, the score will be 6. Each subject can only be considered once.
+For more information, please click <a href="https://www.moe.gov.sg/admissions/direct-admissions/dsa-jc/eligibility">here</a></p>
 </dd>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
@@ -2437,23 +2799,25 @@ The score obtained from the grading system will be used to determine the eligibi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The subjects in the brackets are not to be used as input. The subjects not in brackets are preferred for better efficiency in typing.
+The subjects in the brackets are not to be used as input. The subjects not in brackets are preferred for better efficiency in typing.<br>
+For example, type in: <code>Hist A1</code> <strong>not</strong> <code>History A1</code>
 </td>
 </tr>
 </table>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 85%;">
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 48.8888%;">
-<col style="width: 51.1112%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Subject Category</th>
-<th class="tableblock halign-left valign-top">Subjects</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subject Category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subjects</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">L1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">English, HTamil(Higher Tamil), HChi(Higher Chinese), HMalay(Higher Malay)</p></td>
@@ -2487,7 +2851,7 @@ The subjects in the brackets are not to be used as input. The subjects not in br
 <div class="ulist">
 <ul>
 <li>
-<p>The following subjects can be assigned to students but are not considered as O-Level subjects: ChiB (Chinese B), MalayB (Malay B), TamilB(Tamil B).</p>
+<p>The following subjects can be assigned to students but cannot be contributed to the results: ChiB (Chinese B), MalayB (Malay B), TamilB(Tamil B).</p>
 </li>
 </ul>
 </div>
@@ -2643,7 +3007,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 08:56:29 UTC
+Last updated 2018-04-14 16:16:48 UTC
 </div>
 </div>
 </body>

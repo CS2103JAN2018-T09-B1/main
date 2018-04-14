@@ -353,7 +353,10 @@ Format: <code>addsub INDEX sub/[SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code
 <p>Adds subject(s) the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br></p>
 </li>
 <li>
-<p>If you want to view the subjects of the student, please refer to <a href="#Selecting a student : <code>select</code> or <code>s</code>">[Selecting a student : <code>select</code> or <code>s</code>]</a></p>
+<p>If you want to view the subjects of the student, please refer to <a href="#selecting-a-person-code-select-code-or-code-s-code">Section 3.13, &#8220;Selecting a person : <code>select</code> or <code>s</code>&#8221;</a></p>
+</li>
+<li>
+<p>This feature is undoable, so if you need to restore the <em>EduBuddy</em> to the state before you enter this command, type in <code>undo</code>.</p>
 </li>
 </ul>
 </div>
@@ -369,8 +372,8 @@ Format: <code>addsub INDEX sub/[SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code
 <p>If the student is already assigned to the subject that you want to add, that subject will not be overwritten.</p>
 </li>
 <li>
-<p>If you have typed in duplicate subjects, the system will return an error message as shown in Figure&#8230;&#8203;<br>
-You can remove the duplicate subject and press <code>Enter</code> to add the subject(s).</p>
+<p>If you have typed in duplicate subjects, for example, <code>addsub 1 sub/English A1 English A1</code>, the system will return an error message as shown in Figure&#8230;&#8203;<br>
+You can remove the duplicate subject (<code>addsub 1 sub/English A1</code>) and press <code>Enter</code> to add the subject(s).</p>
 </li>
 </ul>
 </div>
@@ -385,7 +388,7 @@ Adds a new subject <code>English A2</code> to the student at <code>INDEX</code> 
 </li>
 <li>
 <p><code>addsub 11 sub/Hist A1 EMath A1</code><br>
-Adds subjects <code>Hist A1</code> and <code>EMath A1</code> to the student at <code>INDEX</code> 1.</p>
+Adds subjects <code>Hist A1</code> and <code>EMath A1</code> to the student at <code>INDEX</code> 11.</p>
 </li>
 </ul>
 </div>
@@ -531,6 +534,18 @@ and you want to remove the <code>Class tag</code> from every student who has the
 <p>This command deletes the specified tag from every student in <em>EduBuddy</em>.<br>
 Format: <code>tagdelete TAGNAME</code><br>
 Abbreviation Format: <code>td TAGNAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature is undoable, so if you need to restore the <em>EduBuddy</em> to the state before you enter this command, type in <code>undo</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -1004,7 +1019,7 @@ You will be able to see a success message in the CommandBox, For example: <code>
 <p><code>STREAM_TYPE</code> <strong>must be a positive integer</strong>: 1, 2, 3, 4, 5.</p>
 </li>
 <li>
-<p>The <code>Student</code> should have the right subject combination to calculate the respective score.</p>
+<p>The <code>Student</code> should have the right subject combination to calculate the respective score, else you will see that the score is 0.</p>
 </li>
 <li>
 <p>If you want to change the subject details, you can use the <code>Edit</code> feature at <a href="#editing-a-student-code-edit-code-or-code-e-code">Section 3.5, &#8220;Editing a student : <code>edit</code> or <code>e</code>&#8221;</a>.</p>
@@ -1499,7 +1514,7 @@ For example, type in: <code>Hist A1</code> <strong>not</strong> <code>History A1
 <div class="ulist">
 <ul>
 <li>
-<p>The following subjects can be assigned to students but are not considered as O-Level subjects: ChiB (Chinese B), MalayB (Malay B), TamilB(Tamil B).</p>
+<p>The following subjects can be assigned to students but cannot be contributed to the results: ChiB (Chinese B), MalayB (Malay B), TamilB(Tamil B).</p>
 </li>
 </ul>
 </div>
@@ -1791,7 +1806,7 @@ OR<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 08:56:29 UTC
+Last updated 2018-04-14 16:16:48 UTC
 </div>
 </div>
 </body>

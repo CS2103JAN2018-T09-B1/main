@@ -55,7 +55,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Created subject database and added L1R5 calculation support</p>
+<p><strong>Minor enhancement</strong>: Created subject database and added L1R5 and L1B4 calculation support</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/functional/TeyXinHui.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/test/TeyXinHui.md">Test code</a>]</p>
@@ -69,9 +69,23 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 </li>
 <li>
 <p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow <code>AddCommand</code> and <code>EditCommand</code> to support the <code>Subject</code> attribute of the students.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did revisions to existing contents of the User Guide and Developer Guide</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Community:</p>
@@ -113,7 +127,10 @@ Format: <code>addsub INDEX sub/[SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code
 <p>Adds subject(s) the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br></p>
 </li>
 <li>
-<p>If you want to view the subjects of the student, please refer to <a href="#Selecting a student : <code>select</code> or <code>s</code>">[Selecting a student : <code>select</code> or <code>s</code>]</a></p>
+<p>If you want to view the subjects of the student, please refer to <a href="#Selecting a person : <code>select</code> or <code>s</code>">[Selecting a person : <code>select</code> or <code>s</code>]</a></p>
+</li>
+<li>
+<p>This feature is undoable, so if you need to restore the <em>EduBuddy</em> to the state before you enter this command, type in <code>undo</code>.</p>
 </li>
 </ul>
 </div>
@@ -129,8 +146,8 @@ Format: <code>addsub INDEX sub/[SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code
 <p>If the student is already assigned to the subject that you want to add, that subject will not be overwritten.</p>
 </li>
 <li>
-<p>If you have typed in duplicate subjects, the system will return an error message as shown in Figure&#8230;&#8203;<br>
-You can remove the duplicate subject and press <code>Enter</code> to add the subject(s).</p>
+<p>If you have typed in duplicate subjects, for example, <code>addsub 1 sub/English A1 English A1</code>, the system will return an error message as shown in Figure&#8230;&#8203;<br>
+You can remove the duplicate subject (<code>addsub 1 sub/English A1</code>) and press <code>Enter</code> to add the subject(s).</p>
 </li>
 </ul>
 </div>
@@ -145,7 +162,7 @@ Adds a new subject <code>English A2</code> to the student at <code>INDEX</code> 
 </li>
 <li>
 <p><code>addsub 11 sub/Hist A1 EMath A1</code><br>
-Adds subjects <code>Hist A1</code> and <code>EMath A1</code> to the student at <code>INDEX</code> 1.</p>
+Adds subjects <code>Hist A1</code> and <code>EMath A1</code> to the student at <code>INDEX</code> 11.</p>
 </li>
 </ul>
 </div>
@@ -185,6 +202,18 @@ and you want to remove the <code>Class tag</code> from every student who has the
 <p>This command deletes the specified tag from every student in <em>EduBuddy</em>.<br>
 Format: <code>tagdelete TAGNAME</code><br>
 Abbreviation Format: <code>td TAGNAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature is undoable, so if you need to restore the <em>EduBuddy</em> to the state before you enter this command, type in <code>undo</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -275,7 +304,7 @@ You will be able to see a success message in the CommandBox, For example: <code>
 <p><code>STREAM_TYPE</code> <strong>must be a positive integer</strong>: 1, 2, 3, 4, 5.</p>
 </li>
 <li>
-<p>The <code>Student</code> should have the right subject combination to calculate the respective score.</p>
+<p>The <code>Student</code> should have the right subject combination to calculate the respective score, else you will see that the score is 0.</p>
 </li>
 <li>
 <p>If you want to change the subject details, you can use the <code>Edit</code> feature at <a href="#Editing a student : <code>edit</code> or <code>e</code>">[Editing a student : <code>edit</code> or <code>e</code>]</a>.</p>
@@ -317,26 +346,296 @@ Returns the L1B4-A score obtained by the student based on his/her grades.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="subject-streaming-calculation-feature"><a class="link" href="#subject-streaming-calculation-feature">Subject streaming calculation feature</a></h3>
+<h3 id="addsubjectcommand-feature"><a class="link" href="#addsubjectcommand-feature">AddSubjectCommand feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The subject streaming calculation features will be supported by calculation algorithms, <code>calculateL1R5</code> and <code>calculateL1B4</code> , which will be located in <code>Person.java</code>. The calculation algorithm will be called by the <code>SelectCommand</code>.
-It will help to analyse the subjects that are assigned to the student, and determine which combination of subjects will produce the lowest <code>L1R5</code> or <code>L1B4</code> score. The score will then be projected in the <code>Command Box</code>.</p>
+<p>The AddSubjectCommand feature is located in the <code>Logic</code> component.
+The <code>AddSubjectCommand</code> can be used when the user inputs <code>addsub INDEX sub/[SUBJECT_NAME SUBJECT_GRADE&#8230;&#8203;]</code> in the <code>Command Box</code>. When the user input fulfils the criteria of the expected input format, the command will execute.
+The command will then find the student located at the specified <code>INDEX</code> and creates a new student with the previous details of the selected student.
+The new student will have the updated <code>Set&lt;Subject&gt;</code> and will replace the selected student in the <em>EduBuddy</em>.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/EditSelectCommandMarks.png" alt="EditSelectCommandMarks" width="800">
-</div>
-<div class="title">Figure 5. Sequence Diagram of implementation of Subject streaming calculation</div>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the student already possess the subject that was keyed in, the subject will not be added to the subject list of the student. This is to prevent the student having duplicate subjects assigned to him/her.</p>
+</li>
+<li>
+<p>If the user typed in duplicate subjects in the input, for example: <code>addsub 1 sub/English A1 English A1</code>, an <code>IllegalValueException</code> will be thrown and an error message, "There should not be duplicate subject(s) assigned to student."</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Parser</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>When the <code>SelectCommand</code> is executing, it retrieves the <code>Student</code> object that the user was referencing to and calls the <code>calculateL1R5/L1B4</code> method.</p>
+<p>Logic uses the <code>AddressBookParser</code> class to parse the command into <code>AddSubjectCommandParser</code>.</p>
 </li>
 <li>
-<p>In the calculation method, it will store the subject list of the student in <code>List&lt;Subject&gt; subjects</code> and loop through the list according to the <code>L1</code> subject category.</p>
+<p>The parser will first parse the <code>INDEX</code> and <code>subjects</code> using the <code>parseIndex</code> and <code>parseSubjects</code> in the <code>ParserUtil</code> class, to check if they are valid inputs.</p>
+</li>
+<li>
+<p>The parser will then creates a new <code>AddSubjectCommand</code> object with the attributes <code>index</code> and <code>editPersonDescriptor</code>, which is executed by the LogicManager.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In <code>AddSubjectCommand</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The command execution of <code>AddSubjectCommand</code> will create a new student object using a <code>createEditedPerson()</code> method, which will call <code>checkIfSubjectExists()</code> method.</p>
+</li>
+<li>
+<p>The method will check if the subjects to be added exist in the original list of subjects assigned to the student. A boolean variable <code>isPresent</code> will keep be used to indicate if the subjects exist.</p>
+</li>
+<li>
+<p>If <code>isPresent</code> is false, the subjects will be added to a new <code>Set&lt;Subject&gt;</code> object which contains the both the new and old subjects of the student.</p>
+</li>
+<li>
+<p>A new student containing the previous details and the updated subject list will be created and replace the selected student in the <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p>The result of the command execution will be returned as a CommandResult object which is passed back to the Ui.</p>
+</li>
+<li>
+<p>The user will see a message on the <code>Command Box</code> in the format: <code>Edited Person: [NAME]. Updated Subjects: [SUBJECT_NAME SUBJECT_GRADE]&#8230;&#8203;</code> will be removed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddSubjectCommandActivityDiagram.png" alt="AddSubjectCommandActivityDiagram" width="800">
+</div>
+<div class="title">Figure 5. Sequence Diagram of AddSubjectCommand</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-addsubjectcommand-code"><a class="link" href="#aspect-implementation-of-code-addsubjectcommand-code">Aspect: Implementation of <code>AddSubjectCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> The user continues to use the <code>AddCommand</code> to add all the subjects at one time or use <code>EditCommand</code> to change the subjects details.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive for the user as the commands do what the user expects from their names.</p>
+</li>
+<li>
+<p>Cons: The user have to key in a long command line as each student has to be assigned to at least 6 subjects.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Create a new <code>AddSubjectCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The user just needs to type in the subjects that he/she did not add earlier.</p>
+</li>
+<li>
+<p>Cons: More commands for the user to remember.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-the-number-of-people-that-the-user-can-add-subjects-to-using-the-command"><a class="link" href="#aspect-the-number-of-people-that-the-user-can-add-subjects-to-using-the-command">Aspect: The number of people that the user can add subjects to using the command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> The command can be implemented as a mass adding command, where the subjects keyed in can be added to all the students in <em>EduBuddy</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It would be convenient as the teacher do not need to key in similar subjects for everyone.</p>
+</li>
+<li>
+<p>Cons: The students may have different subject combination and different grades for different subjects, and this consideration neglects this fact.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> The command can only add to one specified student at a time.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The algorithm will be slightly less complicated and easier to implement.</p>
+</li>
+<li>
+<p>Cons: Depending on the situation, the user may want a mass adding feature implemented as it would be more convenient.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mass-tag-removal-feature"><a class="link" href="#mass-tag-removal-feature">Mass Tag Removal feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Mass Tag Removal feature is supported through the suggested Tag Removal feature in the Model Component.
+The command <code>TagDeleteCommand</code> is implemented to call the <code>deleteTag()</code> function in the <code>Model</code> interface.
+The <code>deleteTag()</code> function will loop through the students in the <code>AddressBook</code> and will remove the specified Tag from every student that has the specified Tag and the students' <code>Tag List</code> will be updated.</p>
+</div>
+<div class="paragraph">
+<p>A <code>TagDeleteCommand</code> is where the user inputs <code>tagdelete [TAG_NAME]</code> or <code>td [TAG_NAME]</code> in the <code>Command Box</code>. When the user input fulfils the criteria of the expected input format, the command will execute.
+The <code>deleteTag()</code> function will be called and loops through the students in the <code>AddressBook</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the specified tag is not found tagged to any student, a <code>TagNotFoundException</code> will be thrown and a error message will be returned to the user.</p>
+</li>
+<li>
+<p>Else, the <code>Tag List</code> of each student will be loaded and stored in a temporary <code>List</code> variable and the specified tag will be removed from it.
+Then a new student object with the updated <code>Tag List</code> will be replace the original student object. Thus the <code>AddressBook</code> will eventually have the updated list of students where the specified tag have been removed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Parser</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logic uses the AddressBookParser class to parse the command into <code>TagDeleteCommandParser</code>.</p>
+</li>
+<li>
+<p>The parser will then return a new TagDeleteCommand object with the parameter <code>tagName</code> which is executed by the LogicManager.</p>
+</li>
+<li>
+<p>The command execution calls the deleteTag method which then cycle through the list of students in the <em>EduBuddy</em> and removes the tags containing the <code>tagName</code> from the students.</p>
+</li>
+<li>
+<p>The tag is then deleted and the result of the command execution will be returned as a CommandResult object which is passed back to the Ui.</p>
+</li>
+<li>
+<p>The user will see a message on the <code>Command Box</code> in the format: <code>Deleted Tag: [TAG_NAME]</code> and the <code>Tag</code> will be removed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagDeleteCommandSequenceDiagram.png" alt="TagDeleteCommandSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 6. Sequence Diagram of TagDeleteCommand if the specified tag exists.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-tagdeletecommand-code"><a class="link" href="#aspect-implementation-of-code-tagdeletecommand-code">Aspect: Implementation of <code>TagDeleteCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Create a new method in <code>TagDeleteCommand</code> to delete tag</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to understand the structure of <code>TagDeleteCommand</code>.</p>
+</li>
+<li>
+<p>Cons: The <code>deleteTag()</code> function that was implemented would be redundant.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Call the <code>deleteTag()</code> function</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Implementation of the command would be easier as the main algorithm to delete the tag is within the code.</p>
+</li>
+<li>
+<p>Cons: Increases coupling between <code>Model</code> and <code>TagDeleteCommand</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="subject-streaming-calculation-feature"><a class="link" href="#subject-streaming-calculation-feature">Subject streaming calculation feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The subject streaming calculation features will be supported by calculation algorithms, <code>calculateL1R5</code>, <code>calculateL1B4A</code>, <code>calculateL1B4B, `calculateL1B4C</code> and <code>calculateL1B4D, which will be located in `Person.java</code>. The calculation algorithm will be called by the <code>SelectCommand</code>.
+It will help to analyse the subjects that are assigned to the student, and determine which combination of subjects will produce the lowest <code>L1R5</code>, <code>L1B4A</code>, <code>L1B4B</code>, <code>L1B4C</code> or <code>L1B4D</code> score respectively. The score will then be projected in the <code>Command Box</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StreamCommand.png" alt="StreamCommand" width="700">
+</div>
+<div class="title">Figure 7. Sequence Diagram of implementation of Subject streaming calculation</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In <code>StreamCommandParser</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user will key in the necessary command, <code>stream INDEX STREAM_TYPE</code> to call the <code>StreamCommand</code>.</p>
+</li>
+<li>
+<p>The Logic uses the AddressBookParser to parse the command to <code>StreamCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>StreamCommandParser</code> will take in the values and return a new <code>StreamCommand</code> object, with the parameters, <code>index</code> and <code>type</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In <code>StreamCommand</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>StreamCommand</code> is executing, it retrieves the <code>Person</code> object that the user was referencing to using the <code>index</code> parameter
+and pass in the <code>Person</code> object and <code>type</code> parameter into a <code>scoreCalculation()</code> method.</p>
+</li>
+<li>
+<p>In the <code>scoreCalculation</code> method, the method will determine what type of streaming score the user wants to get using the <code>type</code> paramter.</p>
+</li>
+<li>
+<p>Then the necessary calculation algorithm in the <code>Person.java</code> will be called.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In <code>Person.java</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the calculation algorithm, it will store the subject list of the student in <code>List&lt;Subject&gt; subjects</code> and loop through the list according to the <code>L1</code> subject category.</p>
 </li>
 <li>
 <p>The relevant subjects of the subject category will be saved in a temporary <code>List&lt;Subject&gt; subjectsToCheck</code> and the list will be passed into a <code>checkLowest()</code> method.</p>
@@ -352,6 +651,9 @@ It will help to analyse the subjects that are assigned to the student, and deter
 </li>
 </ol>
 </div>
+</li>
+</ul>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -359,7 +661,7 @@ It will help to analyse the subjects that are assigned to the student, and deter
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The subjects and their respective grades can be assigned to the students by the <code>AddCommand</code>, with a subject prefix <code>sub/</code> followed by the <code>Subject Name</code> and <code>Subject Grade</code>.
+The subjects and their respective grades can be assigned to the students by the <code>AddCommand</code>, <code>EditCommand</code> or <code>AddSubjectCommand</code>, with a subject prefix <code>sub/</code> followed by the <code>Subject Name</code> and <code>Subject Grade</code>.
 As the students are required to take at least 6 subjects, the subjects will be stored in as a parameter of each individual student as a <code>List&lt;Subject&gt;</code>.
 </td>
 </tr>
@@ -370,7 +672,7 @@ As the students are required to take at least 6 subjects, the subjects will be s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> Add new command classes <code>L1R5Command</code> and <code>L1B4Command</code></p>
+<p><strong>Alternative 1 (current choice):</strong> Add new command class <code>StreamCommand</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -383,7 +685,7 @@ As the students are required to take at least 6 subjects, the subjects will be s
 </div>
 </li>
 <li>
-<p><strong>Alternative 2 (current choice):</strong> Just override <code>execute()</code> of <code>SelectCommand</code></p>
+<p><strong>Alternative 2 :</strong> Just override <code>execute()</code> of <code>SelectCommand</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -420,95 +722,10 @@ As the students are required to take at least 6 subjects, the subjects will be s
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduce the amount of coupling between <code>SelectCommand</code> and <code>Person</code>.</p>
+<p>Pros: Reduce the amount of coupling between <code>SelectCommand</code> and <code>Model</code>.</p>
 </li>
 <li>
 <p>Cons: Makes the <code>SelectCommand</code> more complicated as it is performing more than it should.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="mass-tag-removal-feature"><a class="link" href="#mass-tag-removal-feature">Mass Tag Removal feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
-<div class="paragraph">
-<p>The Mass Tag Removal feature is supported through the suggested Tag Removal feature for the Model Component in <a href="#GetStartedProgramming-EachComponent">[GetStartedProgramming-EachComponent]</a>.
-The command <code>TagDeleteCommand</code> is implemented to call the <code>deleteTag()</code> function in the <code>Model</code> interface.
-The <code>deleteTag()</code> function will loop through the students in the <code>AddressBook</code> and will remove the specified Tag from every student that has the specified Tag and the students' <code>Tag List</code> will be updated.</p>
-</div>
-<div class="paragraph">
-<p>A <code>TagDeleteCommand</code> is where the user inputs <code>tagdelete [TAG_NAME]</code> or <code>td [TAG_NAME]</code> in the <code>Command Box</code>. When the user input fulfils the criteria of the expected input format, the command will execute.
-The <code>deleteTag()</code> function will be called and loops through the students in the <code>AddressBook</code>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If the specified tag is not found tagged to any student, a <code>TagNotFoundException</code> will be thrown and a error message will be returned to the user.</p>
-</li>
-<li>
-<p>Else, the <code>Tag List</code> of each student will be loaded and stored in a temporary <code>List</code> variable and the specified tag will be removed from it.
-Then a new student object with the updated <code>Tag List</code> will be replace the original student object. Thus the <code>AddressBook</code> will eventually have the updated list of students where the specified tag have been removed.</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Logic uses the AddressBookParser class to parse the command.</p>
-</li>
-<li>
-<p>This results in a TagDeleteCommand object which is executed by the LogicManager.</p>
-</li>
-<li>
-<p>The command execution calls the deleteTag method which then affects the Model.</p>
-</li>
-<li>
-<p>The tag is then deleted and the result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.
-The user will see a message on the <code>Command Box</code> in the format: <code>Deleted Tag: [TAG_NAME]</code> and the <code>Tag</code> will be removed.</p>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/TagDeleteSequenceDiagram.png" alt="TagDeleteSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 6. Sequence Diagram of TagDeleteCommand if the specified tag exists.</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-implementation-of-code-tagdeletecommand-code"><a class="link" href="#aspect-implementation-of-code-tagdeletecommand-code">Aspect: Implementation of <code>TagDeleteCommand</code></a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Create a new method in <code>TagDeleteCommand</code> to delete tag</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to understand the structure of <code>TagDeleteCommand</code>.</p>
-</li>
-<li>
-<p>Cons: The <code>deleteTag()</code> function that was implemented would be redundant.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Call the <code>deleteTag()</code> function</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Implementation of the command would be easier as the main algorithm to delete the tag is within the code.</p>
-</li>
-<li>
-<p>Cons: Increases coupling between <code>Model</code> and <code>TagDeleteCommand</code>.</p>
 </li>
 </ul>
 </div>
@@ -523,7 +740,7 @@ The user will see a message on the <code>Command Box</code> in the format: <code
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 08:56:29 UTC
+Last updated 2018-04-14 16:16:48 UTC
 </div>
 </div>
 </body>
