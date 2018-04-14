@@ -100,50 +100,6 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1"><a class="link" href="#deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1">Deleting a tag : <code>tagdelete</code> or <code>td</code> [since v1.1]</a></h3>
-<div class="paragraph">
-<p>When you have added the wrong <code>Class tag</code>,
-or when the secondary 4 students have moved to the next higher education level,
-and you want to remove the <code>Class tag</code> from every student who has the <code>Class tag</code> assigned to them.</p>
-</div>
-<div class="paragraph">
-<p>This command deletes the specified tag from every student in <em>EduBuddy</em>.<br>
-Format: <code>tagdelete TAGNAME</code><br>
-Abbreviation Format: <code>td TAGNAME</code></p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-The tag must be a valid tag name that is assigned to at least one student in the <em>EduBuddy</em>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/TagDeleteResult.png" alt="TagDeleteResult" width="650">
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>tagdelete 4A</code> or <code>td 4A</code><br>
-Deletes the '4A' tag from every student in the <em>EduBuddy</em>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
-</div>
-</div>
-<div class="sect2">
 <h3 id="replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2"><a class="link" href="#replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2">Replacing a tag : <code>tagreplace</code> or <code>tr</code> [since v1.2]</a></h3>
 <div class="paragraph">
 <p>Replaces the specified tag from every student in <em>EduBuddy</em> with a specific tag.<br>
@@ -290,6 +246,210 @@ You will be able to see the success message,<br>
 <code>CCA added: CCA: POSITION</code><br>
 <code>Person: NAME</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Adds a CCA and the student&#8217;s position in the CCA to the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>addcca 2 cca/Basketball pos/Member</code><br>
+Adds the cca basketball with the position member to the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>addcca 1 cca/Choir pos/Member</code><br>
+Adds the cca Choir with the position member to the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-cca-from-a-student-code-deletecca-code-since-v1-5"><a class="link" href="#deleting-a-cca-from-a-student-code-deletecca-code-since-v1-5">Deleting a CCA from a student : <code>deletecca</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Deletes a CCA and the student&#8217;s position in the CCA from the student records in <em>EduBuddy</em>.<br>
+Format: <code>deletecca INDEX cca/CCA pos/POSITION</code><br>
+You will be able to see the success message,<br>
+<code>CCA deleted: CCA: POSITION</code><br>
+<code>Person: NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Deletes a CCA and the student&#8217;s position in the CCA from the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>deletecca 2 cca/Basketball pos/Member</code><br>
+Deletes the cca basketball with the position member from the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>addcca 1 cca/Choir pos/Member</code><br>
+Deletes the cca Choir with the position member from the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5"><a class="link" href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Adds an injury history to the student of the specified index, in the student records in <em>EduBuddy</em>.<br>
+Format: <code>addinjuries INDEX injuries/INJURY</code><br>
+You will be able to see the success message,<br>
+<code>Injuries History added: INJURY</code><br>
+<code>Person: NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Adds an injury history to the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>addinjuries 2 injuries/Dislocated Right Shoulder</code><br>
+Adds the injury, dislocated right shoulder to the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>addinjuries 1 injuries/Right Ligament Tear</code><br>
+Adds the injury, right ligament tear to the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5"><a class="link" href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Deletes a injury history from the student records in <em>EduBuddy</em>.<br>
+Format: <code>deleteinjuries INDEX injuries/INJURIES</code><br>
+You will be able to see the success message,<br>
+<code>Injuries deleted: INJURIES</code><br>
+<code>Person: NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Deletes a injury history from the student at the specified <code>INDEX</code>.<br>
+The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>deleteinjuries 2 injuries/Torn Ligament</code><br>
+Deletes the injury history,torn ligament from the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>deleteinjuries 1 injuries/Dislocated Shoulder</code><br>
+Deletes the injury history from the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -378,94 +538,9 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="mass-tag-removal-feature"><a class="link" href="#mass-tag-removal-feature">Mass Tag Removal feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
-<div class="paragraph">
-<p>The Mass Tag Removal feature is supported through the suggested Tag Removal feature for the Model Component in <a href="#GetStartedProgramming-EachComponent">[GetStartedProgramming-EachComponent]</a>.
-The command <code>TagDeleteCommand</code> is implemented to call the <code>deleteTag()</code> function in the <code>Model</code> interface.
-The <code>deleteTag()</code> function will loop through the students in the <code>AddressBook</code> and will remove the specified Tag from every student that has the specified Tag and the students' <code>Tag List</code> will be updated.</p>
-</div>
-<div class="paragraph">
-<p>A <code>TagDeleteCommand</code> is where the user inputs <code>tagdelete [TAG_NAME]</code> or <code>td [TAG_NAME]</code> in the <code>Command Box</code>. When the user input fulfils the criteria of the expected input format, the command will execute.
-The <code>deleteTag()</code> function will be called and loops through the students in the <code>AddressBook</code>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If the specified tag is not found tagged to any student, a <code>TagNotFoundException</code> will be thrown and a error message will be returned to the user.</p>
-</li>
-<li>
-<p>Else, the <code>Tag List</code> of each student will be loaded and stored in a temporary <code>List</code> variable and the specified tag will be removed from it.
-Then a new student object with the updated <code>Tag List</code> will be replace the original student object. Thus the <code>AddressBook</code> will eventually have the updated list of students where the specified tag have been removed.</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Logic uses the AddressBookParser class to parse the command.</p>
-</li>
-<li>
-<p>This results in a TagDeleteCommand object which is executed by the LogicManager.</p>
-</li>
-<li>
-<p>The command execution calls the deleteTag method which then affects the Model.</p>
-</li>
-<li>
-<p>The tag is then deleted and the result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.
-The user will see a message on the <code>Command Box</code> in the format: <code>Deleted Tag: [TAG_NAME]</code> and the <code>Tag</code> will be removed.</p>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/TagDeleteSequenceDiagram.png" alt="TagDeleteSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 1. Sequence Diagram of TagDeleteCommand if the specified tag exists.</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-implementation-of-code-tagdeletecommand-code"><a class="link" href="#aspect-implementation-of-code-tagdeletecommand-code">Aspect: Implementation of <code>TagDeleteCommand</code></a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Create a new method in <code>TagDeleteCommand</code> to delete tag</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to understand the structure of <code>TagDeleteCommand</code>.</p>
-</li>
-<li>
-<p>Cons: The <code>deleteTag()</code> function that was implemented would be redundant.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Call the <code>deleteTag()</code> function</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Implementation of the command would be easier as the main algorithm to delete the tag is within the code.</p>
-</li>
-<li>
-<p>Cons: Increases coupling between <code>Model</code> and <code>TagDeleteCommand</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="remark-feature"><a class="link" href="#remark-feature">Remark Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
 <p>A new remark component is added to the person model.</p>
 </div>
@@ -487,7 +562,7 @@ The user will see a message on the <code>Command Box</code> in the format: <code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-the-code-remark-code-feature"><a class="link" href="#aspect-implementation-of-the-code-remark-code-feature">Aspect: Implementation of the <code>Remark</code> feature</a></h5>
 <div class="ulist">
@@ -518,7 +593,7 @@ The user will see a message on the <code>Command Box</code> in the format: <code
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 04:06:52 UTC
+Last updated 2018-04-14 05:24:51 UTC
 </div>
 </div>
 </body>

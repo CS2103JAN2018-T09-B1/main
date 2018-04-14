@@ -100,24 +100,67 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-person-code-select-code-or-code-s-code">Selecting a person : <code>select</code> or <code>s</code></a></h3>
+<h3 id="adding-subjects-to-a-student-code-addsub-code-since-v1-5"><a class="link" href="#adding-subjects-to-a-student-code-addsub-code-since-v1-5">Adding subjects to a student : <code>addsub</code> [since v1.5]</a></h3>
 <div class="paragraph">
-<p>When you want to view a student&#8217;s personal details like academic grades, cca grades etc, you can view it by selecting the student.</p>
-</div>
-<div class="paragraph">
-<p>Selects the student identified by the index number used in the last student listing.<br>
-Format: <code>select INDEX</code><br>
-Abbreviation Format: <code>s INDEX</code></p>
+<p>If you forgot to add a subject/some subjects to a student earlier and do not want to retype all the subjects using <a href="#Editing a student : <code>edit</code> or <code>e</code>">[Editing a student : <code>edit</code> or <code>e</code>]</a>,
+you can use this feature to save your troubles.<br>
+You just need to follow the format below and replace the words in "[ ]" with the corresponding subject(s) details.<br>
+Format: <code>addsub INDEX sub/[SUBJECT_NAME SUBJECT_GRADE &#8230;&#8203;]</code><br></p>
 </div>
 <div class="ulist NOTE">
 <ul class="NOTE">
 <li>
-<p>Selects the student and loads the student profile of the student at the specified <code>INDEX</code>.<br></p>
+<p>Adds subject(s) the student at the specified <code>INDEX</code>. The index refers to the index number shown in the last student listing.<br></p>
 </li>
 <li>
-<p>The index refers to the index number shown in the most recent listing.</p>
+<p>If you want to view the subjects of the student, please refer to <a href="#Selecting a student : <code>select</code> or <code>s</code>">[Selecting a student : <code>select</code> or <code>s</code>]</a></p>
 </li>
 </ul>
+</div>
+<div class="ulist IMPORTANT">
+<ul class="IMPORTANT">
+<li>
+<p><code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;<br></p>
+</li>
+<li>
+<p>There should be a <code>SPACE</code> between each <code>SUBJECT_NAME</code> and <code>SUBJECT_GRADE</code>.</p>
+</li>
+<li>
+<p>If the student is already assigned to the subject that you want to add, that subject will not be overwritten.</p>
+</li>
+<li>
+<p>If you have typed in duplicate subjects, the system will return an error message as shown in Figure&#8230;&#8203;<br>
+You can remove the duplicate subject and press <code>Enter</code> to add the subject(s).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addsub 1 sub/English A2</code><br>
+Adds a new subject <code>English A2</code> to the student at <code>INDEX</code> 1.</p>
+</li>
+<li>
+<p><code>addsub 1 sub/Music A1 French A1</code><br>
+Adds subjects <code>Music A1</code> and <code>French A1</code> to the student at <code>INDEX</code> 1.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1"><a class="link" href="#deleting-a-tag-code-tagdelete-code-or-code-td-code-since-v1-1">Deleting a tag : <code>tagdelete</code> or <code>td</code> [since v1.1]</a></h3>
+<div class="paragraph">
+<p>When you have added the wrong <code>Class tag</code>,
+or when the secondary 4 students have moved to the next higher education level,
+and you want to remove the <code>Class tag</code> from every student who has the <code>Class tag</code> assigned to them.</p>
+</div>
+<div class="paragraph">
+<p>This command deletes the specified tag from every student in <em>EduBuddy</em>.<br>
+Format: <code>tagdelete TAGNAME</code><br>
+Abbreviation Format: <code>td TAGNAME</code></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -126,7 +169,7 @@ Abbreviation Format: <code>s INDEX</code></p>
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-The index <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+The tag must be a valid tag name that is assigned to at least one student in the <em>EduBuddy</em>.
 </td>
 </tr>
 </table>
@@ -136,20 +179,14 @@ The index <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/SelectCommandSuccess.png" alt="SelectCommandSuccess" width="800">
+<img src="../images/TagDeleteResult.png" alt="TagDeleteResult" width="650">
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>select 4</code><br>
-Selects the 4th student in <em>EduBuddy</em>.</p>
-</li>
-<li>
-<p><code>find Johnny</code><br>
-<code>s 1</code><br>
-Selects the 1st student in the results of the <code>find</code> command.</p>
+<p><code>tagdelete 4A</code> or <code>td 4A</code><br>
+Deletes the '4A' tag from every student in the <em>EduBuddy</em>.</p>
 </li>
 </ul>
 </div>
@@ -218,6 +255,9 @@ You will be able to see a success message in the CommandBox, For example: <code>
 </li>
 <li>
 <p>If you want to change the subject details, you can use the <code>Edit</code> feature at <a href="#Editing a student : <code>edit</code> or <code>e</code>">[Editing a student : <code>edit</code> or <code>e</code>]</a>.</p>
+</li>
+<li>
+<p>If you want to add additional subjects later, you can use the the <code>AddSubject</code> feature at <a href="#Add subjects to a student : <code>addsub</code>">[Add subjects to a student : <code>addsub</code>]</a>.</p>
 </li>
 </ul>
 </div>
@@ -369,12 +409,97 @@ As the students are required to take at least 6 subjects, the subjects will be s
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="mass-tag-removal-feature"><a class="link" href="#mass-tag-removal-feature">Mass Tag Removal feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Mass Tag Removal feature is supported through the suggested Tag Removal feature for the Model Component in <a href="#GetStartedProgramming-EachComponent">[GetStartedProgramming-EachComponent]</a>.
+The command <code>TagDeleteCommand</code> is implemented to call the <code>deleteTag()</code> function in the <code>Model</code> interface.
+The <code>deleteTag()</code> function will loop through the students in the <code>AddressBook</code> and will remove the specified Tag from every student that has the specified Tag and the students' <code>Tag List</code> will be updated.</p>
+</div>
+<div class="paragraph">
+<p>A <code>TagDeleteCommand</code> is where the user inputs <code>tagdelete [TAG_NAME]</code> or <code>td [TAG_NAME]</code> in the <code>Command Box</code>. When the user input fulfils the criteria of the expected input format, the command will execute.
+The <code>deleteTag()</code> function will be called and loops through the students in the <code>AddressBook</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the specified tag is not found tagged to any student, a <code>TagNotFoundException</code> will be thrown and a error message will be returned to the user.</p>
+</li>
+<li>
+<p>Else, the <code>Tag List</code> of each student will be loaded and stored in a temporary <code>List</code> variable and the specified tag will be removed from it.
+Then a new student object with the updated <code>Tag List</code> will be replace the original student object. Thus the <code>AddressBook</code> will eventually have the updated list of students where the specified tag have been removed.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logic uses the AddressBookParser class to parse the command.</p>
+</li>
+<li>
+<p>This results in a TagDeleteCommand object which is executed by the LogicManager.</p>
+</li>
+<li>
+<p>The command execution calls the deleteTag method which then affects the Model.</p>
+</li>
+<li>
+<p>The tag is then deleted and the result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.
+The user will see a message on the <code>Command Box</code> in the format: <code>Deleted Tag: [TAG_NAME]</code> and the <code>Tag</code> will be removed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagDeleteSequenceDiagram.png" alt="TagDeleteSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 2. Sequence Diagram of TagDeleteCommand if the specified tag exists.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-tagdeletecommand-code"><a class="link" href="#aspect-implementation-of-code-tagdeletecommand-code">Aspect: Implementation of <code>TagDeleteCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Create a new method in <code>TagDeleteCommand</code> to delete tag</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to understand the structure of <code>TagDeleteCommand</code>.</p>
+</li>
+<li>
+<p>Cons: The <code>deleteTag()</code> function that was implemented would be redundant.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Call the <code>deleteTag()</code> function</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Implementation of the command would be easier as the main algorithm to delete the tag is within the code.</p>
+</li>
+<li>
+<p>Cons: Increases coupling between <code>Model</code> and <code>TagDeleteCommand</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 04:06:52 UTC
+Last updated 2018-04-14 05:24:51 UTC
 </div>
 </div>
 </body>
