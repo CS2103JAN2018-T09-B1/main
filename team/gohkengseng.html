@@ -36,7 +36,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement: Added the ability to create appointments and display it on the UI</strong></p>
+<p><strong>Major enhancement:</strong> Added the ability to create appointments and display it on the UI</p>
 <div class="ulist">
 <ul>
 <li>
@@ -54,8 +54,8 @@ feature will help to keep track of any appointments with students in a more orga
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement: added a sort command that allows the user to sort the list of students
-based on different parameters</strong></p>
+<p><strong>Minor enhancement:</strong> added a sort command that allows the user to sort the list of students
+based on different parameters</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/functional/kengsengg.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/test/kengsengg.md">Test code</a>]</p>
@@ -109,7 +109,8 @@ based on different parameters</strong></p>
 <div class="sect2">
 <h3 id="sorting-all-students-code-sort-code-since-v1-2"><a class="link" href="#sorting-all-students-code-sort-code-since-v1-2">Sorting all students : <code>sort</code> [since v1.2]</a></h3>
 <div class="paragraph">
-<p>Sorts the list of all students in <em>EduBuddy</em> according to the given parameter<br>
+<p>Having trouble finding the student contact in the never ending list?
+Fret not, as this feature helps you to sort the list of all students in <em>EduBuddy</em> according to different parameters.<br>
 Format: <code>sort PARAMETER</code></p>
 </div>
 <div class="admonitionblock note">
@@ -141,15 +142,29 @@ Sorts the list of students by tag in alphabetical and numerical order (case inse
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4"><a class="link" href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></h3>
+<h3 id="creating-an-appointment-code-addappointment-code-or-code-addappt-code-since-v1-4"><a class="link" href="#creating-an-appointment-code-addappointment-code-or-code-addappt-code-since-v1-4">Creating an appointment: <code>addappointment</code> or <code>addappt</code> [since v1.4]</a></h3>
 <div class="paragraph">
-<p>Creates an appointment (e.g. setting a consultation time slot with students)
-with the student identified by the index number used
-in the last student listing and displays it on the calendar.</p>
+<p>If you are too busy with work and want to keep track of your schedule,
+this feature will definitely come in handy. It helps to create an appointment
+with the student identified by the index number used in the last student listing.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>appointment INDEX d/DATE s/START_TIME e/END_TIME</code><br>
-Abbreviation Format: <code>appt INDEX d/DATE s/START_TIME e/END_TIME</code></p>
+<p>Format: <code>addappointment n/NAME i/INFO d/DATE s/START_TIME e/END_TIME</code><br>
+Abbreviation Format: <code>addappt n/NAME i/INFO d/DATE s/START_TIME e/END_TIME</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+For first time users of <em>EduBuddy</em>, a Google authentication is required so as to sync your
+appointment data with your own Google Calendar. Please refer to <a href="#Google Calendar Authentication">[Google Calendar Authentication]</a>
+on how to set it up first.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -160,7 +175,6 @@ Abbreviation Format: <code>appt INDEX d/DATE s/START_TIME e/END_TIME</code></p>
 <td class="content">
 -<code>DATE</code> should be in <strong>DDMMYYYY</strong> format e.g. 25th Dec 2018 would be 25122018.<br>
 -<code>START_TIME</code> and <code>END_TIME</code> should be in <strong>24 hour</strong> format e.g. 3:30p.m. would be 1530.<br>
--<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
 </td>
 </tr>
 </table>
@@ -172,8 +186,8 @@ Abbreviation Format: <code>appt INDEX d/DATE s/START_TIME e/END_TIME</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-After the appointment is successfully created, right click on the calendar and select
-<code>Reload page</code> to see your appointment.
+After the appointment is successfully created, use the <code>view</code> command to see it display on
+your Google Calendar page if it is enabled.
 </td>
 </tr>
 </table>
@@ -184,14 +198,15 @@ After the appointment is successfully created, right click on the calendar and s
 <div class="ulist">
 <ul>
 <li>
-<p><code>appointment 1 d/01022018 s/1500 e/1600</code><br>
-Creates an appointment with the 1st student on 1st Feb 2018 from 3p.m. to 4p.m.</p>
-</li>
-<li>
-<p><code>appt 3 d/20042018 s/0930 e/1100</code><br>
-Creates an appointment with the 3rd student on 20th Apr 2018 from 9:30a.m. to 11a.m.</p>
+<p><code>addappointment</code> OR <code>addappt</code> <code>n/Bernice Yu i/Consultation d/03042018 s/1500 e/1600</code><br>
+Creates a consultation appointment with Bernice Yu on 3rd Apr 2018 from 3p.m. to 4p.m.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addapptcommandsuccess.png" alt="addapptcommandsuccess" width="650">
+</div>
 </div>
 </div>
 </div>
@@ -303,7 +318,7 @@ as an <code>UndoableCommand</code> as well.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 13:06:58 UTC
+Last updated 2018-04-15 13:41:09 UTC
 </div>
 </div>
 </body>
