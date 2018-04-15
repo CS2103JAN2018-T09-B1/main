@@ -26,7 +26,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>EduBuddy is a desktop application designed for secondary school teachers to manage student information better.
-The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+The user interacts with it using a CLI, and it has a GUI created with JavaFX and HTML. It is written in Java, and has about 10 kLoC.</p>
 </div>
 </div>
 </div>
@@ -36,26 +36,26 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: Add display panel functionalities to the UI window</p>
+<p><strong>Major enhancement</strong>: Add <strong>HTML student profile page</strong> to <strong>display student information</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does:</p>
+<p>What it does: Allows the user to view updated student information with HTML page built into the Browser Panel.</p>
 </li>
 <li>
-<p>Justification:</p>
+<p>Justification: This feature improves the product significantly as it allows the user to visualise the student information in a simple and effective way</p>
 </li>
 <li>
-<p>Highlights:</p>
+<p>Highlights: This implementation takes in all data from the commands and updates it real time. It uses its own storage method to create and delete user profiles. It incorporates all 4 aspects of the code, Logic (commands), model(User information), UI (Browser Panel), Storage(a separate storage method).</p>
 </li>
 <li>
-<p>Credits:</p>
+<p>Credits: -</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>:Integrate data input from user into display window</p>
+<p><strong>Minor enhancement</strong>: Added change theme command for Browser Panel. Allows user to view by dark or light mode.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/functional/johnnychanjx.md">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
@@ -65,19 +65,62 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
+<p>Project management: Worked with every release of EduBuddy.</p>
 </li>
 <li>
 <p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added a different GUI color scheme to match with the EduBuddy UI.</p>
+</li>
+<li>
+<p>Created a default page to introduce users to EduBuddy.</p>
+</li>
+<li>
+<p>Created official EduBuddy logo.</p>
+</li>
+<li>
+<p>Took out case sensitivity in command input.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated User Guide and cleaned up some areas from its original iteration</p>
+</li>
+<li>
+<p>Updated developer guide and cleaned up areas from its original iteration (eg. Took out Appendix A)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Opened, closed, and verified some issues on the issue tracker.</p>
+</li>
+<li>
+<p>Contributed to forum discussions</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated Travis CI into the project.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -193,12 +236,1562 @@ These user-profile pages are updated in real time when called by the UI BrowserP
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="theme-feature"><a class="link" href="#theme-feature">Theme Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The theme command is a command that changes the theme of the program.
+The input from the user would be parsed with a dedicated parser class 'ChangeThemeCommandParser'.
+We will implement a HashMap to choose the right theme to use from the user input.
+The themes are found in resources/view.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>ChangeThemeCommandParser</code> class to parse the command.</p>
+</li>
+<li>
+<p>This results in a <code>ChangeThemeCommand</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution calls the <code>ThemeColourUtil</code> method which then affects the <code>Model</code>, which calls the appropriate theme from /view/.</p>
+</li>
+<li>
+<p>The theme is then changed, passed back to the ChangeThemeCommand object which changes the 'UI'.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations.</a></h4>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-tag-replace-command"><a class="link" href="#aspect-data-structure-to-support-the-tag-replace-command">Aspect: Data structure to support the tag replace command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1: </strong> Reuse the set that exist in the Addressbook.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not introduce a new data structure to store the tags that are passed in.</p>
+</li>
+<li>
+<p>Cons: A set arranges its elements in alphabetical order. This disrupts the order in which the user has entered,
+and it would cause the wanted tag to be removed instead of the unwanted one.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="remark-feature"><a class="link" href="#remark-feature">Remark Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new remark component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This remark feature allows the user to add remarks to the student profile of the specified student.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RemarkClassSequenceDiagram.png" alt="RemarkClassSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 15. Sequence Diagram of AddRemarkCommand</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-remark-code-feature"><a class="link" href="#aspect-implementation-of-the-code-remark-code-feature">Aspect: Implementation of the <code>Remark</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just one method to add and delete the remark.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not create 2 command just to add and delete the remarks.</p>
+</li>
+<li>
+<p>Cons: The remark attached to the student in our student profile would not be able to exceed one line.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="injuries-history-feature"><a class="link" href="#injuries-history-feature">Injuries History Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new injuries history component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This injuries history feature allows the user to add injuries history to the student profile of the specified student.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-injuries-history-code-feature"><a class="link" href="#aspect-implementation-of-the-code-injuries-history-code-feature">Aspect: Implementation of the <code>Injuries History</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just one method to add and delete the injuries history.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not create 2 command just to add and delete the injuries history.</p>
+</li>
+<li>
+<p>Cons: The injuries history attached to the student in our student profile would not be able to exceed one line.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cca-feature"><a class="link" href="#cca-feature">Cca Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new cca component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This cca feature allows the user to add cca and the position to the student profile of the specified student.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-cca-code-feature"><a class="link" href="#aspect-implementation-of-the-code-cca-code-feature">Aspect: Implementation of the <code>Cca</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just two methods to add and delete the details of the cca.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More than 1 details of the student cca can be added.</p>
+</li>
+<li>
+<p>Cons: The user has to type separate commands just to add or delete the details.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nextofkin-feature"><a class="link" href="#nextofkin-feature">NextOfKin Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new next of kin component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This NextOfKin feature allows the user to add the details of the student&#8217;s next of kin into the student profile of the specified student.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-nextofkin-code-feature"><a class="link" href="#aspect-implementation-of-the-code-nextofkin-code-feature">Aspect: Implementation of the <code>NextOfKin</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just two methods to add and delete the details of the next of kin of the student.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More than 1 details of the student&#8217;s next of kin can be added.</p>
+</li>
+<li>
+<p>Cons: The user has to type separate commands just to add or delete the details.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">Logging</a></h3>
+<div class="paragraph">
+<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Configuration</a>)</p>
+</li>
+<li>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+</li>
+<li>
+<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Logging Levels</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+</li>
+<li>
+<p><code>WARNING</code> : Can continue, but with caution</p>
+</li>
+<li>
+<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+</li>
+<li>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">Configuration</a></h3>
+<div class="paragraph">
+<p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="documentation"><a class="link" href="#documentation">Documentation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We use asciidoc for writing documentation.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We chose asciidoc over Markdown because asciidoc, although a bit more complex than Markdown, provides more flexibility in formatting.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="editing-documentation"><a class="link" href="#editing-documentation">Editing Documentation</a></h3>
+<div class="paragraph">
+<p>See <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
+Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">Publishing Documentation</a></h3>
+<div class="paragraph">
+<p>See <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> to learn how to deploy GitHub Pages using Travis.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">Converting Documentation to PDF format</a></h3>
+<div class="paragraph">
+<p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
+</div>
+<div class="paragraph">
+<p>Here are the steps to convert the project documentation files to PDF format.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Follow the instructions in <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to convert the AsciiDoc files in the <code>docs/</code> directory to HTML format.</p>
+</li>
+<li>
+<p>Go to your generated HTML files in the <code>build/docs</code> folder, right click on them and select <code>Open with</code> &#8594; <code>Google Chrome</code>.</p>
+</li>
+<li>
+<p>Within Chrome, click on the <code>Print</code> option in Chrome&#8217;s menu.</p>
+</li>
+<li>
+<p>Set the destination to <code>Save as PDF</code>, then click <code>Save</code> to save a copy of the file in PDF format. For best results, use the settings indicated in the screenshot below.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
+</div>
+<div class="title">Figure 3. Saving documentation as PDF files in Chrome</div>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Testing"><a class="link" href="#Testing">Testing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains the various testing methods available in our application
+and also provides some troubleshooting techniques.</p>
+</div>
+<div class="sect2">
+<h3 id="running-tests"><a class="link" href="#running-tests">Running Tests</a></h3>
+<div class="paragraph">
+<p>There are three ways to run tests.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The most reliable way to run tests is the 3rd one. The first two methods might fail some GUI tests due to platform/resolution-specific idiosyncrasies.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Method 1: Using IntelliJ JUnit test runner</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To run all tests, right-click on the <code>src/test/java</code> folder and choose <code>Run 'All Tests'</code></p>
+</li>
+<li>
+<p>To run a subset of tests, you can right-click on a test package, test class, or a test and choose <code>Run 'ABC'</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Method 2: Using Gradle</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open a console and run the command <code>gradlew clean allTests</code> (Mac/Linux: <code>./gradlew clean allTests</code>)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run tests using Gradle.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Method 3: Using Gradle (headless)</strong></p>
+</div>
+<div class="paragraph">
+<p>Thanks to the <a href="https://github.com/TestFX/TestFX">TestFX</a> library we use, our GUI tests can be run in the <em>headless</em> mode. In the headless mode, GUI tests do not show up on the screen. That means the developer can do other things on the Computer while the tests are running.</p>
+</div>
+<div class="paragraph">
+<p>To run tests in headless mode, open a console and run the command <code>gradlew clean headless allTests</code> (Mac/Linux: <code>./gradlew clean headless allTests</code>)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="types-of-tests"><a class="link" href="#types-of-tests">Types of tests</a></h3>
+<div class="paragraph">
+<p>We have two types of tests:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>GUI Tests</strong> - These are tests involving the GUI. They include,</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><em>System Tests</em> that test the entire App by simulating user actions on the GUI. These are in the <code>systemtests</code> package.</p>
+</li>
+<li>
+<p><em>Unit tests</em> that test the individual components. These are in <code>seedu.address.ui</code> package.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Non-GUI Tests</strong> - These are tests not involving the GUI. They include,</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><em>Unit tests</em> targeting the lowest level methods/classes.<br>
+e.g. <code>seedu.address.commons.StringUtilTest</code></p>
+</li>
+<li>
+<p><em>Integration tests</em> that are checking the integration of multiple code units (those code units are assumed to be working).<br>
+e.g. <code>seedu.address.storage.StorageManagerTest</code></p>
+</li>
+<li>
+<p>Hybrids of unit and integration tests. These test are checking multiple code units as well as how the are connected together.<br>
+e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">Troubleshooting Testing</a></h3>
+<div class="paragraph">
+<p><strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reason: One of its dependencies, <code>UserGuide.html</code> in <code>src/main/resources/docs</code> is missing.</p>
+</li>
+<li>
+<p>Solution: Execute Gradle task <code>processResources</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dev-ops"><a class="link" href="#dev-ops">Dev Ops</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="build-automation"><a class="link" href="#build-automation">Build Automation</a></h3>
+<div class="paragraph">
+<p>See <a href="UsingGradle.html">UsingGradle.adoc</a> to learn how to use Gradle for build automation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="continuous-integration"><a class="link" href="#continuous-integration">Continuous Integration</a></h3>
+<div class="paragraph">
+<p>We use <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://www.appveyor.com/">AppVeyor</a> to perform <em>Continuous Integration</em> on our projects. See <a href="UsingTravis.html">UsingTravis.adoc</a> and <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">Coverage Reporting</a></h3>
+<div class="paragraph">
+<p>We use <a href="https://coveralls.io/">Coveralls</a> to track the code coverage of our projects. See <a href="UsingCoveralls.html">UsingCoveralls.adoc</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="documentation-previews"><a class="link" href="#documentation-previews">Documentation Previews</a></h3>
+<div class="paragraph">
+<p>When a pull request has changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged. See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="making-a-release"><a class="link" href="#making-a-release">Making a Release</a></h3>
+<div class="paragraph">
+<p>Here are the steps to create a new release.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Update the version number in <a href="{repoURL}/src/main/java/seedu/address/MainApp.java"><code>MainApp.java</code></a>.</p>
+</li>
+<li>
+<p>Generate a JAR file <a href="UsingGradle.html#creating-the-jar-file">using Gradle</a>.</p>
+</li>
+<li>
+<p>Tag the repo with the version number. e.g. <code>v0.1</code></p>
+</li>
+<li>
+<p><a href="https://help.github.com/articles/creating-releases/">Create a new release using GitHub</a> and upload the JAR file you created.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">Managing Dependencies</a></h3>
+<div class="paragraph">
+<p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
+a. Include those libraries in the repo (this bloats the repo size)<br>
+b. Require developers to download those libraries manually (this creates extra work for developers)</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="GetStartedProgramming"><a class="link" href="#GetStartedProgramming">Appendix A: Suggested Programming Tasks to Get Started</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Suggested path for new programmers:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, add small local-impact (i.e. the impact of the change does not go beyond the component) enhancements to one component at a time. Some suggestions are given in <a href="#GetStartedProgramming-EachComponent">Product Scope</a>.</p>
+</li>
+<li>
+<p>Next, add a feature that touches multiple components to learn how to implement an end-to-end feature across all components. <a href="#GetStartedProgramming-RemarkCommand">[GetStartedProgramming-RemarkCommand]</a> explains how to go about adding such a feature.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="GetStartedProgramming-EachComponent"><a class="link" href="#GetStartedProgramming-EachComponent">Product Scope</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Target user profile</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>is a secondary school teacher</p>
+</li>
+<li>
+<p>needs to know more about the students that they have taught</p>
+</li>
+<li>
+<p>has a need to track results</p>
+</li>
+<li>
+<p>has a need to manage a significant number of students</p>
+</li>
+<li>
+<p>prefer desktop apps over other types</p>
+</li>
+<li>
+<p>can type fast</p>
+</li>
+<li>
+<p>prefers typing over mouse input</p>
+</li>
+<li>
+<p>is reasonably comfortable using CLI apps</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="feature-contribution"><a class="link" href="#feature-contribution">Appendix B: Feature Contribution</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all" style="width: 85%;">
+<colgroup>
+<col style="width: 25.8823%;">
+<col style="width: 27.0588%;">
+<col style="width: 47.0589%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Major</th>
+<th class="tableblock halign-left valign-top">Minor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Johnny</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display Panel: Add display panel functionalities to UI window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Integration: Integrate data input from user into display window</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Xin Hui</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Academic Section: Help teachers to view and manage students' academic information</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subject Class Database: Create subject class and integrate input into command. Add L1R5 calculation support into subject inputs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kun Hong</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Administrative Information: Add student administrative information into EduBuddy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag Support: Enhance tag functionalities in EduBuddy</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keng Seng</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calendar: Add calendar features which supports different administrative tasks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorting feature: Add sorting functionalities based on various parameters</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix C: User Stories</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 22%;">
+<col style="width: 23%;">
+<col style="width: 25%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update students' classes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know which classes they are in easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update students' academic results</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view and obtain students' streaming score (eg.L1R5)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access student&#8217;s academic and non-academic achievements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stream the students properly (e.g. Normal Academic, Normal Technical, Express)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access student profiles easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have first hand information on all my students without going through a lot of documentation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit remarks of each individual student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update the students' individual needs that occur during class</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter and group students</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access information of specific students</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update student&#8217;s marks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track the student&#8217;s improvement in a certain subject</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know the students' emergency contact information</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know who to contact when something happens to the student</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update student&#8217;s attendance records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know if a student has been absent too frequently</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">look up on student&#8217;s identity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recognize who the student is</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know which subjects that I have taught them before</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">customize my teaching methods for different students</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can track the student&#8217;s progress in the CCA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decide whether to involve the student more</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">key in the levels attained by the students in the various domains in L.E.A.P.S system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calculate the Co-Curricular Attainment achieved by the student.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the student&#8217;s injuries history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to know the need of my students.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>(For all use cases below, the <strong>System</strong> is <code>EduBuddy</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+</div>
+<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to delete a specific person in the list</p>
+</li>
+<li>
+<p>AddressBook deletes the person</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-retrieve-information-of-selected-person" class="discrete">Use case: Retrieve information of selected person</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list or find persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to select a specific person in the list</p>
+</li>
+<li>
+<p>AddressBook loads the information of the selected person</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-add-remarks-for-person" class="discrete">Use case: Add remarks for person</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list or find persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to add remarks for a specific person in the list</p>
+</li>
+<li>
+<p>AddressBook shows the updated information of the selected person</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-add-an-appointment" class="discrete">Use case: Add an appointment</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list or find persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to add an appointment for a specific person in the list by typing in a date and time</p>
+</li>
+<li>
+<p>AddressBook shows the updated details of the appointment</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given date or time is in a invalid format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. The given date or time is already booked by another appointment.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. AddressBook prompts user to input another date or time.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-add-students-academic-results" class="discrete">Use case: Add students' academic results</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list or find persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to update students' academic results using <code>AddCommand</code></p>
+</li>
+<li>
+<p>AddressBook shows updated details of academic results</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given subject(s) is/are invalid, for example, the name or the grade.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-view-students-academic-results" class="discrete">Use case: View students' academic results</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list or find persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to view students' academic results using <code>SelectCommand</code></p>
+</li>
+<li>
+<p>AddressBook shows updated details of academic results</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. No subjects are assigned to the student.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. UI shows an empty list of subjects.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-view-students-streaming-results" class="discrete">Use case: View students' streaming results</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list or find persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to view students' streaming results using <code>SelectCommand</code> or <code>StreamCommand</code></p>
+</li>
+<li>
+<p>AddressBook shows updated details of streaming results</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index or parameter is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. No subjects are assigned to the student.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. Streaming results will be shown as zero.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. Not enough subjects are assigned to the student.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. Streaming results will be shown as zero.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-update-students-academic-results" class="discrete">Use case: Update students' academic results</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list or find persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to update students' academic results using <code>EditCommand</code> or <code>AddSubjectCommand</code></p>
+</li>
+<li>
+<p>AddressBook shows updated details of academic results</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given subject(s) is/are invalid, for example, the name or the grade.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. AddressBook shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. There are duplicate subjects in the user input.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>1.8.0_60</code> or higher installed.</p>
+</li>
+<li>
+<p>Should be able to hold up to 1,200 students
+without a noticeable sluggishness in performance for typical usage.</p>
+</li>
+<li>
+<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Appendix F: Glossary</a></h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">[[CCA}} CCA</dt>
+<dd>
+<p>CCA stands for Co-Curricular Activities. It functions as a non-academic activity where students can have a more enriching experience in school. Find out more by clicking <a href="https://www.moe.gov.sg/education/programmes/co-curricular-activities">here</a>.</p>
+</dd>
+<dt class="hdlist1"><a id="Grade"></a> Grade</dt>
+<dd>
+<p>The grading of the subjects by the level of competence the students show during the "O-Level examination".
+The level of achievement in each subject is indicated by the grade obtained, with A1 being the highest achievable grade and F9 the lowest:</p>
+</dd>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 48.8888%;">
+<col style="width: 51.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Grade</th>
+<th class="tableblock halign-left valign-top">Percentage of Competency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">75% - 100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">70% - 74%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65% - 69%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60% - 64%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">55% - 59%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50% - 54%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">45% - 49%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40% - 44%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0% - 39%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="L1B4"></a> L1B4</dt>
+<dd>
+<p>A grading system for Secondary School students taking "O-Level Examination" at the end of their four years of studies in Secondary School.
+The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education, Polytechnic.
+<code>L1</code> represents the First language subject and <code>B4</code> represents 2 relevant subjects, according to the polytechnic course applied, and 2 other best subjects.
+The category the relevant subject is under(for example: L1B4-A, L1B4-B, L1B4-C, L1B4D), will determine which subjects are the relevant subjects.
+The score will be calculated by considering the subjects' grades. Each subject can only be considered once.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>If you want to find out more about the subject categories (L1B4-A, L1B4-B, L1B4-C, L1B4D),
+please visit:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.sp.edu.sg/wps/portal/vp-spws/!ut/p/a0/04_Sj9CPykssy0xPLMnMz0vMAfGjzOJDPUxdjdxMTQws3J1cDDwt_MJMXZxDDE3cDfQLsh0VAYY7oWE!/?PC_Z7_UH5E2F540G6P00IO8K5AU61JM5027774_WCM_CONTEXT=/wps/wcm/connect/lib-spws/site-spwebsite/future+students/admissions/selection+criteria+for+gce+o+level+holders+-aggregate+computation+%28admissions+-+course+intakes+and+cut-off+points%29">Singapore Polytechnic</a></p>
+</li>
+<li>
+<p><a href="http://www.tp.edu.sg/admissions/gce-o-level-aggregate-scores-computation">Temasek Polytechnic</a></p>
+</li>
+<li>
+<p><a href="https://www.moe.gov.sg/education/post-secondary#polytechnics">Other Polytechnics</a></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="L1R5"></a> L1R5</dt>
+<dd>
+<p>1R5 is a grading system used in Singapore to determine the secondary school students' proficiency in the subjects taken for "O-Level Examination".
+The score is used for the students to enroll into Junior Colleges, which is the next higher level of education. "L1" refers to the first language subject taken by the student, while "R5" refers to the 5 relevant subjects that are examinable by the students.
+The grade of L1R5 is then determined by taking the best grades of each category and summing them up, for example, if a student scores A1 for all 6 subjects are from each category, the score will be 6. Each subject can only be considered once.
+For more information, please click <a href="https://www.moe.gov.sg/admissions/direct-admissions/dsa-jc/eligibility">here</a></p>
+</dd>
+<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dd>
+<p>Windows, Linux, Unix, OS-X</p>
+</dd>
+<dt class="hdlist1"><a id="NRIC"></a> NRIC</dt>
+<dd>
+<p>It stands for National Registration Identity Card, and it is an identification document for the residents in Singapore.
+The <code>NRIC</code> that we are referring to in the <em>EduBuddy</em> refers to the unique identification number that comes with each <code>NRIC</code>.
+Please visit <a href="https://www.ica.gov.sg/">this website</a> for more details.</p>
+</dd>
+<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
+<dd>
+<p>A contact detail that is not meant to be shared with others</p>
+</dd>
+<dt class="hdlist1"><a id="Subject"></a> Subject</dt>
+<dd>
+<p>These are the following subjects that are examinable in O-level Examinations in Singapore (as of Year 2018).</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The subjects in the brackets are not to be used as input. The subjects not in brackets are preferred for better efficiency in typing.<br>
+For example, type in: <code>Hist A1</code> <strong>not</strong> <code>History A1</code>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subject Category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subjects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">English, HTamil(Higher Tamil), HChi(Higher Chinese), HMalay(Higher Malay)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hist(History), Geog(Geography), ComHum(Combined Humanities), ELit(English Literature), CLit(Chinese Literature),
+     MLit(Malay Literature), TLit(Tamil Literature), HArt(Higher Art), HMusic(Higher Music), BIndo(Bahasa Indonesia),
+     CSP(Chinese Special Programme), MSP(Malay Special Programme)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMath(Elementary Mathematics), AMath(Additional Mathematics), Phy(Physics), Chem(Chemistry), Bio(Biology), Sci(Combined Science)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consist of both R1 and R2 subjects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consist of L1, R1 and R2 subjects. French, German, Spanish, Hindi, Urdu, Gujarati, Panjabi, Bengali, Burmese,
+     Thai, Jap(Japanese), Tamil, Chinese, Malay, DnT(Design and Technology), Comp(Computing), FnN(Food and Nutrition), PoA(Principles of Accounting),
+     Econs(Economics), Drama, PE(Physical Education), Biz(Business Studies), Biotech(Biotechnology), Design(Design Studies)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consist of R4 subjects</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>The following subjects can be assigned to students but cannot be contributed to the results: ChiB (Chinese B), MalayB (Malay B), TamilB(Tamil B).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Given below are instructions to test the app manually.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">Launch and Shutdown</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initial launch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the jar file and copy into an empty folder</p>
+</li>
+<li>
+<p>Double-click the jar file<br>
+Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Saving window preferences</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+</li>
+<li>
+<p>Re-launch the app by double-clicking the jar file.<br>
+Expected: The most recent window size and location is retained.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">Deleting a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a person while all persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete 1</code><br>
+Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete 0</code><br>
+Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">Saving data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dealing with missing/corrupted data files</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 13:58:19 UTC
+Last updated 2018-04-15 14:29:36 UTC
 </div>
 </div>
 </body>
