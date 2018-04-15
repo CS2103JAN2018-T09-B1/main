@@ -36,26 +36,33 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement:</strong> Added the ability to create appointments and display it on the UI</p>
+<p><strong>Major enhancement:</strong> Added the ability to create appointments and display it on the UI.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to manage and keep track of their appointments easily</p>
+<p>What it does: Allows the user to manage and keep track of their appointments easily.</p>
 </li>
 <li>
 <p>Justification: This feature improves the product significantly because nowadays, secondary
 school teachers tend to have a rather hectic lifestyle due to added on responsibilities, so this
 feature will help to keep track of any appointments with students in a more organized manner.</p>
 </li>
-<li>
-<p>Credits: External libraries from <a href="https://developers.google.com/calendar/v3/reference/">Google Calendar API</a> was used.</p>
-</li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement:</strong> added a sort command that allows the user to sort the list of students
-based on different parameters</p>
+<p><strong>Minor enhancement:</strong> Added a sort command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows the user to sort the list of students based on different parameters.</p>
+</li>
+<li>
+<p>Justification: This feature helps the user to save time by providing a ordered list
+instead of sieving through the list and look at each individual contact.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/functional/kengsengg.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T09-B1/main/blob/master/collated/test/kengsengg.md">Test code</a>]</p>
@@ -69,25 +76,42 @@ based on different parameters</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases on GitHub and code integration</p>
+<p>Managed releases, milestones on GitHub and code integration</p>
+</li>
+<li>
+<p>Kept track of deliverables and deadlines</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p>Enhancements to existing features:</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
-<p>Documentation:</p>
-</li>
-<li>
-<p>Community:</p>
-</li>
-<li>
-<p>Tools:</p>
+<p>Enabled different color schemes for different tags</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed errors in format of User and Developer Guide</p>
+</li>
+<li>
+<p>Wrote the Google Calendar FAQ Section</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Credits: External libraries from <a href="https://developers.google.com/calendar/v3/reference/">Google Calendar API</a></p>
 </li>
 </ul>
 </div>
@@ -109,7 +133,7 @@ based on different parameters</p>
 <div class="sect2">
 <h3 id="sorting-all-students-code-sort-code-since-v1-2"><a class="link" href="#sorting-all-students-code-sort-code-since-v1-2">Sorting all students : <code>sort</code> [since v1.2]</a></h3>
 <div class="paragraph">
-<p>Having trouble finding the student contact in the never ending list?
+<p>Having trouble sieving through the never ending list of contacts so as to make comparisons?
 Fret not, as this feature helps you to sort the list of all students in <em>EduBuddy</em> according to different parameters.<br>
 Format: <code>sort PARAMETER</code></p>
 </div>
@@ -209,6 +233,126 @@ Creates a consultation appointment with Bernice Yu on 3rd Apr 2018 from 3p.m. to
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="deleting-an-appointment-code-deleteappointment-code-or-code-deleteappt-code-since-v1-5"><a class="link" href="#deleting-an-appointment-code-deleteappointment-code-or-code-deleteappt-code-since-v1-5">Deleting an appointment: <code>deleteappointment</code> or <code>deleteappt</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>This feature helps you to delete an appointment if
+the appointments are already over or you accidentally added wrong details for the appointment</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteappointment INDEX</code><br>
+Abbreviation Format: <code>deleteappt INDEX</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+For first time users of <em>EduBuddy</em>, a Google authentication is required so as to sync your
+appointment data with your own Google Calendar. Please refer to <a href="#Google Calendar Authentication">[Google Calendar Authentication]</a>
+on how to set it up first.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-Deletes the student at the specified <code>INDEX</code>.<br>
+-The index refers to the index number shown in the most recent appointment listing.<br>
+-After the appointment is successfully created, use the <code>view</code> command to see it display on
+your Google Calendar page if it is enabled.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteappointment</code> OR <code>deleteappt</code> <code>3</code><br>
+Deletes a consultation appointment with Bernice Yu on 3rd Apr 2018 from 3p.m. to 4p.m.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deleteapptcommandsuccess.png" alt="deleteapptcommandsuccess" width="650">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="displaying-calendar-view-code-view-code-since-v1-5"><a class="link" href="#displaying-calendar-view-code-view-code-since-v1-5">Displaying calendar view: <code>view</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>If you want to view your own Google Calendar to keep track of your appointments, then this
+is the feature for you.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view GMAIL_ID</code><br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+In order to succesfully view your own Google calendar, <code>GMAIL_ID</code> must be from a valid gmail account and
+access to the calendar must be made public. Please refer to <a href="#Setting up Google Calendar Permissions">[Setting up Google Calendar Permissions]</a>
+on how to configure the settings.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view nusedubuddy</code><br>
+If your gmail account is <a href="mailto:nusedubuddy@gmail.com">nusedubuddy@gmail.com</a>, the <code>GMAIL_ID</code> will be nusedubuddy</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/viewcommandbefore.png" alt="viewcommandbefore" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>The above image displays the calendar with an appointment before its deleted.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/viewcommandafter.png" alt="viewcommandafter" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>The above image displays the calendar after the appointment is deleted.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To refresh the calendar page after an appointment is added or deleted, type in the exact <code>view</code>
+command again or right click on the calendar and press <code>Reload page</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -225,7 +369,7 @@ Creates a consultation appointment with Bernice Yu on 3rd Apr 2018 from 3p.m. to
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="sort-feature"><a class="link" href="#sort-feature">Sort feature</a></h3>
+<h3 id="sort-feature"><a class="link" href="#sort-feature">Sort Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
@@ -257,7 +401,7 @@ the <code>Model</code>.</p>
 </li>
 <li>
 <p>After the sorting process has been completed, the result is encapsulated as a
-<code>CommandResult</code> object, which is then passed back to the <code>Ui</code> as a message shown
+<code>CommandResult</code> object, which is then passed back to the <code>UI</code> as a message shown
 to the user.</p>
 </li>
 </ol>
@@ -313,12 +457,100 @@ as an <code>UndoableCommand</code> as well.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="appointmentlist-feature"><a class="link" href="#appointmentlist-feature">AppointmentList Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The appointment list feature allows the user to add and delete appointments, whereby the data are then stored
+locally in the hard disk and also on the Google server.</p>
+</div>
+<div class="paragraph">
+<p>The figure below shows the Sequence Diagram for the interactions between each component when
+"deleteappt 1" is typed into the CommandBox by the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deleteapptsequence.png" alt="deleteapptsequence" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Firstly, the user keys in the command <code>deleteappt 1</code> and the <code>UI</code> takes in the input.</p>
+</li>
+<li>
+<p>In the <code>Logic</code> section, the <code>DeleteAppointmentCommandParser</code>, reads in the input to check if its valid
+before returning a valid <code>DeleteAppointmentCommand</code> Object.</p>
+</li>
+<li>
+<p>The method <code>deleteAppointment(apptToDelete)</code> is then executed in <code>Model</code> and eventually, the appointment is
+removed from the local data file.</p>
+</li>
+<li>
+<p>After the deleting process has been completed, the result is encapsulated as a CommandResult object, which is then passed back to the <code>UI</code> as a message shown to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The appointment data is also stored on the Google server with the help of the Google Calendar API.
+Each appointment is created with an unique ID so that they can be identified as separate events
+that are not repeated. This ID is derived from the parameters of the appointment that is to be added.
+After that, the appointment to be created and its unique ID is passed into the <code>createEvent</code> method. The
+authorized Google Calendar client service then executes from there, enabling the data to be modified
+on the Google server. This is done in a similar manner for the deletion of appointment as well.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-creation-of-unique-id-for-each-appointment"><a class="link" href="#aspect-creation-of-unique-id-for-each-appointment">Aspect: Creation of unique ID for each appointment</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1 (current choice): </strong> Unique ID is derived from the parameters of
+the appointment that is to be added or deleted.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: A simple method which guarantees that the ID will be the same for the individual
+appointment when it is created and removed.</p>
+</li>
+<li>
+<p>Cons: If future implementations for <em>EduBuddy</em> allows appointment parameters to be edited, then
+this method will not work as the ID will be edited after the appointment has been added. This
+will cause the calendar client service to be unable to find the actual appointment to be deleted later on.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong> Alternative 2: </strong> Generate unique ID using random number generator and use a hash map to
+store them, where the key is the number and the value is the appointment</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This ensures that the appointment ID will not be modified even if its parameters are edited.</p>
+</li>
+<li>
+<p>Cons: Although the ID is derived by random number generator and the limit can be extended, it may result in wastage
+of memory spaces since the set of keys and values are allocated randomly. Also, there is still a
+slight chance that there will be a hashing collision.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 15:40:59 UTC
+Last updated 2018-04-15 15:44:05 UTC
 </div>
 </div>
 </body>

@@ -46,20 +46,21 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
-<li><a href="#sort-feature">4.2. Sort feature</a></li>
-<li><a href="#tagreplace-feature">4.3. TagReplace feature</a></li>
+<li><a href="#sort-feature">4.2. Sort Feature</a></li>
+<li><a href="#tagreplace-feature">4.3. TagReplace Feature</a></li>
 <li><a href="#subject-streaming-calculation-feature">4.4. Subject streaming calculation feature</a></li>
-<li><a href="#mass-tag-removal-feature">4.5. Mass Tag Removal feature</a></li>
+<li><a href="#mass-tag-removal-feature">4.5. Mass Tag Removal Feature</a></li>
 <li><a href="#addsubjectcommand-feature">4.6. AddSubjectCommand feature</a></li>
-<li><a href="#proposed-data-encryption">4.7. [Proposed] Data Encryption</a></li>
-<li><a href="#browser-panel-revamp">4.8. Browser Panel Revamp</a></li>
-<li><a href="#theme-feature">4.9. Theme Feature</a></li>
-<li><a href="#remark-feature">4.10. Remark Feature</a></li>
+<li><a href="#browser-panel-revamp">4.7. Browser Panel Revamp</a></li>
+<li><a href="#theme-feature">4.8. Theme Feature</a></li>
+<li><a href="#remark-feature">4.9. Remark Feature</a></li>
+<li><a href="#appointmentlist-feature">4.10. AppointmentList Feature</a></li>
 <li><a href="#injuries-history-feature">4.11. Injuries History Feature</a></li>
 <li><a href="#cca-feature">4.12. Cca Feature</a></li>
 <li><a href="#nextofkin-feature">4.13. NextOfKin Feature</a></li>
 <li><a href="#logging">4.14. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.15. Configuration</a></li>
+<li><a href="#proposed-data-encryption">4.16. [Proposed] Data Encryption</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -87,17 +88,17 @@
 </ul>
 </li>
 <li><a href="#GetStartedProgramming">Appendix A: Suggested Programming Tasks to Get Started</a></li>
-<li><a href="#GetStartedProgramming-EachComponent">8. Product Scope</a></li>
-<li><a href="#feature-contribution">Appendix B: Feature Contribution</a></li>
-<li><a href="#user-stories">Appendix C: User Stories</a></li>
-<li><a href="#use-cases">Appendix D: Use Cases</a></li>
-<li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix F: Glossary</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#GetStartedProgramming-EachComponent">Appendix B: Product Scope</a></li>
+<li><a href="#feature-contribution">Appendix C: Feature Contribution</a></li>
+<li><a href="#user-stories">Appendix D: User Stories</a></li>
+<li><a href="#use-cases">Appendix E: Use Cases</a></li>
+<li><a href="#non-functional-requirements">Appendix F: Non Functional Requirements</a></li>
+<li><a href="#glossary">Appendix G: Glossary</a></li>
+<li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
+<li><a href="#saving-data">H.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -107,8 +108,8 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to <em>EduBuddy</em>! This application is based on a Command Line Interface(CLI),
-and is designed for secondary school teachers to manage student profiles in
+<p><em>EduBuddy</em>! is an application based on Command Line Interface(CLI),
+and is designed for secondary school teachers to store and manage student records in
 a simple and efficient manner.</p>
 </div>
 <div class="paragraph">
@@ -122,10 +123,13 @@ troubleshooting methods.</p>
 <h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section helps to guide you through the necessary steps to launch our application.</p>
+<p>This section helps to guide you through the necessary steps to launch <em>EduBuddy</em>.</p>
 </div>
 <div class="sect2">
 <h3 id="prerequisites"><a class="link" href="#prerequisites">2.1. Prerequisites</a></h3>
+<div class="paragraph">
+<p>Please ensure that you have the following softwares beforehand.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -352,10 +356,10 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p>At app launch: Initializing the components in the correct sequence, and connects them up with each other.</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p>At shut down: Shutting down the components and invokes cleanup method where necessary.</p>
 </li>
 </ul>
 </div>
@@ -913,7 +917,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-feature"><a class="link" href="#sort-feature">4.2. Sort feature</a></h3>
+<h3 id="sort-feature"><a class="link" href="#sort-feature">4.2. Sort Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -945,7 +949,7 @@ the <code>Model</code>.</p>
 </li>
 <li>
 <p>After the sorting process has been completed, the result is encapsulated as a
-<code>CommandResult</code> object, which is then passed back to the <code>Ui</code> as a message shown
+<code>CommandResult</code> object, which is then passed back to the <code>UI</code> as a message shown
 to the user.</p>
 </li>
 </ol>
@@ -1005,7 +1009,7 @@ as an <code>UndoableCommand</code> as well.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tagreplace-feature"><a class="link" href="#tagreplace-feature">4.3. TagReplace feature</a></h3>
+<h3 id="tagreplace-feature"><a class="link" href="#tagreplace-feature">4.3. TagReplace Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1236,7 +1240,7 @@ As the students are required to take at least 6 subjects, the subjects will be s
 </div>
 </div>
 <div class="sect2">
-<h3 id="mass-tag-removal-feature"><a class="link" href="#mass-tag-removal-feature">4.5. Mass Tag Removal feature</a></h3>
+<h3 id="mass-tag-removal-feature"><a class="link" href="#mass-tag-removal-feature">4.5. Mass Tag Removal Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1478,13 +1482,7 @@ The new student will have the updated <code>Set&lt;Subject&gt;</code> and will r
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.7. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="browser-panel-revamp"><a class="link" href="#browser-panel-revamp">4.8. Browser Panel Revamp</a></h3>
+<h3 id="browser-panel-revamp"><a class="link" href="#browser-panel-revamp">4.7. Browser Panel Revamp</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/browser1.png" alt="browser1" width="600">
@@ -1530,9 +1528,9 @@ These user-profile pages are updated in real time when called by the UI BrowserP
 </div>
 </div>
 <div class="sect2">
-<h3 id="theme-feature"><a class="link" href="#theme-feature">4.9. Theme Feature</a></h3>
+<h3 id="theme-feature"><a class="link" href="#theme-feature">4.8. Theme Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The theme command is a command that changes the theme of the program.
 The input from the user would be parsed with a dedicated parser class 'ChangeThemeCommandParser'.
@@ -1557,7 +1555,7 @@ The themes are found in resources/view.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.9.2. Design Considerations.</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations.</a></h4>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-tag-replace-command-2"><a class="link" href="#aspect-data-structure-to-support-the-tag-replace-command-2">Aspect: Data structure to support the tag replace command</a></h5>
 <div class="ulist">
@@ -1585,9 +1583,9 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remark-feature"><a class="link" href="#remark-feature">4.10. Remark Feature</a></h3>
+<h3 id="remark-feature"><a class="link" href="#remark-feature">4.9. Remark Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A new remark component is added to the person model.</p>
 </div>
@@ -1602,7 +1600,7 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-the-code-remark-code-feature"><a class="link" href="#aspect-implementation-of-the-code-remark-code-feature">Aspect: Implementation of the <code>Remark</code> feature</a></h5>
 <div class="ulist">
@@ -1629,9 +1627,100 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="appointmentlist-feature"><a class="link" href="#appointmentlist-feature">4.10. AppointmentList Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.10.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The appointment list feature allows the user to add and delete appointments, whereby the data are then stored
+locally in the hard disk and also on the Google server.</p>
+</div>
+<div class="paragraph">
+<p>The figure below shows the Sequence Diagram for the interactions between each component when
+"deleteappt 1" is typed into the CommandBox by the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deleteapptsequence.png" alt="deleteapptsequence" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Firstly, the user keys in the command <code>deleteappt 1</code> and the <code>UI</code> takes in the input.</p>
+</li>
+<li>
+<p>In the <code>Logic</code> section, the <code>DeleteAppointmentCommandParser</code>, reads in the input to check if its valid
+before returning a valid <code>DeleteAppointmentCommand</code> Object.</p>
+</li>
+<li>
+<p>The method <code>deleteAppointment(apptToDelete)</code> is then executed in <code>Model</code> and eventually, the appointment is
+removed from the local data file.</p>
+</li>
+<li>
+<p>After the deleting process has been completed, the result is encapsulated as a CommandResult object, which is then passed back to the <code>UI</code> as a message shown to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The appointment data is also stored on the Google server with the help of the Google Calendar API.
+Each appointment is created with an unique ID so that they can be identified as separate events
+that are not repeated. This ID is derived from the parameters of the appointment that is to be added.
+After that, the appointment to be created and its unique ID is passed into the <code>createEvent</code> method. The
+authorized Google Calendar client service then executes from there, enabling the data to be modified
+on the Google server. This is done in a similar manner for the deletion of appointment as well.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-creation-of-unique-id-for-each-appointment"><a class="link" href="#aspect-creation-of-unique-id-for-each-appointment">Aspect: Creation of unique ID for each appointment</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1 (current choice): </strong> Unique ID is derived from the parameters of
+the appointment that is to be added or deleted.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: A simple method which guarantees that the ID will be the same for the individual
+appointment when it is created and removed.</p>
+</li>
+<li>
+<p>Cons: If future implementations for <em>EduBuddy</em> allows appointment parameters to be edited, then
+this method will not work as the ID will be edited after the appointment has been added. This
+will cause the calendar client service to be unable to find the actual appointment to be deleted later on.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong> Alternative 2: </strong> Generate unique ID using random number generator and use a hash map to
+store them, where the key is the number and the value is the appointment</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This ensures that the appointment ID will not be modified even if its parameters are edited.</p>
+</li>
+<li>
+<p>Cons: Although the ID is derived by random number generator and the limit can be extended, it may result in wastage
+of memory spaces since the set of keys and values are allocated randomly. Also, there is still a
+slight chance that there will be a hashing collision.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="injuries-history-feature"><a class="link" href="#injuries-history-feature">4.11. Injuries History Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.11.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A new injuries history component is added to the person model.</p>
 </div>
@@ -1646,7 +1735,7 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.11.2. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.11.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-the-code-injuries-history-code-feature"><a class="link" href="#aspect-implementation-of-the-code-injuries-history-code-feature">Aspect: Implementation of the <code>Injuries History</code> feature</a></h5>
 <div class="ulist">
@@ -1675,7 +1764,7 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 <div class="sect2">
 <h3 id="cca-feature"><a class="link" href="#cca-feature">4.12. Cca Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.12.1. Current Implementation</a></h4>
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">4.12.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A new cca component is added to the person model.</p>
 </div>
@@ -1690,7 +1779,7 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.12.2. Design Considerations</a></h4>
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.12.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-the-code-cca-code-feature"><a class="link" href="#aspect-implementation-of-the-code-cca-code-feature">Aspect: Implementation of the <code>Cca</code> feature</a></h5>
 <div class="ulist">
@@ -1719,7 +1808,7 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 <div class="sect2">
 <h3 id="nextofkin-feature"><a class="link" href="#nextofkin-feature">4.13. NextOfKin Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">4.13.1. Current Implementation</a></h4>
+<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">4.13.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A new next of kin component is added to the person model.</p>
 </div>
@@ -1734,7 +1823,7 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.13.2. Design Considerations</a></h4>
+<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.13.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-the-code-nextofkin-code-feature"><a class="link" href="#aspect-implementation-of-the-code-nextofkin-code-feature">Aspect: Implementation of the <code>NextOfKin</code> feature</a></h5>
 <div class="ulist">
@@ -1797,11 +1886,23 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.15. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.16. [Proposed] Data Encryption</a></h3>
+<div class="paragraph">
+<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 <div class="paragraph">
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
@@ -2079,7 +2180,7 @@ b. Require developers to download those libraries manually (this creates extra w
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>First, add small local-impact (i.e. the impact of the change does not go beyond the component) enhancements to one component at a time. Some suggestions are given in <a href="#GetStartedProgramming-EachComponent">Section 8, &#8220;Product Scope&#8221;</a>.</p>
+<p>First, add small local-impact (i.e. the impact of the change does not go beyond the component) enhancements to one component at a time. Some suggestions are given in <a href="#GetStartedProgramming-EachComponent">Appendix B, <em>Product Scope</em></a>.</p>
 </li>
 <li>
 <p>Next, add a feature that touches multiple components to learn how to implement an end-to-end feature across all components. <a href="#GetStartedProgramming-RemarkCommand">[GetStartedProgramming-RemarkCommand]</a> explains how to go about adding such a feature.</p>
@@ -2089,7 +2190,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </div>
 <div class="sect1">
-<h2 id="GetStartedProgramming-EachComponent"><a class="link" href="#GetStartedProgramming-EachComponent">8. Product Scope</a></h2>
+<h2 id="GetStartedProgramming-EachComponent"><a class="link" href="#GetStartedProgramming-EachComponent">Appendix B: Product Scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
@@ -2131,7 +2232,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </div>
 <div class="sect1">
-<h2 id="feature-contribution"><a class="link" href="#feature-contribution">Appendix B: Feature Contribution</a></h2>
+<h2 id="feature-contribution"><a class="link" href="#feature-contribution">Appendix C: Feature Contribution</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all" style="width: 85%;">
 <colgroup>
@@ -2175,7 +2276,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">Appendix C: User Stories</a></h2>
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix D: User Stories</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
@@ -2294,7 +2395,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </div>
 <div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
+<h2 id="use-cases"><a class="link" href="#use-cases">Appendix E: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is <code>EduBuddy</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
@@ -2783,7 +2884,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </div>
 <div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></h2>
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix F: Non Functional Requirements</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -2805,7 +2906,7 @@ without a noticeable sluggishness in performance for typical usage.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix F: Glossary</a></h2>
+<h2 id="glossary"><a class="link" href="#glossary">Appendix G: Glossary</a></h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -2994,7 +3095,7 @@ For example, type in: <code>Hist A1</code> <strong>not</strong> <code>History A1
 </div>
 </div>
 <div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -3012,7 +3113,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">H.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3047,7 +3148,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3076,7 +3177,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3100,7 +3201,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 15:40:59 UTC
+Last updated 2018-04-15 15:44:05 UTC
 </div>
 </div>
 </body>
