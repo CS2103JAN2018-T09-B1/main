@@ -147,18 +147,18 @@ The tag must be a valid tag name that is assigned to at least one student in the
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>tagreplace t/Class1A t/Class2A</code> or <code>tr t/Class1A t/Class2A</code><br>
-Replaces the 'Class 1A' tag from every student in <em>EduBuddy</em> with 'Class 2A'.</p>
-</li>
-</ul>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/TagReplaceCommand.png" alt="TagReplaceCommand" width="650">
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tagreplace t/3G t/4G</code> or <code>tr t/3G t/4G</code><br>
+Replaces the '3G' tag from every student in <em>EduBuddy</em> with 'Class 4G'.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -188,15 +188,21 @@ Format: <code>addremark INDEX r/REMARK</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:
-* <code>list</code><br>
-<code>addremark 3 r/Geo Rep</code><br>
-Adds a remark, Geo Rep, to the 3rd student in EduBuddy.</p>
+<p>Examples:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/AddRemarkCommand.png" alt="AddRemarkCommand" width="650">
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>addremark 3 r/Geo Rep</code><br>
+Adds a remark, Geo Rep, to the 3rd student in EduBuddy.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -296,115 +302,29 @@ Adds the cca details(cca Choir with the position member) to the 1st student in t
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BeforeAddingCca.png" alt="BeforeAddingCca" width="400">
 </div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5"><a class="link" href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></h3>
-<div class="paragraph">
-<p>Adds an injury history to the student of the specified index, in the student records in <em>EduBuddy</em>.<br>
-Format: <code>addinjuries INDEX injuries/INJURY</code><br>
-You will be able to see the success message,<br>
-<code>Injuries History added: INJURY</code><br>
-<code>Person: NAME</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
--Adds an injury history to the student at the specified <code>INDEX</code>.<br>
--The index refers to the index number shown in the most recent listing.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Figure 10. Before adding CCA to Betsy.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>addinjuries 2 injuries/Dislocated Right Shoulder</code><br>
-Adds the injury, dislocated right shoulder to the 2nd student in <em>EduBuddy</em>.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>addinjuries 1 injuries/Right Ligament Tear</code><br>
-Adds the injury, right ligament tear to the 1st student in the results of the <code>find</code> command.</p>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddCcaSuccessMessage.png" alt="AddCcaSuccessMessage" width="400">
+</div>
 </div>
 <div class="paragraph">
-<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+<p>Figure 10. The success message when command is successfully entered.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AfterAddingCca.png" alt="AfterAddingCca" width="800">
 </div>
-<div class="sect2">
-<h3 id="deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5"><a class="link" href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></h3>
-<div class="paragraph">
-<p>Deletes a injury history from the student records in <em>EduBuddy</em>.<br>
-Format: <code>deleteinjuries INDEX injuries/INJURIES</code><br>
-You will be able to see the success message,<br>
-<code>Injuries deleted: INJURIES</code><br>
-<code>Person: NAME</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
--Deletes a injury history from the student at the specified <code>INDEX</code>.<br>
--The index refers to the index number shown in the most recent listing.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>deleteinjuries 2 injuries/Torn Ligament</code><br>
-Deletes the injury history,torn ligament from the 2nd student in <em>EduBuddy</em>.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>deleteinjuries 1 injuries/Dislocated Shoulder</code><br>
-Deletes the injury history from the 1st student in the results of the <code>find</code> command.</p>
-</li>
-</ul>
+<p>Figure 11. After the command is successfully entered.</p>
 </div>
 <div class="paragraph">
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
@@ -416,7 +336,7 @@ Deletes the injury history from the 1st student in the results of the <code>find
 <p>Edits a next of kin details of the student in <em>EduBuddy</em>.<br>
 Format: <code>nok INDEX n/NAME p/PHONE [e/EMAIL] r/RELATIONSHIP</code><br>
 You will be able to see the success message,<br>
-<code>Next of Kin: NAME Phone: PHONE Email: EMAIL REMARK: Father</code><br>
+<code>Next of Kin: NAME Phone: PHONE Email: EMAIL Remark: Father</code><br>
 <code>Person: NAME</code></p>
 </div>
 <div class="admonitionblock note">
@@ -464,6 +384,30 @@ Edits the next of kin details(name, phone number and relationship)
 of the 1st student in the results of the <code>find</code> command.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BeforeAddingNOK.png" alt="BeforeAddingNOK" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 10. Before adding the next of kin details to Betsy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddNOKSuccessMessage.png" alt="AddNOKSuccessMessage" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 10. The success message when command is successfully entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AfterAddingNOK.png" alt="AfterAddingNOK" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 11. After the command is successfully entered.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1160,7 +1104,7 @@ OR<br>
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 <div class="sect2">
-<h3 id="adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5-2"><a class="link" href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5-2">Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></h3>
+<h3 id="adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5"><a class="link" href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></h3>
 <div class="paragraph">
 <p>Adds an injury history to the student of the specified index, in the student records in <em>EduBuddy</em>.<br>
 Format: <code>addinjuries INDEX injuries/INJURY</code><br>
@@ -1210,12 +1154,36 @@ Adds the injury, right ligament tear to the 1st student in the results of the <c
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InjuriesBeforeAdd.png" alt="InjuriesBeforeAdd" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 5. Before the command <code>addinjuries 1 injuries/Right Ligament Tear</code> was entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddInjuriesSuccessMessage.png" alt="AddInjuriesSuccessMessage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 6. Success message when the command is entered successfully.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InjuriesAfterAdd.png" alt="InjuriesAfterAdd" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 7. After the command is successfully entered.</p>
+</div>
 <div class="paragraph">
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5-2"><a class="link" href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5-2">Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></h3>
+<h3 id="deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5"><a class="link" href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></h3>
 <div class="paragraph">
 <p>Deletes a injury history from the student records in <em>EduBuddy</em>.<br>
 Format: <code>deleteinjuries INDEX injuries/INJURIES</code><br>
@@ -1265,6 +1233,795 @@ Deletes the injury history from the 1st student in the results of the <code>find
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteInjuriesSuccessMessage.png" alt="DeleteInjuriesSuccessMessage" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 8. The success message when command is successfully entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteInjuriesCommand.png" alt="DeleteInjuriesCommand" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 9. After the command is successfully entered.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-the-details-of-the-next-of-kin-of-a-student-code-nok-code-since-v1-5-2"><a class="link" href="#editing-the-details-of-the-next-of-kin-of-a-student-code-nok-code-since-v1-5-2">Editing the details of the next of kin of a student : <code>nok</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Edits a next of kin details of the student in <em>EduBuddy</em>.<br>
+Format: <code>nok INDEX n/NAME p/PHONE [e/EMAIL] r/RELATIONSHIP</code><br>
+You will be able to see the success message,<br>
+<code>Next of Kin: NAME Phone: PHONE Email: EMAIL Remark: Father</code><br>
+<code>Person: NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-Adds the next of kin details to the student at the specified <code>INDEX</code> if the student does not have any next of kin
+details.<br>
+-Edits the next of kin details from the student at the specified <code>INDEX</code>.<br>
+-The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>nok 2 n/Dave p/96784561 r/Father</code><br>
+Edits the next of kin details(name, phone number and relationship)
+of the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>nok 1 n/Dave p/96784561 r/Father</code><br>
+Edits the next of kin details(name, phone number and relationship)
+of the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BeforeAddingNOK.png" alt="BeforeAddingNOK" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 10. Before adding the next of kin details to Betsy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddNOKSuccessMessage.png" alt="AddNOKSuccessMessage" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 10. The success message when command is successfully entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AfterAddingNOK.png" alt="AfterAddingNOK" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 11. After the command is successfully entered.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-theme-of-em-edubuddy-em-code-theme-code-since-v1-5-2"><a class="link" href="#changing-theme-of-em-edubuddy-em-code-theme-code-since-v1-5-2">Changing theme of <em>EduBuddy</em> : <code>theme</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Changes colour theme of  <em>EduBuddy</em> to dark or light theme.<br>
+Format: <code>theme colour</code><br>
+You will be able to see the success message,<br>
+<code>Theme Changed!</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>colour</code> *must be 'dark' or 'light'
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>theme</code> dark<br>
+Changes visual theme to dark theme.</p>
+</li>
+<li>
+<p><code>theme</code> light<br>
+Changes visual theme to light theme.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code-or-code-c-code-2"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code-2">Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
+<div class="paragraph">
+<p>Clears all student entries from <em>EduBuddy</em>.<br>
+Format: <code>clear</code><br>
+Abbreviation Format: <code>c</code></p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data-2"><a class="link" href="#saving-the-data-2">Saving the data</a></h3>
+<div class="paragraph">
+<p>EduBuddy data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code-2"><a class="link" href="#exiting-the-program-code-exit-code-2">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="l-e-a-p-s-system-code-coming-in-v2-0-code-2"><a class="link" href="#l-e-a-p-s-system-code-coming-in-v2-0-code-2">L.E.A.P.S System <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><em>{Allows the teachers to key in the levels attained by the student for the various domains in L.E.A.P.S
+  to calculate the Co-Curricular Attainment of the student.}</em></p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code-2"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code-2">Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><em>{explain how the user can enable/disable data encryption}</em></p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq-2"><a class="link" href="#faq-2">FAQ</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="google-calendar-authentication-2"><a class="link" href="#google-calendar-authentication-2">Google Calendar Authentication</a></h3>
+<div class="paragraph">
+<p>For first time users, when you attempt to add an appointment to <em>EduBuddy</em>, you will be redirected
+to a new window or tab in your default web browser, as shown in the diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/googlelogin.png" alt="googlelogin" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>To complete the authentication, you may follow the steps below:</p>
+</div>
+<div class="paragraph">
+<p>Step 1:Input your gmail ID and password to proceed.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If you accidentally closed the pop-up browser at this point, the authentication will terminate and it will cause <em>EduBuddy</em>
+to stop responding. Close <em>EduBuddy</em> and restart it again.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you currently do not have a Gmail account, but wish to try our appointment feature, you may use
+the following test account to proceed instead.<br>
+-Gmail ID: edubuddytest<br>
+-Gmail PW: edubuddy123
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2: After successfully logging in to you Gmail account, you will be prompted access. Click <code>ALLOW</code>
+to proceed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/googleaccess.png" alt="googleaccess" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3: Once that is done, the following message will be displayed at the top left corner
+of your browser page.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/googlesuccess.png" alt="googlesuccess" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>The authentication is successful and you may close the browser and continue
+with the application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This authentication will only be done once and subsequent execution of <em>EduBuddy</em> will not show the
+prompt again.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-up-google-calendar-permissions-2"><a class="link" href="#setting-up-google-calendar-permissions-2">Setting up Google Calendar Permissions</a></h3>
+<div class="paragraph">
+<p>To allow your own Google Calender to be viewed on <em>EduBuddy</em>, you may follow these steps:</p>
+</div>
+<div class="paragraph">
+<p>Step 1: Login to your Google Calendar and click on the <code>Settings</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/googlesettings.png" alt="googlesettings" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2: At the left hand side panel, under "Settings for my calendars", click on your own calendar.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/googlesettings2.png" alt="googlesettings2" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3: Check the "Make available to public" box</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/googlepermissions.png" alt="googlepermissions" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="others-2"><a class="link" href="#others-2">Others</a></h3>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous EduBuddy folder.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What is L1B4 (as known as L1R2B2)?<br>
+<strong>A</strong>: A grading system for Secondary School students taking "O-Level Examination" at the end of their four years of studies in Secondary School.
+     The score obtained from the grading system will be used to determine the eligibility of the students to enter the next level of education, Polytechnic.
+     <code>L1</code> represents the First language subject and <code>B4</code> represents 2 relevant subjects, according to the polytechnic course applied, and 2 other best subjects.
+     The category the relevant subject is under(for example: L1B4-A, L1B4-B, L1B4-C, L1B4D), will determine which subjects are the relevant subjects.
+The score will be calculated by considering the subjects' grades. Each subject can only be considered once.</p>
+</div>
+<div class="paragraph">
+<p>If you want to find out more about the subject categories (L1B4-A, L1B4-B, L1B4-C, L1B4D),
+please visit:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.sp.edu.sg/wps/portal/vp-spws/!ut/p/a0/04_Sj9CPykssy0xPLMnMz0vMAfGjzOJDPUxdjdxMTQws3J1cDDwt_MJMXZxDDE3cDfQLsh0VAYY7oWE!/?PC_Z7_UH5E2F540G6P00IO8K5AU61JM5027774_WCM_CONTEXT=/wps/wcm/connect/lib-spws/site-spwebsite/future+students/admissions/selection+criteria+for+gce+o+level+holders+-aggregate+computation+%28admissions+-+course+intakes+and+cut-off+points%29">Singapore Polytechnic</a></p>
+</li>
+<li>
+<p><a href="http://www.tp.edu.sg/admissions/gce-o-level-aggregate-scores-computation">Temasek Polytechnic</a></p>
+</li>
+<li>
+<p><a href="https://www.moe.gov.sg/education/post-secondary#polytechnics">Other Polytechnics</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What is L1R5?<br>
+<strong>A</strong>: L1R5 is a grading system used in Singapore to determine the secondary school students' proficiency in the subjects taken for "O-Level Examination".
+The score is used for the students to enroll into Junior Colleges, which is the next higher level of education. "L1" refers to the first language subject taken by the student, while "R5" refers to the 5 relevant subjects that are examinable by the students.
+The grade of L1R5 is then determined by taking the best grades of each category and summing them up, for example, if a student scores A1 for all 6 subjects are from each category, the score will be 6. Each subject can only be considered once.
+For more information, please click <a href="https://www.moe.gov.sg/admissions/direct-admissions/dsa-jc/eligibility">here</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How are the grades for the subjects determined?<br>
+<strong>A</strong>: The level of achievement in each subject is indicated by the grade obtained, with A1 being the highest achievable grade and F9 the lowest:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 85%;">
+<colgroup>
+<col style="width: 48.8888%;">
+<col style="width: 51.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Grade</th>
+<th class="tableblock halign-left valign-top">Percentage of Competency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">75% - 100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">70% - 74%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65% - 69%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60% - 64%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">55% - 59%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50% - 54%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">45% - 49%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40% - 44%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0% - 39%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Q</strong>: What are the subjects are in the L1R5 category?<br>
+<strong>A</strong>: These are the following subjects that are examinable in "O-level Examinations" in Singapore (as of Year 2018).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The subjects in the brackets are not to be used as input. The subjects not in brackets are preferred for better efficiency in typing.<br>
+For example, type in: <code>Hist A1</code> <strong>not</strong> <code>History A1</code>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 85%;">
+<colgroup>
+<col style="width: 48.8888%;">
+<col style="width: 51.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Subject Category</th>
+<th class="tableblock halign-left valign-top">Subjects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">English, HTamil(Higher Tamil), HChi(Higher Chinese), HMalay(Higher Malay)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hist(History), Geog(Geography), ComHum(Combined Humanities), ELit(English Literature), CLit(Chinese Literature),
+     MLit(Malay Literature), TLit(Tamil Literature), HArt(Higher Art), HMusic(Higher Music), BIndo(Bahasa Indonesia),
+     CSP(Chinese Special Programme), MSP(Malay Special Programme)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMath(Elementary Mathematics), AMath(Additional Mathematics), Phy(Physics), Chem(Chemistry), Bio(Biology), Sci(Combined Science)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consist of both R1 and R2 subjects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consist of L1, R1 and R2 subjects. French, German, Spanish, Hindi, Urdu, Gujarati, Panjabi, Bengali, Burmese,
+     Thai, Jap(Japanese), Tamil, Chinese, Malay, DnT(Design and Technology), Comp(Computing), FnN(Food and Nutrition), PoA(Principles of Accounting),
+     Econs(Economics), Drama, PE(Physical Education), Biz(Business Studies), Biotech(Biotechnology), Design(Design Studies)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consist of R4 subjects</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>The following subjects can be assigned to students but cannot be contributed to the results: ChiB (Chinese B), MalayB (Malay B), TamilB(Tamil B).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What is CCA?<br>
+<strong>A</strong>: CCA stands for Co-Curricular Activities. It functions as a non-academic activity where students can have a more enriching experience in school. Find out more by clicking <a href="https://www.moe.gov.sg/education/programmes/co-curricular-activities">here</a>.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What is NRIC?<br>
+<strong>A</strong>: It stands for National Registration Identity Card, and it is an identification document for the residents in Singapore.
+The <code>NRIC</code> that we are referring to in the <em>EduBuddy</em> refers to the unique identification number that comes with each <code>NRIC</code>.
+Please visit <a href="https://www.ica.gov.sg/">this website</a> for more details.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What comprises the post-secondary education?<br>
+<strong>A</strong>: There are many different platforms of post-secondary education. We are currently focusing on Polytechnics and Junior Colleges.
+For more information about the platforms, please visit:
+<a href="https://www.moe.gov.sg/education/post-secondary">this website</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Why the information in the User Guide is not updated?<br>
+<strong>A</strong>: The <em>EduBuddy</em> is created in the Year 2018, so the information are all based in 2018. And, we are not part of the Ministry of Education so we may be lacking in expertise in this area.
+If you want to see the latest update on the education system, you can visit <a href="https://www.moe.gov.sg/home">the Ministry of Education&#8217;s website</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you want us to update the <em>EduBuddy</em>, you can post issues on our <a href="https://github.com/CS2103JAN2018-T09-B1/main/issues">issues website</a>.
+Please go through the following 2 steps to post an issue:</p>
+</li>
+</ul>
+</div>
+<div id="IMPORTANT" class="paragraph">
+<p>You should have a <code>GitHub</code> account to post an issue. If you don&#8217;t, you can create one <a href="https://github.com/join">here</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/NewIssueStep1.png" alt="NewIssueStep1" width="800">
+</div>
+<div class="title">Figure 5. Step 1: Create new issue</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/NewIssueStep2.png" alt="NewIssueStep2" width="800">
+</div>
+<div class="title">Figure 6. Step 2: Submit new issue</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you want to see that your issue is posted, you can follow the next 2 steps.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/NewIssueStep3.png" alt="NewIssueStep3" width="800">
+</div>
+<div class="title">Figure 7. Step 3: Return to main issue page</div>
+</div>
+<div class="paragraph">
+<p>or you can go back to our <a href="https://github.com/CS2103JAN2018-T09-B1/main/issues">issue website</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/NewIssueStep4.png" alt="NewIssueStep4" width="800">
+</div>
+<div class="title">Figure 8. Step 4: View issue</div>
+</div>
+<div class="paragraph">
+<p>We will let you know through your <code>GitHub</code> account or the email linked to your <code>GitHub</code> account once we have address your issue.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary-2"><a class="link" href="#command-summary-2">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The table below provides a quick summary of all the commands available in EduBuddy.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 24.4444%;">
+<col style="width: 25.5555%;">
+<col style="width: 27.7779%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a student entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME ic/NRIC [t/TAG] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE&#8230;&#8203;]</code><br>
+OR<br>
+<code>a n/NAME ic/NRIC [t/TAG] [r/REMARK] [sub/SUBJECT_NAME SUBJECT_GRADE&#8230;&#8203;]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/John Doe ic/S9876543H t/3A r/English Rep sub/English A2 Tamil A2 AMath B3 Phy A1 EMath A2 Hist A2</code><br>
+OR<br>
+<code>a n/John Doe ic/S9876543H t/3A r/English Rep sub/English A2 Tamil A2 AMath B3 Phy A1 EMath A2 Hist A2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AddAppointment</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds an appointment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addappointment n/NAME i/INFO d/DATE s/START_TIME e/END_TIME</code><br>
+OR<br>
+<code>addappt n/NAME i/INFO d/DATE s/START_TIME e/END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addappointment n/John Doe i/Remedial d/25122018 s/1200 e/1300</code><br>
+OR<br>
+<code>addappt n/John Doe i/Remedial d/25122018 s/1200 e/1300</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AddInjuries</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a injury history to a specified student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addinjuries INDEX injuries/INJURY</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addinjuries 2 injuries/Torn Ligament</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AddRemark</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a remark to a specific student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addremark 1 r/REMARK</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addremark 2 r/Hardworking</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AddSubject</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds subject(s) to a specified student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addsub INDEX sub/SUBJECT_NAME SUBJECT_GRADE</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addsub 2 sub/English A2 EMath A1</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cca</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a student&#8217;s cca details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cca INDEX cca/CCA pos/POSITION</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cca 1 cca/Basketball pos/Member</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clears all student entries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code><br>
+OR<br>
+<code>c</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code><br>
+OR<br>
+<code>c</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a student entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code><br>
+OR<br>
+<code>d INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code><br>
+OR<br>
+<code>d 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DeleteAppointment</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes an appointment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteappointment INDEX</code><br>
+OR<br>
+<code>deleteappt INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteappointment 3</code><br>
+OR<br>
+<code>deleteappt 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DeleteInjuries</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a injury history from a specific student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteinjuries INDEX injuries/INJURY</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteinjuries 1 injuries/Torn Ligament</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DeleteRemark</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a remark from a specific student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteremark 1 r/REMARK</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteremark 1 r/Hardworking</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a student entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/NAME] [ic/NRIC] [t/CLASS] [sub/SUBJECT_NAME SUBJECT_GRADE]</code><br>
+OR<br>
+<code>e INDEX [n/NAME] [ic/NRIC] [t/CLASS] [sub/SUBJECT_NAME SUBJECT_GRADE]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/James Lee</code><br>
+OR<br>
+<code>e 2 n/James Lee</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exits <em>EduBuddy</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Finds student by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code><br>
+OR<br>
+<code>f KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find James Jake</code><br>
+OR<br>
+<code>f James Jake</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shows the help page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>History</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists the past commands entered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code><br>
+OR<br>
+<code>h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code><br>
+OR<br>
+<code>h</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all student entries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code><br>
+OR<br>
+<code>l</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code><br>
+OR<br>
+<code>l</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NextofKin</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a student&#8217;s next of kin details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nok INDEX n/NAME p/PHONE [e/EMAIL] r/RELATIONSHIP</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nok 1 n/Dave p/95672341 r/Father</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Redo</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo previous undo command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code><br>
+OR<br>
+<code>r</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code><br>
+OR<br>
+<code>r</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Selects the student entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code><br>
+OR<br>
+<code>s INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code><br>
+OR<br>
+<code>s 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorts student entries by parameters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort PARAMETER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort name</code><br>
+OR<br>
+<code>sort tag</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Stream</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a specific streaming score of a student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stream INDEX STREAM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stream 1 1</code><br>
+OR<br>
+<code>stream 1 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TagDelete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a tag from every student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagdelete TAGNAME</code><br>
+OR<br>
+<code>td TAGNAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagdelete CLASS2A</code><br>
+OR<br>
+<code>td CLASS2A</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TagReplace</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces a tag for every student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagreplace t/OLD_TAGNAME t/NEW_TAGNAME</code><br>
+OR<br>
+<code>tr t/OLD_TAGNAME t/NEW_TAGNAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagreplace t/2A t/3A</code><br>
+OR<br>
+<code>tr t/2A t/3A</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Theme</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Changes theme of <em>EduBuddy</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>theme COLOR</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>theme dark</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo previous command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code><br>
+OR<br>
+<code>u</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code><br>
+OR<br>
+<code>u</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>View</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays calendar view</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view GMAIL_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view nusedubuddy</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
 </div>
 </div>
 </div>
@@ -1398,12 +2155,126 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="injuries-history-feature"><a class="link" href="#injuries-history-feature">Injuries History Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new injuries history component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This injuries history feature allows the user to add injuries history to the student profile of the specified student.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-injuries-history-code-feature"><a class="link" href="#aspect-implementation-of-the-code-injuries-history-code-feature">Aspect: Implementation of the <code>Injuries History</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just one method to add and delete the injuries history.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not create 2 command just to add and delete the injuries history.</p>
+</li>
+<li>
+<p>Cons: The injuries history attached to the student in our student profile would not be able to exceed one line.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cca-feature"><a class="link" href="#cca-feature">Cca Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new cca component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This cca feature allows the user to add cca and the position to the student profile of the specified student.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-cca-code-feature"><a class="link" href="#aspect-implementation-of-the-code-cca-code-feature">Aspect: Implementation of the <code>Cca</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just two methods to add and delete the details of the cca.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More than 1 details of the student cca can be added.</p>
+</li>
+<li>
+<p>Cons: The user has to type separate commands just to add or delete the details.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nextofkin-feature"><a class="link" href="#nextofkin-feature">NextOfKin Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new next of kin component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This NextOfKin feature allows the user to add the details of the student&#8217;s next of kin into the student profile of the specified student.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-nextofkin-code-feature"><a class="link" href="#aspect-implementation-of-the-code-nextofkin-code-feature">Aspect: Implementation of the <code>NextOfKin</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just two methods to add and delete the details of the next of kin of the student.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More than 1 details of the student&#8217;s next of kin can be added.</p>
+</li>
+<li>
+<p>Cons: The user has to type separate commands just to add or delete the details.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 13:55:09 UTC
+Last updated 2018-04-15 13:58:19 UTC
 </div>
 </div>
 </body>
