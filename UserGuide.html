@@ -46,10 +46,10 @@
 <li><a href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.16. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></li>
 <li><a href="#creating-an-appointment-code-appointment-code-or-code-appt-code-since-v1-4">3.17. Creating an appointment: <code>appointment</code> or <code>appt</code> [since v1.4]</a></li>
 <li><a href="#viewing-streaming-score-code-stream-code-since-v1-5">3.18. Viewing streaming score: <code>stream</code> [since v1.5]</a></li>
-<li><a href="#adding-a-cca-to-a-student-code-addcca-code-since-v1-5">3.19. Adding a CCA to a student : <code>addcca</code> [since v1.5]</a></li>
-<li><a href="#deleting-a-cca-from-a-student-code-deletecca-code-since-v1-5">3.20. Deleting a CCA from a student : <code>deletecca</code> [since v1.5]</a></li>
-<li><a href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">3.21. Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></li>
-<li><a href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">3.22. Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></li>
+<li><a href="#editing-the-details-of-cca-of-a-student-code-cca-code-since-v1-5">3.19. Editing the details of CCA of a student : <code>cca</code> [since v1.5]</a></li>
+<li><a href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">3.20. Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></li>
+<li><a href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">3.21. Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></li>
+<li><a href="#editing-the-details-of-the-next-of-kin-of-a-student-code-nok-code-since-v1-5">3.22. Editing the details of the next of kin of a student : <code>nok</code> [since v1.5]</a></li>
 <li><a href="#changing-theme-of-edubuddy-code-theme-code-since-v1-5">3.23. Changing theme of EduBuddy : <code>theme</code> [since v1.5]</a></li>
 <li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.24. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.25. Exiting the program : <code>exit</code></a></li>
@@ -591,8 +591,8 @@ Deletes the '4A' tag from every student in the <em>EduBuddy</em>.</p>
 <h3 id="replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2"><a class="link" href="#replacing-a-tag-code-tagreplace-code-or-code-tr-code-since-v1-2">3.10. Replacing a tag : <code>tagreplace</code> or <code>tr</code> [since v1.2]</a></h3>
 <div class="paragraph">
 <p>Replaces the specified tag from every student in <em>EduBuddy</em> with a specific tag.<br>
-Format: <code>tagreplace t/TAGNAME t/TAGNAME</code>
-Abbreviation Format: <code>tr t/TAGNAME t/TAGNAME</code></p>
+Format: <code>tagreplace t/OLD_TAGNAME t/NEW_TAGNAME</code>
+Abbreviation Format: <code>tr t/OLD_TAGNAME t/NEW_TAGNAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -681,8 +681,8 @@ Format: <code>addremark INDEX r/REMARK</code></p>
 <div class="paragraph">
 <p>Examples:
 * <code>list</code><br>
-<code>addremark 2 r/Class Monitor</code><br>
-Adds a remark, Class Monitor, to the 2nd student in EduBuddy.</p>
+<code>addremark 3 r/Geo Rep</code><br>
+Adds a remark, Geo Rep, to the 3rd student in EduBuddy.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -719,8 +719,8 @@ Format: <code>deleteremark INDEX r/REMARK</code></p>
 <div class="paragraph">
 <p>Examples:
 * <code>list</code><br>
-<code>deleteremark 2 r/Class Monitor</code><br>
-Deletes the remark, Class Monitor, from the 2nd student in EduBuddy.</p>
+<code>deleteremark 3 r/Geo Rep</code><br>
+Deletes the remark, Geo Rep, from the 3rd student in EduBuddy.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1063,10 +1063,10 @@ Returns the L1B4-A score obtained by the student based on his/her grades.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-cca-to-a-student-code-addcca-code-since-v1-5"><a class="link" href="#adding-a-cca-to-a-student-code-addcca-code-since-v1-5">3.19. Adding a CCA to a student : <code>addcca</code> [since v1.5]</a></h3>
+<h3 id="editing-the-details-of-cca-of-a-student-code-cca-code-since-v1-5"><a class="link" href="#editing-the-details-of-cca-of-a-student-code-cca-code-since-v1-5">3.19. Editing the details of CCA of a student : <code>cca</code> [since v1.5]</a></h3>
 <div class="paragraph">
-<p>Adds a CCA and the student&#8217;s position in the CCA into the student records in <em>EduBuddy</em>.<br>
-Format: <code>addcca INDEX cca/CCA pos/POSITION</code><br>
+<p>edits the CCA details of the student in <em>EduBuddy</em>.<br>
+Format: <code>cca INDEX cca/CCA pos/POSITION</code><br>
 You will be able to see the success message,<br>
 <code>CCA added: CCA: POSITION</code><br>
 <code>Person: NAME</code></p>
@@ -1078,7 +1078,9 @@ You will be able to see the success message,<br>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
--Adds a CCA and the student&#8217;s position in the CCA to the student at the specified <code>INDEX</code>.<br>
+-Adds the CCA details to the student at the specified <code>INDEX</code>
+if the student does not have any cca details.<br>
+-Edits the CCA details of the student at the specified <code>INDEX.</code><br>
 -The index refers to the index number shown in the most recent listing.
 </td>
 </tr>
@@ -1103,13 +1105,13 @@ You will be able to see the success message,<br>
 <ul>
 <li>
 <p><code>list</code><br>
-<code>addcca 2 cca/Basketball pos/Member</code><br>
-Adds the cca basketball with the position member to the 2nd student in <em>EduBuddy</em>.</p>
+<code>cca 2 cca/Basketball pos/Member</code><br>
+Adds the cca details(cca basketball with the position member) to the 2nd student in <em>EduBuddy</em>.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
-<code>addcca 1 cca/Choir pos/Member</code><br>
-Adds the cca Choir with the position member to the 1st student in the results of the <code>find</code> command.</p>
+<code>cca 1 cca/Choir pos/Member</code><br>
+Adds the cca details(cca Choir with the position member) to the 1st student in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
@@ -1118,62 +1120,7 @@ Adds the cca Choir with the position member to the 1st student in the results of
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-cca-from-a-student-code-deletecca-code-since-v1-5"><a class="link" href="#deleting-a-cca-from-a-student-code-deletecca-code-since-v1-5">3.20. Deleting a CCA from a student : <code>deletecca</code> [since v1.5]</a></h3>
-<div class="paragraph">
-<p>Deletes a CCA and the student&#8217;s position in the CCA from the student records in <em>EduBuddy</em>.<br>
-Format: <code>deletecca INDEX cca/CCA pos/POSITION</code><br>
-You will be able to see the success message,<br>
-<code>CCA deleted: CCA: POSITION</code><br>
-<code>Person: NAME</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
--Deletes a CCA and the student&#8217;s position in the CCA from the student at the specified <code>INDEX</code>.<br>
--The index refers to the index number shown in the most recent listing.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>deletecca 2 cca/Basketball pos/Member</code><br>
-Deletes the cca basketball with the position member from the 2nd student in <em>EduBuddy</em>.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>addcca 1 cca/Choir pos/Member</code><br>
-Deletes the cca Choir with the position member from the 1st student in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5"><a class="link" href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">3.21. Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></h3>
+<h3 id="adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5"><a class="link" href="#adding-a-injury-history-to-a-student-code-addinjuries-code-since-v1-5">3.20. Adding a injury history to a student : <code>addinjuries</code> [since v1.5]</a></h3>
 <div class="paragraph">
 <p>Adds an injury history to the student of the specified index, in the student records in <em>EduBuddy</em>.<br>
 Format: <code>addinjuries INDEX injuries/INJURY</code><br>
@@ -1228,7 +1175,7 @@ Adds the injury, right ligament tear to the 1st student in the results of the <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5"><a class="link" href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">3.22. Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></h3>
+<h3 id="deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5"><a class="link" href="#deleting-a-injuries-history-from-a-student-code-deleteinjuries-code-since-v1-5">3.21. Deleting a injuries history from a student : <code>deleteinjuries</code> [since v1.5]</a></h3>
 <div class="paragraph">
 <p>Deletes a injury history from the student records in <em>EduBuddy</em>.<br>
 Format: <code>deleteinjuries INDEX injuries/INJURIES</code><br>
@@ -1280,6 +1227,62 @@ Deletes the injury history from the 1st student in the results of the <code>find
 </div>
 <div class="paragraph">
 <p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-the-details-of-the-next-of-kin-of-a-student-code-nok-code-since-v1-5"><a class="link" href="#editing-the-details-of-the-next-of-kin-of-a-student-code-nok-code-since-v1-5">3.22. Editing the details of the next of kin of a student : <code>nok</code> [since v1.5]</a></h3>
+<div class="paragraph">
+<p>Edits a next of kin details of the student in <em>EduBuddy</em>.<br>
+Format: <code>nok INDEX n/NAME p/PHONE [e/EMAIL] r/RELATIONSHIP</code><br>
+You will be able to see the success message,<br>
+<code>Next of Kin: NAME Phone: PHONE Email: EMAIL REMARK: Father</code><br>
+<code>Person: NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+-Adds the next of kin details to the student at the specified <code>INDEX</code> if the student does not have any next of kin
+details.<br>
+-Edits the next of kin details from the student at the specified <code>INDEX</code>.<br>
+-The index refers to the index number shown in the most recent listing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>INDEX</code> <strong>must be a positive integer</strong>: 1, 2, 3, &#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>nok 2 n/Dave p/96784561 r/Father</code><br>
+Edits the next of kin details(name, phone number and relationship)
+of the 2nd student in <em>EduBuddy</em>.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>nok 1 n/Dave p/96784561 r/Father</code><br>
+Edits the next of kin details(name, phone number and relationship)
+of the 1st student in the results of the <code>find</code> command.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1643,10 +1646,22 @@ OR<br>
 <code>a n/James Ho ic/S9500186H t/1A t/20 sub/English A2 EMath A1 Chinese A1 Phy A1 AMath A1 Hist A2</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add injuries history</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a injury history to a specified student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addinjuries INDEX injuries/INJURY</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addinjuries 2 injuries/Torn Ligament</code><br></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add subject</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Adds subject(s) to a specified student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addsub INDEX sub/SUBJECT_NAME SUBJECT_GRADE</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addsub 2 sub/English A2 EMath A1</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AddRemark</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a remark to a specific student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addremark 1 r/REMARK</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addremark 2 r/Hardworking</code><br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Appointment</strong></p></td>
@@ -1657,6 +1672,12 @@ OR<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>appointment 1 d/25122018 s/1200 e/1300</code><br>
 OR<br>
 <code>appt 1 d/25122018 s/1200 e/1300</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cca</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a student&#8217;s cca details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cca INDEX cca/CCA pos/POSITION</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cca 1 cca/Basketball pos/Member</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
@@ -1677,6 +1698,18 @@ OR<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code><br>
 OR<br>
 <code>d 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DeleteRemark</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a remark from a specific student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteremark INDEX r/REMARK</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteremark 1</code> <code>r/Hardworking</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DeleteInjuries</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a injury history from a specific student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteinjuries INDEX injuries/INJURY</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteinjuries 1 injuries/Torn Ligament</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
@@ -1731,6 +1764,12 @@ OR<br>
 <code>l</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NextofKin</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a student&#8217;s next of kin details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nok INDEX n/NAME p/PHONE [e/EMAIL] r/RELATIONSHIP</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nok 1 n/Dave p/95672341 r/Father</code><br></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Redo</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Redo previous undo command</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code><br>
@@ -1779,22 +1818,12 @@ OR<br>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TagReplace</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Replaces a tag for every student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagreplace t/TAGNAME t/TAGNAME</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagreplace t/OLD_TAGNAME t/NEW_TAGNAME</code><br>
 OR<br>
-<code>tr t/TAGNAME t/TAGNAME</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AddRemark</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a remark to a specific student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addremark 1 r/REMARK</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DeleteRemark</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes a remark from a specific student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteremark 1 r/REMARK</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<code>tr t/OLD_TAGNAME t/NEW_TAGNAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagreplace t/2A t/3A</code><br>
+OR<br>
+<code>tr t/2A t/3A</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Theme</strong></p></td>
@@ -1820,7 +1849,7 @@ OR<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 08:56:31 UTC
+Last updated 2018-04-15 08:59:50 UTC
 </div>
 </div>
 </body>

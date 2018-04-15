@@ -55,8 +55,11 @@
 <li><a href="#browser-panel-revamp">4.8. Browser Panel Revamp</a></li>
 <li><a href="#theme-feature">4.9. Theme Feature</a></li>
 <li><a href="#remark-feature">4.10. Remark Feature</a></li>
-<li><a href="#logging">4.11. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.12. Configuration</a></li>
+<li><a href="#injuries-history-feature">4.11. Injuries History Feature</a></li>
+<li><a href="#cca-feature">4.12. Cca Feature</a></li>
+<li><a href="#nextofkin-feature">4.13. NextOfKin Feature</a></li>
+<li><a href="#logging">4.14. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.15. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1589,11 +1592,6 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 <div class="paragraph">
 <p>A new remark component is added to the person model.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ModelClassDiagramWithRemark.png" alt="ModelClassDiagramWithRemark" width="800">
-</div>
-</div>
 <div class="paragraph">
 <p>This remark feature allows the user to add remarks to the student profile of the specified student.</p>
 </div>
@@ -1634,14 +1632,137 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.11. Logging</a></h3>
+<h3 id="injuries-history-feature"><a class="link" href="#injuries-history-feature">4.11. Injuries History Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new injuries history component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This injuries history feature allows the user to add injuries history to the student profile of the specified student.</p>
+</div>
+<div class="paragraph">
+<p>Figure 15. Sequence Diagram of AddInjuriesCommand</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.11.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-injuries-history-code-feature"><a class="link" href="#aspect-implementation-of-the-code-injuries-history-code-feature">Aspect: Implementation of the <code>Injuries History</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just one method to add and delete the injuries history.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not create 2 command just to add and delete the injuries history.</p>
+</li>
+<li>
+<p>Cons: The injuries history attached to the student in our student profile would not be able to exceed one line.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cca-feature"><a class="link" href="#cca-feature">4.12. Cca Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.12.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new cca component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This cca feature allows the user to add cca and the position to the student profile of the specified student.</p>
+</div>
+<div class="paragraph">
+<p>Figure 15. Sequence Diagram of CcaCommand</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.12.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-cca-code-feature"><a class="link" href="#aspect-implementation-of-the-code-cca-code-feature">Aspect: Implementation of the <code>Cca</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just two methods to add and delete the details of the cca.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More than 1 details of the student cca can be added.</p>
+</li>
+<li>
+<p>Cons: The user has to type separate commands just to add or delete the details.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nextofkin-feature"><a class="link" href="#nextofkin-feature">4.13. NextOfKin Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">4.13.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>A new next of kin component is added to the person model.</p>
+</div>
+<div class="paragraph">
+<p>This NextOfKin feature allows the user to add the details of the student&#8217;s next of kin into the student profile of the specified student.</p>
+</div>
+<div class="paragraph">
+<p>Figure 15. Sequence Diagram of NextOfKinCommand</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.13.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-the-code-nextofkin-code-feature"><a class="link" href="#aspect-implementation-of-the-code-nextofkin-code-feature">Aspect: Implementation of the <code>NextOfKin</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Using just two methods to add and delete the details of the next of kin of the student.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More than 1 details of the student&#8217;s next of kin can be added.</p>
+</li>
+<li>
+<p>Cons: The user has to type separate commands just to add or delete the details.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>return to <a href="#toc">Table of Contents</a></em></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.14. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.12, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.15, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1672,7 +1793,7 @@ and it would cause the wanted tag to be removed instead of the unwanted one.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.12. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.15. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3007,7 +3128,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 08:56:31 UTC
+Last updated 2018-04-15 08:59:50 UTC
 </div>
 </div>
 </body>
